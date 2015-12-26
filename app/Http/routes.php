@@ -16,6 +16,8 @@ Route::group(['middleware' => ['logged']], function ()
 	Route::get('/',											['uses' => 'DashboardController@index', 'as' => 'hris.dashboard.index']);
 
 	Route::get('/{code}/dashboard',							['uses' => 'DashboardController@show', 'as' => 'hris.dashboard.show']);
+	
+	Route::get('/{code}/employees',							['uses' => 'EmployeeController@index', 'as' => 'hris.employees.index']);
 });
 
 
