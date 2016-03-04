@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="{{ elixir('css/dashboard.css') }}" media="screen" title="no title" charset="utf-8">
 
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700,500' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		{{-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> --}}
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -22,22 +22,9 @@
 		@yield('css')
 	</head>
 	<body>
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-			<div class="container-fluid">
-						<a class="navbar-brand" href="#"><i class="fa fa-th"></i> Menu</a>
-						<p class="navbar-text navbar-right" href="#"><i class="fa fa-user"></i> Administrator HRD</p>
-			</div>
-			<div class="container-fluid">
-				<a class="navbar-brand" href="#">Title</a>
-				<ul class="nav navbar-nav">
-					<li class="active">
-						<a href="#">Home</a>
-					</li>
-					<li>
-						<a href="#">Link</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
+		@include('desktop.components.navbar')
+		
+		<script type="text/javascript" src="{{ elixir('js/dashboard.js') }}"></script>
+		@include('plugins.select2')
 	</body>
 </html>
