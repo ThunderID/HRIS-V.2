@@ -1,0 +1,10 @@
+.navbar-second-menu {
+	background-color: $color-third;
+	color: $color-primary;
+	a {
+		color: $color-primary;
+		&:hover, &:active, &:focus {
+			color: $color-second;
+		}
+	}
+}

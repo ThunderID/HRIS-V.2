@@ -294,7 +294,9 @@
 
   // Mixin behavior for optimum display
   @include form-inline;
-
+  span {
+    color: #fff;
+  }
   .form-group {
     @media (max-width: $grid-float-breakpoint-max) {
       margin-bottom: 5px;
@@ -395,7 +397,7 @@
 
 // Default navbar
 .navbar-default {
-  background-color: $navbar-default-bg;
+  // background-color: $navbar-default-bg;
   border-color: $navbar-default-border;
 
   .navbar-brand {
