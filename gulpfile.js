@@ -13,5 +13,10 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix.sass('dashboard.scss')
-		.version('public/css/dashboard.css');
+    	.scripts(['jquery.min.js'
+    			], 'public/js/dashboard.js')
+		.version(['public/css/dashboard.css',
+				'public/js/dashboard.js'
+				])
+		.copy('resources/assets/plugins/', 'public/plugins/');
 });
