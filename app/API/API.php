@@ -3,6 +3,16 @@
 use Exception;
 use GuzzleHttp\Client;
 
+/**
+ * { API Class }
+ * @author Budi
+ * 
+ * public functions :
+ * 1. get() 							: get request API 
+ * 2. post() 							: post request API 
+ * 3. delete() 							: delete request API 
+ */
+
 class API
 {
 	protected $domain			= 'http://192.168.1.118';
@@ -24,6 +34,16 @@ class API
 		}
 	}
 
+
+	/**
+	 * { get }
+	 *
+	 * @param     
+	 * 1. $url 								: destination url
+	 *
+	 * @return
+	 * 1. API request
+	 */
 	public function get($url)
 	{
 		$client 				= new Client([
@@ -39,6 +59,17 @@ class API
 		return (string) $body;
 	}
 
+
+	/**
+	 * { post }
+	 *
+	 * @param     
+	 * 1. $url 								: destination url
+	 * 2. $data 							: array set of data 
+	 *
+	 * @return
+	 * 1. API request
+	 */
 	public function post($url, $data = [])
 	{
 		$client 				= new Client([
@@ -54,7 +85,17 @@ class API
 		return (string) $body;
 	}
 
-	public function delete($url, $data = [])
+
+	/**
+	 * { delete }
+	 *
+	 * @param     
+	 * 1. $url 								: destination url
+	 *
+	 * @return
+	 * 1. API request
+	 */
+	public function delete($url)
 	{
 		$client 				= new Client([
 										'base_uri' => $this->basic_url,

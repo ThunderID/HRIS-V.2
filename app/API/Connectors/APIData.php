@@ -4,6 +4,19 @@ namespace App\API\connectors;
 use App\API\API;
 use Exception, Session, Redirect;
 
+/**
+ * { APIData }
+ * @author Budi
+ * 
+ * public functions :
+ * 1. get() 							: get request API 
+ * 2. post() 							: post request API 
+ * 3. delete() 							: delete request API 
+ * 
+ * private functions :
+ * 1. validateResponse 					: validate response from API server
+ */
+
 abstract class APIData
 {
 	protected $apiUrl;
@@ -21,6 +34,14 @@ abstract class APIData
 		// }
 	}
 
+	/**
+	 * { get }
+	 *
+	 * @param     
+	 *
+	 * @return
+	 * 1. API response
+	 */
 	protected function get()
 	{
 		$queryString 				= Null;
@@ -63,6 +84,15 @@ abstract class APIData
 		return $this->validateResponse($result);
 	}
 
+
+	/**
+	 * { post }
+	 *
+	 * @param     
+	 *
+	 * @return
+	 * 1. API response
+	 */
 	protected function post()
 	{
 		$result 					= json_decode($this->api->post($this->apiUrl, $this->apiData),true);
@@ -70,6 +100,15 @@ abstract class APIData
 		return $this->validateResponse($result);
 	}
 
+
+	/**
+	 * { delete }
+	 *
+	 * @param     
+	 *
+	 * @return
+	 * 1. API response
+	 */
 	protected function delete()
 	{
 		$queryString 				= null;
@@ -86,6 +125,16 @@ abstract class APIData
 		return $this->validateResponse($result);
 	}	
 
+
+	/**
+	 * { validateResponse }
+	 *
+	 * @param     
+	 * 1. $result 							: response being validate
+	 *
+	 * @return
+	 * 1. $result
+	 */
 	private function validateResponse($result)
 	{
 		// validate response
