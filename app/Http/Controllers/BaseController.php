@@ -2,7 +2,7 @@
 
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\MessageBag;
-use Redirect, Input, URL;
+use Redirect, Input, URL, App;
 
 use \App\Http\Controllers\Modules\Mobile_Detect;
 
@@ -37,7 +37,7 @@ abstract class BaseController extends Controller
 	protected $errors;
 
 	//public settings
-	private $take 					= 2;
+	private $take 						= 2;
 
 	function __construct() 
 	{
@@ -86,7 +86,19 @@ abstract class BaseController extends Controller
 		//2. initialize view source based on device
 		$device 						= $this->getDevice();
 		$view_source 					= $device . "/" . $view_source; 
-  		$this->page_datas->paging		= $this->paginate($route_source, $this->page_datas->datas['count'], $current = null);
+		if(isset($this->page_datas->datas['count']))
+		{
+	  		$this->page_datas->paging	= $this->paginate($route_source, $this->page_datas->datas['count'], $current = null);
+		}
+		else
+		{
+			if(isset($this->page_datas->cust_paging))
+			{
+		  		$this->page_datas->paging	= $this->paginate($route_source, $this->page_datas->cust_paging, $current = null);
+			}else{
+				App::abort(403, 'Custom pagination tidak dapat dijalankan karena paramter jumlah data belum didefinisikan. ( $this->page_datas->cust_paging)');
+			}
+		}
 
 		//3. generate view
   		$this->layout 					= view($view_source)
@@ -122,22 +134,22 @@ abstract class BaseController extends Controller
   		//redirect
 		if(count($this->errors) == 0)
 		{
-			$title 				= null;
-			$action 			= null;
-			$action_title		= null;
-			$type 				= 'info';
+			$title 						= null;
+			$action 					= null;
+			$action_title				= null;
+			$type 						= 'info';
 
 			//succes, msg with action or not
 			if(is_array($this->page_attributes->msg))
 			{
-				$title			= $this->page_attributes->msg['title'];
-				$action			= $this->page_attributes->msg['action'];
-				$action_title	= $this->page_attributes->msg['action_title'];
-				$type			= $this->page_attributes->msg['type'];
+				$title					= $this->page_attributes->msg['title'];
+				$action					= $this->page_attributes->msg['action'];
+				$action_title			= $this->page_attributes->msg['action_title'];
+				$type					= $this->page_attributes->msg['type'];
 			}
 			else
 			{
-				$title			= $this->page_attributes->msg;
+				$title					= $this->page_attributes->msg;
 			}
 
 			return Redirect::route($route_to, $parameter)

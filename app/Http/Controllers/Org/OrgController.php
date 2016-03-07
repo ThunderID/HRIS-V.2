@@ -91,4 +91,52 @@ class OrgController extends BaseController
 
         return $this->generateView($view_source, $route_source);
 	}
+
+    /**
+     * { show }
+     *
+     * @param     
+     *1. id
+     *
+     * @return
+     * 1. Layout
+     * 2. page_attributes
+     * 3. page_datas
+     * 
+     * steps
+     * 1. validate
+     * 2. get data
+     * 3. set page attributes
+     * 4. set page datas
+     * 5. generate view
+     */
+    public function show($id = null)
+    {
+        //1. validate
+        if(is_null($id))
+        {
+            App::abort(403, 'Id Organisasi tidak ada');
+        }
+
+        //2. get data
+        $APIOrg                                     = new APIOrg;
+        $data                                       = $APIOrg->getShow($id);        
+
+        //3. set page attributes
+        $this->page_attributes->page_subtitle       = 'detail';     
+        $this->page_attributes->breadcrumb          = array_merge(
+                                                            $this->page_attributes->breadcrumb,
+                                                            [$data['data']['name'] => route(Route::CurrentRouteName(),['id' => $id])]
+                                                        );
+
+        //4. set page datas
+        $this->page_datas->datas                    = $data['data'];
+        $this->page_datas->cust_paging              = count($data['data']['branches']);
+        
+        //5. generate view
+        $view_source                                = $this->view_source_root . '.show';
+        $route_source                               = route(Route::CurrentRouteName(),['id' => $id]);
+
+        return $this->generateView($view_source, $route_source);
+    }    
 }
