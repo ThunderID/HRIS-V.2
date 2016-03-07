@@ -2,8 +2,8 @@
 
 use App\API\Connectors\APIOrg;
 
-use App\Http\Controllers\baseController;
-use App\Http\Controllers\helper\SortList;
+use App\Http\Controllers\BaseController;
+use App\Http\Controllers\Helper\SortList;
 use Input, Route;
 
 /**
@@ -15,7 +15,7 @@ use Input, Route;
  * 
  */
 
-class OrgController extends baseController 
+class OrgController extends BaseController 
 {
     //init 
     protected $view_source_root                     = 'pages.org';
@@ -65,19 +65,14 @@ class OrgController extends baseController
 
         //2. get data parameter
         $data_parameter                             = $this->setPageDataParameter();
-
+        $filter_all                                 = array_merge(['name'          => $data_parameter['search']], $data_parameter['filter']);
+dd($filter_all);
         //3. get data
         $APIOrg                                     = new APIOrg;
 
-        dd([
-                                                                            'name'          => $data_parameter['search'],
-                                                                            $data_parameter['filter'],
-                                                                        ]);
-
         $data                                       = $APIOrg->getIndex([
                                                         'search'    =>  [
-                                                                            'name'          => $data_parameter['search'],
-                                                                            $data_parameter['filter'],
+                                                                            $filter_all
                                                                         ],
                                                         'sort'      => $data_parameter['sort'],
                                                         'take'      => $data_parameter['take'],
