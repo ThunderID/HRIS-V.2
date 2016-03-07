@@ -108,7 +108,7 @@
 </div>
 
 <div class="row">
-	<h4>Page : </h4> 
+	<h4>Paging : </h4> 
 	{{$page_datas->paging->appends(Input::all())->render()}}
 </div>
 
@@ -117,9 +117,14 @@
 </div>
 
 <div class="row">
-	<h4>filter : </br>
+	<h4>filter : 
 		@foreach($page_datas->filter as $key => $ft)
-			&nbsp; {{$ft}}
+			</br>
+			{{$key}} =>
+			@foreach($ft as $tmp)
+				&nbsp; 
+				{{$tmp}}
+			@endforeach
 		@endforeach
 	</h4> 
 </div>
