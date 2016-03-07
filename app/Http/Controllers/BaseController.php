@@ -62,6 +62,8 @@ abstract class BaseController extends Controller
 	 *
 	 * @return
 	 * 1. Layout
+	 * 2. page_attributes
+	 * 3. page_datas
 	 * 
 	 * steps
 	 * 1. check parameter
@@ -84,7 +86,7 @@ abstract class BaseController extends Controller
 		//2. initialize view source based on device
 		$device 						= $this->getDevice();
 		$view_source 					= $device . "/" . $view_source; 
-  		$this->page_datas->paging		= $this->paginate($route_source, $this->page_datas->datas['data']['count'], $current = null);
+  		$this->page_datas->paging		= $this->paginate($route_source, $this->page_datas->datas['count'], $current = null);
 
 		//3. generate view
   		$this->layout 					= view($view_source)
@@ -173,8 +175,8 @@ abstract class BaseController extends Controller
 		$this->page_datas->search  					= $this->setSearch();
 		
 		//filter
-		$this->page_datas->filter  					= $this->setFilter();
-		
+		$this->page_datas->filter					= $this->setFilter();
+
 		//sort
 		$this->page_datas->sort 					= $this->setSort();
 		
@@ -316,16 +318,17 @@ abstract class BaseController extends Controller
 	 *
 	 * @return
 	 * 1. $filter[]
-	 */	private function setFilter()
+	 */
+ 	private function setFilter()
 	{	
 		$filter 									= [];
 		$filters 									= $this->page_attributes->filters;
 
-		foreach ($filters as $tmp) 
+		foreach ($filters as $key => $tmp) 
 		{
-			if (Input::has($tmp))
+			if (Input::has($key))
 			{
-				$filter[$tmp]						= Input::get($tmp); 
+				$filter[$key]						= Input::get($key); 
 			}
 		}
 
