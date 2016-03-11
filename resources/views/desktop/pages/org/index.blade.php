@@ -1,8 +1,20 @@
 <div class="row">
 	<h4>
 		Message :
-		{!!Session::get('msg')!!}
 	</h4>
+	<?php
+		echo('msg'); 
+		var_dump(Session::get('msg'));
+
+		echo('msg-type'); 
+		var_dump(Session::get('msg-type'));
+
+		echo('msg-action'); 
+		var_dump(Session::get('msg-action'));
+
+		echo('msg-title'); 
+		var_dump(Session::get('msg-title'));
+	?>
 </div>
 
 
