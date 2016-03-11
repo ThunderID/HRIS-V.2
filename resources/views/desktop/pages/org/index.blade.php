@@ -1,4 +1,12 @@
 <div class="row">
+	<h4>
+		Message :
+		{!!Session::get('msg')!!}
+	</h4>
+</div>
+
+
+<div class="row">
 	<h2>Page Attributes ($page_attributes)</h2>
 </div>
 

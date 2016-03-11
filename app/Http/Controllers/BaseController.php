@@ -135,9 +135,9 @@ abstract class BaseController extends Controller
 		if(count($this->errors) == 0)
 		{
 			$title 						= null;
-			$action 					= null;
+			$action						= null;
 			$action_title				= null;
-			$type 						= 'info';
+			$type 						= 'success';
 
 			//succes, msg with action or not
 			if(is_array($this->page_attributes->msg))
@@ -156,7 +156,7 @@ abstract class BaseController extends Controller
 					->with('msg',$title)
 					->with('msg-type', $type)
 					->with('msg-action', $action)
-					->with('msg-title', $actionTitle);
+					->with('msg-title', $action_title);
 		}
 		else
 		{

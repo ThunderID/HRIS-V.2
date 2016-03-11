@@ -138,5 +138,190 @@ class OrgController extends BaseController
         $route_source                               = route(Route::CurrentRouteName(),['id' => $id]);
 
         return $this->generateView($view_source, $route_source);
-    }    
+    }  
+
+    /**
+     * { create }
+     *
+     * @param     
+     *1. id
+     *
+     * @return
+     * 1. Layout
+     * 2. page_attributes
+     * 3. page_datas
+     * 
+     * steps
+     * 1. get data
+     * 2. set page attributes
+     * 3. set page datas
+     * 4. generate view
+     */
+    public function create($id = null)
+    {
+        // 1 & 2
+        if(!is_null($id))
+        {
+            //1. get data
+            $APIOrg                                  = new APIOrg;
+            $data                                    = $APIOrg->getShow($id);  
+
+            //2. set page attributes
+            $current_route                           = route(Route::CurrentRouteName(),['id' => $id]);
+
+            $this->page_attributes->page_subtitle    = 'edit';     
+            $this->page_attributes->breadcrumb       = array_merge(
+                                                            $this->page_attributes->breadcrumb,
+                                                            ['Edit ' . $data['data']['name'] => $current_route]
+                                                        );                           
+        }
+        else
+        {
+            //1. get data
+            $data                                    = null;
+
+            //2. set page attributes
+            $current_route                           = route(Route::CurrentRouteName());
+
+            $this->page_attributes->page_subtitle    = 'data baru';     
+            $this->page_attributes->breadcrumb       = array_merge(
+                                                            $this->page_attributes->breadcrumb,
+                                                            ['Data Baru' => $current_route]
+                                                        );               
+        }      
+
+        //3. set page datas
+        $this->page_datas->datas                    = $data['data'];
+        $this->page_datas->cust_paging              = 1;
+
+        //4. generate view
+        $view_source                                = $this->view_source_root . '.create';
+        $route_source                               = route(Route::CurrentRouteName(),['id' => $id]);
+
+        return $this->generateView($view_source, $route_source);        
+    }
+
+
+    /**
+     * { create }
+     *
+     * @param     
+     *1. id
+     *
+     * @return
+     * 1. call function create()
+     */
+    public function edit($id)
+    {
+        return $this->create($id);
+    }
+
+    /**
+     * { store }
+     *
+     * @param     
+     *1. id
+     *2. input name
+     *3. input code
+     *
+     * @return
+     * 1. response
+     * 
+     * steps
+     * 1. get input
+     * 2. get data
+     * 3. post to API
+     * 4. return response
+     */
+    public function store($id = null)
+    {
+        //1. get input
+        $input['name']                              = Input::get('name');                          
+        $input['code']                              = Input::get('code');
+
+        //2. get data
+        if(!is_null($id))
+        {
+            $APIOrg                                  = new APIOrg;
+            $data                                    = $APIOrg->getShow($id)['data'];
+
+            $data['name']                            = $input['name'];
+            $data['code']                            = $input['code'];
+        }
+        else
+        {
+            $data['id']                              = ""; 
+            $data['name']                            = $input['name'];
+            $data['code']                            = $input['code'];
+            $data['branches']                        = [];
+            $data['policies']                        = [];
+        }
+
+        //3. post to API
+        $APIOrg                                     = new APIOrg;
+        $result                                     = $APIOrg->postData($data);
+
+        //4. return response 
+        if($result['status'] != 'success')
+        {
+            $this->errors                           = $result['message'];
+        }
+
+        if(!empty($id))
+        {
+           $this->page_attributes->msg              = "Data Produk Telah Diedit";
+        }
+        else
+        {
+            $this->page_attributes->msg             = "Data Produk Telah Ditambahkan";           
+        }
+
+        return $this->generateRedirectRoute('org.index');        
+    }
+
+    /**
+     * { create }
+     *
+     * @param     
+     *1. id
+     *
+     * @return
+     * 1. call function store()
+     */
+    public function Update($id)
+    {
+        return $this->store($id);
+    }
+
+    /**
+     * { destroy }
+     *
+     * @param     
+     *1. id
+     *
+     * @return
+     * 1. response
+     * 
+     * Step:
+     * 1. post delete
+     * 2. return response
+     * 
+     */
+    public function Destroy($id)
+    {
+        //1.post delete 
+        $APIOrg                                     = new APIOrg;
+
+        $result                                     = $APIOrg->deleteData($id);
+
+        //2. return response
+        if($result['status'] != 'success')
+        {
+            $this->errors                           = $result['message'];
+        }
+
+        $this->page_attributes->msg                 = "Data Produk telah dihapus";
+        
+        return $this->generateRedirectRoute('org.index'); 
+    }        
 }
