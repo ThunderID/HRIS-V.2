@@ -104,9 +104,9 @@
 								edit
 							</a>
 							&nbsp;
-							<a href="{{ route('org.destroy', ['id' => $dt['id']]) }}">
-								delete
-							</a>														
+						    {!! Form::open(['url' => route('org.destroy', ['id' => $dt['id']]), 'method' => 'DELETE']) !!}
+								<button>Delete</button>
+						    {!! Form::close() !!}														
 						</td>
 					</tr>
 				@endforeach
