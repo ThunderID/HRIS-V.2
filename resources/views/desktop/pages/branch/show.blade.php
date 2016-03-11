@@ -59,6 +59,56 @@
 
 <div class="row">
 	<h4>charts : </h4>
+</div>
+
+<div class="row">
+	<table>
+		<thead>
+			<tr>
+				<th>
+					No.
+				</th>
+				<th>
+					Name
+				</th>
+				<th>
+					Kontrol
+				</th>							
+			</tr>
+		</thead>
+		<tbody>
+			@if(count($page_datas->datas['charts']) == 0)
+				<tr>
+					<td colspan="4" class="text-center">
+						Tidak ada data
+					</td>
+				</tr>
+			@else                                                                 
+				@foreach($page_datas->datas['charts'] as $key => $dt)
+					<tr>
+						<td class="text-center">
+							{{ ($page_datas->paging->perPage() * ($page_datas->paging->currentPage() - 1)) + $key + 1}}
+						</td>
+						<td>
+							{{ $dt['name'] }}
+						</td>
+						<td>
+							<a href="{{ route('chart.edit', ['org_id' => $page_datas->datas['id'], 'branch_id' => $dt['branch_id'], 'id' => $dt['id']]) }}">
+								edit
+							</a>
+							&nbsp;
+						    {!! Form::open(['url' => route('chart.destroy', ['org_id' => $page_datas->datas['id'], 'branch_id' => $dt['branch_id'], 'id' => $dt['id']]), 'method' => 'DELETE']) !!}
+								<button>Delete</button>
+						    {!! Form::close() !!}
+						</td>
+					</tr>
+				@endforeach
+			@endif
+		</tbody>
+	</table>
+</div>
+
+<div>
 	<?php
 		var_dump($page_datas->datas['charts']);
 	?>

@@ -4,7 +4,7 @@ namespace App\API\Connectors;
 use Exception, Session;
 
 /**
- * { APIOrg }
+ * { APIBranch }
  * @author Chelsy
  * 
  * public functions :
