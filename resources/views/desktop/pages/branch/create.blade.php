@@ -50,10 +50,10 @@
 </div>
 
 <div class="row">
-	@if(isset($page_datas->datas['id']))
+	@if(!empty($page_datas->datas['id']))
     {!! Form::open(['url' => route('branch.update', ['org_id' => $page_datas->datas['organisation_id'], 'id' => $page_datas->datas['id']]), 'method' => 'PATCH']) !!}
     @else
-    {!! Form::open(['url' => route('branch.store'), 'method' => 'POST']) !!}
+    {!! Form::open(['url' => route('branch.store', ['org_id' => $page_datas->datas['organisation_id']]), 'method' => 'POST']) !!}
     @endif
 
 		<div class="row">
