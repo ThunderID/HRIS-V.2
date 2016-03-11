@@ -53,7 +53,8 @@ class BranchController extends BaseController
      * { show }
      *
      * @param     
-     *1. id
+     * 1. id
+     * 2. org_id
      *
      * @return
      * 1. Layout
@@ -109,7 +110,8 @@ class BranchController extends BaseController
      * { create }
      *
      * @param     
-     *1. id
+     * 1. id
+     * 2. org_id
      *
      * @return
      * 1. Layout
@@ -190,10 +192,11 @@ class BranchController extends BaseController
 
 
     /**
-     * { create }
+     * { edit }
      *
      * @param     
-     *1. id
+     * 1. id
+     * 2. org_id
      *
      * @return
      * 1. call function create()
@@ -207,9 +210,12 @@ class BranchController extends BaseController
      * { store }
      *
      * @param     
-     *1. id
-     *2. input name
-     *3. input code
+     * 1. id
+     * 2. org_id
+     * 3. input name
+     * 4. input address
+     * 5. input email
+     * 6. input phone
      *
      * @return
      * 1. response
@@ -280,10 +286,11 @@ class BranchController extends BaseController
     }
 
     /**
-     * { create }
+     * { update }
      *
      * @param     
-     *1. id
+     * 1. id
+     * 2. org_id
      *
      * @return
      * 1. call function store()
@@ -297,7 +304,8 @@ class BranchController extends BaseController
      * { destroy }
      *
      * @param     
-     *1. id
+     * 1. id
+     * 2. org_id
      *
      * @return
      * 1. response

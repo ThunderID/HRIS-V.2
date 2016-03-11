@@ -209,7 +209,7 @@ class OrgController extends BaseController
 
 
     /**
-     * { create }
+     * { edit }
      *
      * @param     
      *1. id
@@ -286,7 +286,7 @@ class OrgController extends BaseController
     }
 
     /**
-     * { create }
+     * { update }
      *
      * @param     
      *1. id
