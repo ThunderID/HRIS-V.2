@@ -12,6 +12,12 @@ use Input, Route;
  * 
  * public functions :
  * 1. index()                           : public function display index org
+ * 2. show()                            : public function display show org
+ * 3. create()                          : public function display create org
+ * 4. edit()                            : public function display edit org
+ * 5. store()                           : public function store data org
+ * 6. update()                          : public function update data org
+ * 7. destroy()                         : public function destroy data org
  * 
  */
 
@@ -131,7 +137,8 @@ class OrgController extends BaseController
 
         //4. set page datas
         $this->page_datas->datas                    = $data['data'];
-        $this->page_datas->cust_paging              = count($data['data']['branches']);
+        $this->page_datas->cust_paging              = 0;
+        // $this->page_datas->cust_paging              = count($data['data']['branches']);
         
         //5. generate view
         $view_source                                = $this->view_source_root . '.show';
@@ -192,7 +199,6 @@ class OrgController extends BaseController
 
         //3. set page datas
         $this->page_datas->datas                    = $data['data'];
-        $this->page_datas->cust_paging              = 1;
 
         //4. generate view
         $view_source                                = $this->view_source_root . '.create';
@@ -269,11 +275,11 @@ class OrgController extends BaseController
 
         if(!empty($id))
         {
-           $this->page_attributes->msg              = "Data Produk Telah Diedit";
+           $this->page_attributes->msg              = "Data Organisasi Telah Diedit";
         }
         else
         {
-            $this->page_attributes->msg             = "Data Produk Telah Ditambahkan";           
+            $this->page_attributes->msg             = "Data Organisasi Telah Ditambahkan";           
         }
 
         return $this->generateRedirectRoute('org.index');        
@@ -288,9 +294,9 @@ class OrgController extends BaseController
      * @return
      * 1. call function store()
      */
-    public function Update($id)
+    public function Update($org_id = null, $id = null)
     {
-        return $this->store($id);
+        return $this->store($org_id, $id);
     }
 
     /**

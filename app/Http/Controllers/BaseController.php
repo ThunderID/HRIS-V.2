@@ -96,7 +96,8 @@ abstract class BaseController extends Controller
 			{
 		  		$this->page_datas->paging	= $this->paginate($route_source, $this->page_datas->cust_paging, $current = null);
 			}else{
-				App::abort(403, 'Custom pagination tidak dapat dijalankan karena paramter jumlah data belum didefinisikan. ( $this->page_datas->cust_paging)');
+		  		$this->page_datas->paging	= $this->paginate($route_source, 0, $current = null);
+				// App::abort(403, 'Custom pagination tidak dapat dijalankan karena paramter jumlah data belum didefinisikan. ( $this->page_datas->cust_paging)');
 			}
 		}
 

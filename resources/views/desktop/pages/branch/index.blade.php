@@ -65,24 +65,9 @@
 	</h4>
 </div>
 
+
 <div class="row">
 	<h2>Page Datas ($page_datas)</h2>
-</div>
-
-<div class="row">
-	<h4>id : {{$page_datas->datas['id']}}</h4>
-</div>
-
-<div class="row">
-	<h4>name : {{$page_datas->datas['name']}}</h4>
-</div>
-
-<div class="row">
-	<h4>code : {{$page_datas->datas['code']}}</h4>
-</div>
-
-<div class="row">
-	<h4>branches : </h4>
 </div>
 
 <div class="row">
@@ -96,19 +81,22 @@
 					Name
 				</th>
 				<th>
+					Code
+				</th>
+				<th>
 					Kontrol
 				</th>							
 			</tr>
 		</thead>
 		<tbody>
-			@if(count($page_datas->datas['branches']) == 0)
+			@if($page_datas->datas['count'] == 0)
 				<tr>
 					<td colspan="4" class="text-center">
 						Tidak ada data
 					</td>
 				</tr>
 			@else                                                                 
-				@foreach($page_datas->datas['branches'] as $key => $dt)
+				@foreach($page_datas->datas['data'] as $key => $dt)
 					<tr>
 						<td class="text-center">
 							{{ ($page_datas->paging->perPage() * ($page_datas->paging->currentPage() - 1)) + $key + 1}}
@@ -117,15 +105,18 @@
 							{{ $dt['name'] }}
 						</td>
 						<td>
-							<a href="{{ route('branch.show', ['org_id' => $page_datas->datas['id'], 'id' => $dt['id']]) }}">
+							{{ $dt['code'] }}
+						</td>
+						<td>
+							<a href="{{ route('org.show', ['id' => $dt['id']]) }}">
 								show
 							</a>
 							&nbsp;
-							<a href="{{ route('branch.edit', ['org_id' => $page_datas->datas['id'], 'id' => $dt['id']]) }}">
+							<a href="{{ route('org.edit', ['id' => $dt['id']]) }}">
 								edit
 							</a>
 							&nbsp;
-						    {!! Form::open(['url' => route('branch.destroy', ['org_id' => $page_datas->datas['id'], 'id' => $dt['id']]), 'method' => 'DELETE']) !!}
+						    {!! Form::open(['url' => route('org.destroy', ['id' => $dt['id']]), 'method' => 'DELETE']) !!}
 								<button>Delete</button>
 						    {!! Form::close() !!}														
 						</td>
@@ -134,12 +125,6 @@
 			@endif
 		</tbody>
 	</table>
-</div>
-
-<div>
-	<?php
-		var_dump($page_datas->datas['branches']);
-	?>
 </div>
 
 <div class="row">
@@ -172,9 +157,4 @@
 	</h4> 
 </div>
 
-<div class="row">
-	<h4>policies : </h4>
-	<?php
-		var_dump($page_datas->datas['policies']);
-	?>
-</div>
+
