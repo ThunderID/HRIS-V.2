@@ -3,6 +3,17 @@ namespace App\API\Connectors;
 
 use Exception, Session;
 
+/**
+ * { APIOrg }
+ * @author Budi
+ * 
+ * public functions :
+ * 1. getIndex() 						: get index from API 
+ * 2. postData() 						: save data to API 
+ * 3. getShow() 						: get show from API 
+ * 4. deleteData() 						: delete data from API 
+ */
+
 class APIOrg extends APIData
 {
 	function __construct() 
@@ -10,6 +21,15 @@ class APIOrg extends APIData
 		parent::__construct();
 	}
 
+	/**
+	 * { getIndex }
+	 *
+	 * @param
+	 * 1. $parameter 	: search, filter, sort, pagination     
+	 *
+	 * @return
+	 * 1. index data
+	 */
 	public function getIndex($parameter = null)
 	{
 		$this->apiUrl 					= '/organisations';
@@ -22,6 +42,15 @@ class APIOrg extends APIData
 		return $this->get();
 	}	
 
+	/**
+	 * { postData }
+	 *
+	 * @param
+	 * 1. $data 		: input data     
+	 *
+	 * @return
+	 * 1. response
+	 */
 	public function postData($data)
 	{
 		$this->apiUrl 					= '/organisation/store';
@@ -30,6 +59,15 @@ class APIOrg extends APIData
 		return $this->post();
 	}	
 
+	/**
+	 * { getShow }
+	 *
+	 * @param
+	 * 1. $id 			: data Id    
+	 *
+	 * @return
+	 * 1. data show
+	 */
 	public function getShow($id)
 	{
 		$this->apiUrl 					= '/organisation/' . $id;
@@ -37,6 +75,15 @@ class APIOrg extends APIData
 		return $this->get();
 	}	
 	
+	/**
+	 * { deleteData }
+	 *
+	 * @param
+	 * 1. $id 			: data Id    
+	 *
+	 * @return
+	 * 1. data show
+	 */	
 	public function deleteData($id)
 	{
 		$this->apiUrl 					= '/organisation/delete/' . $id;
