@@ -310,9 +310,9 @@ class BranchController extends BaseController
     public function Destroy($org_id = null, $id = null)
     {
         //1.post delete 
-        $APIOrg                                     = new APIOrg;
+        $APIBranch                                  = new APIBranch;
 
-        $result                                     = $APIOrg->deleteData($id);
+        $result                                     = $APIBranch->deleteData($org_id, $id);
 
         //2. return response
         if($result['status'] != 'success')
@@ -320,8 +320,8 @@ class BranchController extends BaseController
             $this->errors                           = $result['message'];
         }
 
-        $this->page_attributes->msg                 = "Data Produk telah dihapus";
+        $this->page_attributes->msg                 = "Data cabang telah dihapus";
         
-        return $this->generateRedirectRoute('org.index'); 
+        return $this->generateRedirectRoute('org.show', ['org_id' => $org_id]); 
     }        
 }
