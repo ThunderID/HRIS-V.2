@@ -19,6 +19,7 @@ use Input, Route;
  * 5. store()                           : public function store data org
  * 6. update()                          : public function update data org
  * 7. destroy()                         : public function destroy data org
+ * 8. FindBranchByName()                : ajax search branch by name
  * 
  */
 
@@ -331,5 +332,55 @@ class BranchController extends BaseController
         $this->page_attributes->msg                 = "Data cabang telah dihapus";
         
         return $this->generateRedirectRoute('org.show', ['org_id' => $org_id]); 
-    }        
+    }
+
+    /**
+     * { FindBranchByName }
+     *
+     * @param     
+     *1. name
+     *2. org id
+     *
+     * @return
+     * 1. id
+     * 2. name
+     * 
+     * Step:
+     * 1. get data
+     * 2. validate
+     * 3. returning data
+     */
+    public function FindBranchByName($org_id = null, $name = null)
+    {
+        //1. get data
+        if(is_null($org_id))
+        {
+            App::abort(403, 'Id Organisasi tidak ada');
+        }
+
+        $APIBranch                                  = new APIBranch;
+        $search                                     = array_merge(
+                                                            ['name' => $name]
+                                                        );
+
+        $branch                                       = $APIBranch->getIndex($org_id,[
+                                                        'search'    => $search,
+                                                        ]);
+
+        //2. validate
+        if($branch['status'] != 'success')
+        {
+            return abort(404);
+        }
+
+        //3. returning data
+        $datas                                      = [];
+        foreach ($branch['data']['data'] as $key => $dt) 
+        {
+            $datas[$key]['id']                      = $dt['id'];
+            $datas[$key]['name']                    = ucwords($dt['name']);
+        }                                       
+
+        return $datas;          
+    }            
 }

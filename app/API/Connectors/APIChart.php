@@ -33,7 +33,7 @@ class APIChart extends APIData
 	 */
 	public function getIndex($org_id = 0, $branch_id = 0,  $parameter = null)
 	{
-		$this->apiUrl 					= '/organisation/'.$org_id.'/branches/'.$branch_id.'/charts' ;
+		$this->apiUrl 					= '/organisation/'.$org_id.'/branch/'.$branch_id.'/charts' ;
 
 		if(!is_null($parameter))
 		{

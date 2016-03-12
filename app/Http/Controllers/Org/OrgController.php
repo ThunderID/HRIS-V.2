@@ -18,6 +18,7 @@ use Input, Route;
  * 5. store()                           : public function store data org
  * 6. update()                          : public function update data org
  * 7. destroy()                         : public function destroy data org
+ * 8. FindOrgByName()                   : ajax search org by name
  * 
  */
 
@@ -329,5 +330,50 @@ class OrgController extends BaseController
         $this->page_attributes->msg                 = "Data Produk telah dihapus";
         
         return $this->generateRedirectRoute('org.index'); 
-    }        
+    }
+
+
+    /**
+     * { FindOrgByName }
+     *
+     * @param     
+     *1. name
+     *
+     * @return
+     * 1. id
+     * 2. name
+     * 
+     * Step:
+     * 1. get data
+     * 2. validate
+     * 3. returning data
+     */
+    public function FindOrgByName($name = null)
+    {
+        //1. get data
+        $APIOrg                                     = new APIOrg;
+        $search                                     = array_merge(
+                                                            ['name' => $name]
+                                                        );
+
+        $org                                       = $APIOrg->getIndex([
+                                                        'search'    => $search,
+                                                        ]);
+
+        //2. validate
+        if($org['status'] != 'success')
+        {
+            return abort(404);
+        }
+
+        //3. returning data
+        $datas                                      = [];
+        foreach ($org['data']['data'] as $key => $dt) 
+        {
+            $datas[$key]['id']                      = $dt['id'];
+            $datas[$key]['name']                    = ucwords($dt['name']);
+        }                                       
+
+        return $datas;          
+    }
 }

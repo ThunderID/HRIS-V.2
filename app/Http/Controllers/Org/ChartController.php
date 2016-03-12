@@ -299,5 +299,62 @@ class ChartController extends BaseController
         $this->page_attributes->msg                 = "Data struktur telah dihapus";
         
         return $this->generateRedirectRoute('branch.show',['id' => $org_id, 'branch_id' => $branch_id]);        
-    }        
+    }  
+
+
+    /**
+     * { FindChartByName }
+     *
+     * @param     
+     *1. name
+     *2. org id
+     *
+     * @return
+     * 1. id
+     * 2. name
+     * 
+     * Step:
+     * 1. get data
+     * 2. validate
+     * 3. returning data
+     */
+    public function FindChartByName($org_id = null, $branch_id = null, $name = null)
+    {
+        //1. get data
+        if(is_null($org_id))
+        {
+            App::abort(403, 'Id Organisasi tidak ada');
+        }
+        if(is_null($branch_id))
+        {
+            App::abort(403, 'Id branch tidak ada');
+        }
+
+
+        $APIChart                                  = new APIChart;
+        $search                                    = array_merge(
+                                                            ['name' => $name]
+                                                        );
+
+        $chart                                     = $APIChart->getIndex($org_id,$branch_id,[
+                                                        'search'    => $search,
+                                                        ]);
+
+        //2. validate
+        if($chart['status'] != 'success')
+        {
+            return abort(404);
+        }
+
+        //3. returning data
+        $datas                                      = [];
+        foreach ($chart['data']['data'] as $key => $dt) 
+        {
+            $datas[$key]['id']                      = $dt['id'];
+            $datas[$key]['name']                    = ucwords($dt['name']);
+        }                                       
+
+        dd($chart);
+        return $datas;          
+    }             
 }
