@@ -28,5 +28,7 @@
 		
 		<script type="text/javascript" src="{{ elixir('js/dashboard.js') }}"></script>
 		@include('plugins.select2')
+
+		@yield('js')
 	</body>
 </html>

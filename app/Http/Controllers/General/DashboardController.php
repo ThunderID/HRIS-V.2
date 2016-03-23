@@ -1,11 +1,11 @@
 <?php namespace App\Http\Controllers\General;
 
-use App\API\Connectors\APITest;
+use App\API\Connectors\APIOrg;
 
-use App\Http\Controllers\baseController;
+use App\Http\Controllers\BaseController;
 use Input, Route;
 
-class DashboardController extends baseController 
+class DashboardController extends BaseController 
 {
     //init 
     protected $view_source_root             = 'pages.dashboard';
@@ -26,11 +26,9 @@ class DashboardController extends baseController
         //get data parameter
         $data_parameter                     = $this->setPageDataParameter();
 
-        dd($data_parameter);
-
         //data
-        $APITest                            = new APITest;
-        $data                               = $APITest->getIndex([
+        $APIOrg                            = new APIOrg;
+        $data                               = $APIOrg->getIndex([
                                                     'take'      => $data_parameter['take'],
                                                     'skip'      => ($data_parameter['page'] - 1) * $data_parameter['take'],
                                                 ]);
