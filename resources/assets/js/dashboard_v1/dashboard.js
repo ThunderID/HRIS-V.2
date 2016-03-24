@@ -1,2 +1,3 @@
 EventObject = function() {};
+
 EventObject.prototype = {};
