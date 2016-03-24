@@ -1,8 +1,9 @@
 ; var hris_submit = {
 	
-	ajax_request  : function(toUrl, e){
+	ajax_request  : function(param, toUrl){
 		$.ajax({
 		   	url: toUrl,
+		   	data: param,
 		   	type:'POST',
 		   	success: function(data){
 				this.canvas = data;
@@ -23,6 +24,12 @@
 	},
 
 	init: function(){
-		this.ajax_request();
+		$('body').on('click', '*[data-hris-api-action]', function(){
+			var obj = $(this);
+			switch (obj.data('hris-api-action').toLowerCase())
+			{
+				case 'employees'		: hris_submit.ajax_request(obj.data('hris-api-data'), obj.data('hris-api-target')); break;
+			}
+		});
 	}
 };
