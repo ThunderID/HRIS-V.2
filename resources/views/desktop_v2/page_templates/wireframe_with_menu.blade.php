@@ -22,10 +22,8 @@
 		@yield('css')
 	</head>
 	<body>
-		@yield('navbar')
+		@include('desktop_v2.components.navbar_with_menu')
 
-		@include('desktop_v2.components.breadcrumb')
-		
 		@yield('content')
 		
 		<script type="text/javascript" src="{{ elixir('js/dashboard.js') }}"></script>

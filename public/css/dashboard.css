@@ -3640,16 +3640,16 @@ tbody.collapse.in {
     .navbar {
       border-radius: 0px; } }
 
-.navbar-header:before, .navbar-header:after {
-  content: " ";
-  display: table; }
-
-.navbar-header:after {
-  clear: both; }
-
-@media (min-width: 768px) {
-  .navbar-header {
-    float: left; } }
+.navbar-header, .navbar-header a {
+  color: #fff; }
+  .navbar-header:before, .navbar-header:after, .navbar-header a:before, .navbar-header a:after {
+    content: " ";
+    display: table; }
+  .navbar-header:after, .navbar-header a:after {
+    clear: both; }
+  @media (min-width: 768px) {
+    .navbar-header, .navbar-header a {
+      float: left; } }
 
 .navbar-collapse {
   overflow-x: visible;

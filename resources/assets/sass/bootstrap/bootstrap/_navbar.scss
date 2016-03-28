@@ -28,12 +28,14 @@
 // Groups `.navbar-brand` and `.navbar-toggle` into a single component for easy
 // styling of responsive aspects.
 
-.navbar-header {
+.navbar-header, .navbar-header a {
   @include clearfix;
 
   @media (min-width: $grid-float-breakpoint) {
     float: left;
   }
+
+  color: $navbar-default-link-color;
 }
 
 
