@@ -106,9 +106,11 @@
 .container,
 .container-fluid {
   > .navbar-header,
+  > .navbar-header a,
   > .navbar-collapse {
     margin-right: -$navbar-padding-horizontal;
     margin-left:  -$navbar-padding-horizontal;
+    color: $navbar-default-link-color;
 
     @media (min-width: $grid-float-breakpoint) {
       margin-right: 0;
@@ -236,6 +238,7 @@
     padding-top:    10px;
     padding-bottom: 10px;
     line-height: $line-height-computed;
+    color: $navbar-default-link-color;
   }
 
   @media (max-width: $grid-float-breakpoint-max) {
@@ -294,9 +297,7 @@
 
   // Mixin behavior for optimum display
   @include form-inline;
-  span {
-    color: #fff;
-  }
+
   .form-group {
     @media (max-width: $grid-float-breakpoint-max) {
       margin-bottom: 5px;
@@ -397,7 +398,7 @@
 
 // Default navbar
 .navbar-default {
-  // background-color: $navbar-default-bg;
+  background-color: $navbar-default-bg;
   border-color: $navbar-default-border;
 
   .navbar-brand {

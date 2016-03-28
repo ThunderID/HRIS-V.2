@@ -240,11 +240,11 @@ abstract class BaseController extends Controller
 		{
 			if($Mobile_Detect->isTablet() == false)
 			{
-				return 'mobile';
+				return 'mobile_v2';
 			}
 		}
 
-		return 'desktop';
+		return 'desktop_v2';
 	}
 
 

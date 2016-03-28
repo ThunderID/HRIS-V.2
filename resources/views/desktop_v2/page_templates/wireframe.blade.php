@@ -22,7 +22,9 @@
 		@yield('css')
 	</head>
 	<body>
-		@include('desktop.components.navbar')
+		@yield('navbar')
+
+		@include('desktop_v2.components.breadcrumb')
 		
 		@yield('content')
 		

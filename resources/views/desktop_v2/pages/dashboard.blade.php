@@ -4,7 +4,11 @@
 	// exit;
 ?>
 
-@extends('desktop.page_templates.dashboard')
+@extends('desktop_v2.page_templates.wireframe')
+
+@section('navbar')
+	@include('desktop_v2.components.navbar_plain')
+@stop
 
 @section('content')</br>
 </br>
