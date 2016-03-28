@@ -7830,6 +7830,57 @@ button.close {
 .fa-percent:before {
   content: ""; }
 
+.background-white {
+  background-color: #FFFFFF; }
+
+.background-red {
+  background-color: #DB141A; }
+
+.background-blue {
+  background-color: #3F67AE; }
+
+.background-dark-blue {
+  background-color: #2A5196; }
+
+.background-gray-225 {
+  background-color: #E1E1E1; }
+
+.background-gray-238 {
+  background-color: #EEEEEE; }
+
+.background-black {
+  background-color: #1A1718; }
+
+button.button-gray {
+  background-color: #E1E1E1;
+  color: #1A1718; }
+
+button.button-red {
+  background-color: #DB141A;
+  color: #FFFFFF; }
+
+button.button-blue {
+  background-color: #2A5196;
+  color: #FFFFFF; }
+
+.max-height-85 {
+  max-height: 85px; }
+
+.font-size-14 {
+  font-size: 14px; }
+
+.font-size-16 {
+  font-size: 16px; }
+
+.font-size-25 {
+  font-size: 25px; }
+
+.font-size-50 {
+  font-size: 50px; }
+
+.text-uppercase, .initialism {
+  text-transform: uppercase; }
+
 a.link-white {
   color: #FFFFFF;
   text-decoration: none; }
@@ -7858,53 +7909,11 @@ a.link-gray {
     color: #F7F7F7;
     text-decoration: none; }
 
-button.button-gray {
-  background-color: #E1E1E1;
-  color: #1A1718; }
+.margin-top-3 {
+  margin-top: 3px; }
 
-button.button-red {
-  background-color: #DB141A;
-  color: #FFFFFF; }
-
-button.button-blue {
-  background-color: #2A5196;
-  color: #FFFFFF; }
-
-.background-white {
-  background-color: #FFFFFF; }
-
-.background-red {
-  background-color: #DB141A; }
-
-.background-blue {
-  background-color: #3F67AE; }
-
-.background-dark-blue {
-  background-color: #2A5196; }
-
-.background-gray-225 {
-  background-color: #E1E1E1; }
-
-.background-gray-238 {
-  background-color: #EEEEEE; }
-
-.background-black {
-  background-color: #1A1718; }
-
-.padding-top-13 {
-  padding-top: 13px; }
-
-.padding-top-58 {
-  padding-top: 58px; }
-
-.padding-bottom-7 {
-  padding-bottom: 7px; }
-
-.padding-left-0 {
-  padding-left: 0px; }
-
-.padding-0 {
-  padding: 0px; }
+.margin-top-8 {
+  margin-top: 8px; }
 
 .margin-top-13 {
   margin-top: 13px; }
@@ -7921,10 +7930,37 @@ button.button-blue {
 .margin-0 {
   margin: 0px; }
 
-.text-uppercase, .initialism {
-  text-transform: uppercase; }
+.padding-top-13 {
+  padding-top: 13px; }
 
-.max-height-85 {
-  max-height: 85px; }
+.padding-top-18 {
+  padding-top: 18px; }
+
+.padding-top-53 {
+  padding-top: 53px; }
+
+.padding-top-56 {
+  padding-top: 56px; }
+
+.padding-top-58 {
+  padding-top: 58px; }
+
+.padding-bottom-3 {
+  padding-bottom: 3px; }
+
+.padding-bottom-6 {
+  padding-bottom: 6px; }
+
+.padding-bottom-7 {
+  padding-bottom: 7px; }
+
+.padding-left-0 {
+  padding-left: 0px; }
+
+.padding-right-15 {
+  padding-right: 15px; }
+
+.padding-0 {
+  padding: 0px; }
 
 /*# sourceMappingURL=dashboard.css.map */

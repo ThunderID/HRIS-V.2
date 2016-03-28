@@ -5,19 +5,17 @@ Fixed Navigation
 	<div class="container-fluid background-blue">
 		<div class="navbar-header">
 			<!-- logo -->
-			<h3 class="margin-top-13">
-				<a class="link-white" href="#body">
-					HRIS
-				</a>
-			</h3>
+			<a class="link-white margin-top-8 font-size-25" href="#body">
+				HRIS
+			</a>
 			<!-- /logo -->
 		</div>
 
 		<!-- main nav -->
-		<nav class="collapse navbar-collapse navbar-right" role="navigation">
+		<nav class="collapse navbar-collapse navbar-right font-size-16" role="navigation">
 			<ul id="nav" class="nav navbar-nav">
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle link-white" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> HRD <span class="caret"></span></a>
+					<a href="#" class="dropdown-toggle link-white" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HRD&nbsp;&nbsp;&nbsp;<i class="fa fa-user"></i></a>
 					<ul class="dropdown-menu">
 						<li><a href="#">Action</a></li>
 						<li><a href="#">Another action</a></li>

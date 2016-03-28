@@ -1,10 +1,9 @@
 <!-- 
 Breadcrumb
 ==================================== -->
-<ul class="breadcrumb background-white padding-bottom-7 text-uppercase {{(isset($padding_top) ? $padding_top : '')}}">
+<ul class="breadcrumb background-white padding-bottom-7 font-size-14 text-uppercase {{(isset($padding_top) ? $padding_top : '')}}">
     <li>
-    	<i class="fa fa-home"></i>
-    	<a href="#">Home</a>
+    	<a href="#" class="link-black"><i class="fa fa-home"></i> Home</a>
     </li>
     @yield('breadcrumb')
 </ul>
