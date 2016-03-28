@@ -1,7 +1,7 @@
 <!-- 
 Breadcrumb
 ==================================== -->
-<ul class="breadcrumb" style="background-color: #fff !important; padding-top:58px; padding-bottom:7px;text-transform: uppercase;">
+<ul class="breadcrumb background-white padding-bottom-7 text-uppercase {{(isset($padding_top) ? $padding_top : '')}}">
     <li>
     	<i class="fa fa-home"></i>
     	<a href="#">Home</a>

@@ -24,7 +24,7 @@
 	<body>
 		@include('desktop_v2.components.navbar_plain')
 
-		@include('desktop_v2.components.breadcrumb')
+		@include('desktop_v2.components.breadcrumb', ['padding_top' => 'padding-top-58'])
 		
 		@yield('content')
 		

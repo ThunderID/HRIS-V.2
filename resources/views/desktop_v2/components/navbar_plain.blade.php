@@ -2,11 +2,11 @@
 Fixed Navigation
 ==================================== -->
 <header id="navigation" class="navbar-fixed-top navbar">
-	<div class="container-fluid" style="background-color: #3f67ae !important">
+	<div class="container-fluid background-blue">
 		<div class="navbar-header">
 			<!-- logo -->
-			<h3 style="margin-top:13px;">
-				<a href="#body">
+			<h3 class="margin-top-13">
+				<a class="link-white" href="#body">
 					HRIS
 				</a>
 			</h3>
@@ -17,7 +17,7 @@ Fixed Navigation
 		<nav class="collapse navbar-collapse navbar-right" role="navigation">
 			<ul id="nav" class="nav navbar-nav">
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Administrator HRD <span class="caret"></span></a>
+					<a href="#" class="dropdown-toggle link-white" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> HRD <span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#">Action</a></li>
 						<li><a href="#">Another action</a></li>
