@@ -1,14 +1,10 @@
-@extends('desktop_v2.page_templates.wireframe_with_menu')
+@extends('desktop_v2.page_templates.wireframe_menu')
 
-@section('content')</br>
-</br>
-</br>
-</br>
-</br>
-<h2>DESKTOP</h2>
+@section('content')
 
-<div class="row">
+<div class="row margin-0">
 <div class="col-md-12">
+DESKTOP
 {{$page_datas->paging->render()}}
 </div>
 </div>

@@ -7872,11 +7872,20 @@ button.button-blue {
 .font-size-16 {
   font-size: 16px; }
 
+.font-size-18 {
+  font-size: 18px; }
+
 .font-size-25 {
+  font-size: 25px; }
+
+.font-size-28 {
   font-size: 25px; }
 
 .font-size-50 {
   font-size: 50px; }
+
+.font-white {
+  color: #FFFFFF; }
 
 .text-uppercase, .initialism {
   text-transform: uppercase; }
@@ -7924,6 +7933,9 @@ a.link-gray {
 .margin-bottom-7 {
   margin-bottom: 7px; }
 
+.margin-bottom-0 {
+  margin-bottom: 0px; }
+
 .margin-left-0 {
   margin-left: 0px; }
 
@@ -7945,6 +7957,9 @@ a.link-gray {
 .padding-top-58 {
   padding-top: 58px; }
 
+.padding-top-85 {
+  padding-top: 85px; }
+
 .padding-bottom-3 {
   padding-bottom: 3px; }
 
@@ -7956,6 +7971,9 @@ a.link-gray {
 
 .padding-left-0 {
   padding-left: 0px; }
+
+.padding-left-75 {
+  padding-left: 75px; }
 
 .padding-right-15 {
   padding-right: 15px; }
