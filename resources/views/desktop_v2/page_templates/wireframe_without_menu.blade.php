@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="{{ elixir('css/dashboard.css') }}" media="screen" title="no title" charset="utf-8">
 
 		<link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="http://ionicons.com/css/ionicons.min.css?v=2.0.1">
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -24,7 +24,7 @@
 	<body class="background-gray-238 font-black">
 		@include('desktop_v2.components.navbar_plain')
 
-		@include('desktop_v2.components.breadcrumb', ['padding_top' => 'padding-top-58', 'padding_left' => 'padding-left-15'])
+		@include('desktop_v2.components.breadcrumb', ['padding_top' => 'padding-top-58', 'padding_left' => 'padding-left-15', 'padding_bottom' => 'padding-bottom-6'])
 		
 		@yield('content')
 		

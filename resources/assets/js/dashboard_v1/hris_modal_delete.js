@@ -11,8 +11,8 @@
 		///////////////////////////
 		$('body').on('click', '*[data-toggle=modal][data-target="#hris_modal_delete"]', function(){
 			var obj = $(this);
-			hris_modal_delete.display 	= obj.data('capcus-display-target');
-			hris_modal_delete.field 	= obj.data('capcus-field-target');
+			hris_modal_delete.display 	= obj.data('hris-display-target');
+			hris_modal_delete.field 	= obj.data('hris-field-target');
 
 			////////////////
 			// CLEAR FORM //
@@ -22,10 +22,10 @@
 			///////////////
 			// FILL FORM //
 			///////////////
-			if (obj.data('capcus-data'))
+			if (obj.data('hris-data'))
 			{
 				// PARSE VALUE
-				value = obj.data('capcus-data');
+				value = obj.data('hris-data');
 
 				// FILL Form
 				$('#hris_modal_delete').find('input[name=_hris_modal_delete_edit_index]').val(value.index);
@@ -72,8 +72,8 @@
 		///////////////////////////
 		$('body').on('click', '*[data-toggle=modal][data-target="#modal_tour_schedule"]', function(){
 			var obj = $(this);
-			modal_tour_schedule.display 	= obj.data('capcus-display-target');
-			modal_tour_schedule.field 		= obj.data('capcus-field-target');
+			modal_tour_schedule.display 	= obj.data('hris-display-target');
+			modal_tour_schedule.field 		= obj.data('hris-field-target');
 
 			////////////////
 			// CLEAR FORM //
@@ -84,10 +84,10 @@
 			///////////////
 			// FILL FORM //
 			///////////////
-			if (obj.data('capcus-data'))
+			if (obj.data('hris-data'))
 			{
 				// PARSE VALUE
-				value = obj.data('capcus-data');
+				value = obj.data('hris-data');
 
 				// FILL Form
 				$('#modal_tour_schedule').find('input[name=departure]').val(value.departure);
@@ -152,7 +152,7 @@
 				var html = '<div class="text-muted text-uppercase mb-l">SCHEDULE '+ ((submitted.index*1)+1) +'</div>' + 
 								'<input type="hidden" name="'+modal_tour_schedule.field+'[]" value=\''+JSON.stringify(submitted)+'\'>' + 
 													'Departure: ' + submitted.departure + (submitted.departure_until ? ' - ' + submitted.departure_until : '') + '<br>' +
-													'Price: ' + submitted.currency + ' ' + ' <span class="number">' + capcus_math.thousand_separator(submitted.price) + '</span><br>' + 
+													'Price: ' + submitted.currency + ' ' + ' <span class="number">' + hris_math.thousand_separator(submitted.price) + '</span><br>' + 
 													'Promo: ' + 
 													'<div class="table-responsive">' + 
 														'<table class="table table-hover">' + 
@@ -169,14 +169,14 @@
 					html += '<tr>' +
 								'<td>' + submitted.promo[i].name + '</td>' +
 								'<td>' + submitted.promo[i].since + ' - ' + submitted.promo[i].until + '</td>' + 
-								'<td>' + submitted.currency + ' <span class="number">' + capcus_math.thousand_separator(submitted.promo[i].price) + '</span></td>' + 
+								'<td>' + submitted.currency + ' <span class="number">' + hris_math.thousand_separator(submitted.promo[i].price) + '</span></td>' + 
 							'</tr>';
 				}
 				html += 									'</tbody>' + 
 														'</table>' + 
 													'</div>' + 
 													'<p class=\'mt-m\'>' + 
-														'<a href=\'javascript:;\' data-toggle=\'modal\' data-target=\'#modal_tour_schedule\' data-capcus-data=\''+JSON.stringify(submitted)+'\' data-capcus-display-target=\''+modal_tour_schedule.display+'\' data-capcus-field-target=\''+modal_tour_schedule.field+'\'><i class=\'fa fa-pencil\'></i> Edit</a>' + 
+														'<a href=\'javascript:;\' data-toggle=\'modal\' data-target=\'#modal_tour_schedule\' data-hris-data=\''+JSON.stringify(submitted)+'\' data-hris-display-target=\''+modal_tour_schedule.display+'\' data-hris-field-target=\''+modal_tour_schedule.field+'\'><i class=\'fa fa-pencil\'></i> Edit</a>' + 
 													'</p>';
 
 				$(modal_tour_schedule.display + ' .list-group-item:nth(' + submitted.index + ')').html(html);
@@ -187,7 +187,7 @@
 								'<div class="text-muted text-uppercase mb-l">SCHEDULE '+ ($(modal_tour_schedule.display).length+1) +'</div>' + 
 								'<input type="hidden" name="'+modal_tour_schedule.field+'[]" value=\''+JSON.stringify(submitted)+'\'>' + 
 								'Departure: ' + submitted.departure + (submitted.departure_until ? ' - ' + submitted.departure_until : '') + '<br>' +
-								'Price: ' + submitted.currency + ' ' + '<span class="number">' + capcus_math.thousand_separator(submitted.price) + '</span><br>' + 
+								'Price: ' + submitted.currency + ' ' + '<span class="number">' + hris_math.thousand_separator(submitted.price) + '</span><br>' + 
 								'Promo: ' + 
 								'<div class="table-responsive">' + 
 									'<table class="table table-hover">' + 
@@ -204,14 +204,14 @@
 					html += '<tr>' +
 								'<td>' + submitted.promo[i].name + '</td>' +
 								'<td>' + submitted.promo[i].since + ' - ' + submitted.promo[i].until + '</td>' + 
-								'<td>' + submitted.currency + ' <span class="number">' + capcus_math.thousand_separator(submitted.promo[i].price) + '</span></td>' + 
+								'<td>' + submitted.currency + ' <span class="number">' + hris_math.thousand_separator(submitted.promo[i].price) + '</span></td>' + 
 							'</tr>';
 				}
 				html +=					'</tbody>' + 
 									'</table>' +
 								'</div>' +
 								'<p class=\'mt-m\'>' + 
-									'<a href=\'javascript:;\' data-toggle=\'modal\' data-target=\'#modal_tour_schedule\' data-capcus-data=\''+JSON.stringify(submitted)+'\' data-capcus-display-target=\''+modal_tour_schedule.display+'\' data-capcus-field-target=\''+modal_tour_schedule.field+'\'><i class=\'fa fa-pencil\'></i> Edit</a>' + 
+									'<a href=\'javascript:;\' data-toggle=\'modal\' data-target=\'#modal_tour_schedule\' data-hris-data=\''+JSON.stringify(submitted)+'\' data-hris-display-target=\''+modal_tour_schedule.display+'\' data-hris-field-target=\''+modal_tour_schedule.field+'\'><i class=\'fa fa-pencil\'></i> Edit</a>' + 
 								'</p>' + 
 							'</div>';
 				$(modal_tour_schedule.display).append(html);

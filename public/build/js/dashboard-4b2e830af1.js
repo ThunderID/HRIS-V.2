@@ -72,6 +72,12 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 		});
 	}
 };
+; var hris_menu = {
+	
+	init  : function () {
+   		$('#modal').modal('toggle');
+	},
+};
 /*!
  * Bootstrap v4.0.0-alpha.2 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
