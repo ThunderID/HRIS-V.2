@@ -1,7 +1,7 @@
 <!-- 
 Fixed Navigation
 ==================================== -->
-<header id="navigation" class="navbar-fixed-top navbar">
+<header id="navigation" class="navbar-fixed-top navbar padding-left-0">
 	<div class="container-fluid max-height-85">
 		<div class="row background-dark-blue max-height-85">
 			<div class="col-sm-1 padding-0 text-center">

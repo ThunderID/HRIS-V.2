@@ -21,10 +21,10 @@
 
 		@yield('css')
 	</head>
-	<body>
+	<body class="background-gray-238 font-black">
 		@include('desktop_v2.components.navbar_plain')
 
-		@include('desktop_v2.components.breadcrumb', ['padding_top' => 'padding-top-58'])
+		@include('desktop_v2.components.breadcrumb', ['padding_top' => 'padding-top-58', 'padding_left' => 'padding-left-15'])
 		
 		@yield('content')
 		
@@ -32,5 +32,10 @@
 		@include('plugins.select2')
 
 		@yield('js')
+
+				<script type="text/javascript">
+$('.dropdown-toggle').dropdown();
+		</script>
+
 	</body>
 </html>

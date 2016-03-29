@@ -1,7 +1,8 @@
 a.link-white{
 	color: #FFFFFF;
 	text-decoration: none;
-	&:hover{
+	&:hover, focus {
+		background-color : none !important;
 		color: #FFFFFF;
 		text-decoration: none;
 	}
@@ -10,7 +11,8 @@ a.link-white{
 a.link-blue{
 	color: #3F67AE;
 	text-decoration: none;
-	&:hover{
+	&:hover, focus {
+		background-color : none !important;
 		color: #3F67AE;
 		text-decoration: none;
 	}
@@ -19,7 +21,8 @@ a.link-blue{
 a.link-black{
 	color: #1A1718;
 	text-decoration: none;
-	&:hover{
+	&:hover, focus {
+		background-color : none !important;
 		color: #1A1718;
 		text-decoration: none;
 	}
@@ -28,7 +31,8 @@ a.link-black{
 a.link-gray{
 	color: #F7F7F7;
 	text-decoration: none;
-	&:hover{
+	&:hover, focus {
+		background-color : none !important;
 		color: #F7F7F7;
 		text-decoration: none;
 	}

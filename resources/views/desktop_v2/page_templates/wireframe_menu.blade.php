@@ -21,7 +21,7 @@
 
 		@yield('css')
 	</head>
-	<body class="background-dark-blue font-white">
+	<body class="background-gray-238 font-black">
 		@include('desktop_v2.components.navbar_menu')
 
 		@yield('content')
@@ -29,5 +29,6 @@
 		<script type="text/javascript" src="{{ elixir('js/dashboard.js') }}"></script>
 
 		@yield('js')
+
 	</body>
 </html>
