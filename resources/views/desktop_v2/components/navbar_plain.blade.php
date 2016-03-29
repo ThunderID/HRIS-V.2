@@ -15,7 +15,7 @@ Fixed Navigation
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle link-white" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HRD&nbsp;&nbsp;&nbsp;<i class="fa fa-user"></i></a>
 						<ul class="dropdown-menu private-menu">
-							<li class="dropdown-item height-100 ">
+							<li class="dropdown-item height-100">
 								<div class="row">
 									<div class="col-sm-5 padding-10">
 										<img src="http://cdncms.fonts.net/images/1fbc3283deeda23a/Letterhart.gif" class="img-circle dimension-max-width">
@@ -45,8 +45,6 @@ Fixed Navigation
 			</nav>
 			<!-- /main nav -->
 		</div>
-
-		
 	</div>
 </header>
 <!--
