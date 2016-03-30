@@ -40,7 +40,7 @@
 
 .private-menu{
 	margin-top: -3px;
-	margin-right: -50px;
+	margin-right: -75px;
 	width: 245px;
 	height: 150px;
 	border-radius:0px;
@@ -65,4 +65,56 @@
 
 .dimension-max-width{
 	max-width: 100%;
+}
+
+//search
+.container-search-box{
+  overflow: hidden;
+  width: 100%;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.container-search-box input#search{
+  width: 100%;
+  height: 50px;
+  background: #fff;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  padding-left: 15px;
+}
+
+.container-search-box input#search::-webkit-input-placeholder {
+   color: #65737e;
+}
+ 
+.container-search-box input#search:-moz-placeholder { /* Firefox 18- */
+   color: #65737e;  
+}
+ 
+.container-search-box input#search::-moz-placeholder {  /* Firefox 19+ */
+   color: #65737e;  
+}
+ 
+.container-search-box input#search:-ms-input-placeholder {  
+   color: #65737e;  
+}
+
+.container-search-box button.icon{
+  border: none;
+  background: #fff;
+  height: 50px;
+  width: 50px;
+  color: #4f5b66;
+    outline: none;
+    opacity: 1;
+    margin-left: -50px;
+  font-size: 10pt;
+ 
+  -webkit-transition: all .55s ease;
+  -moz-transition: all .55s ease;
+  -ms-transition: all .55s ease;
+  -o-transition: all .55s ease;
+  transition: all .55s ease;
 }
