@@ -6,11 +6,27 @@ button.button-gray{
 button.button-red{
 	background-color: #DB141A;
 	color: #FFFFFF;
+	display: inline-block;
+	padding: 1px 30px;
+	line-height: 1.8;
+	appearance: none;
+	box-shadow: none;
+	border-radius: 0;
+	text-shadow: -1px 1px #417CB8;
+	border: none;
 }
 
 button.button-blue{
-	background-color: #3F67AE;
+	background-color: #2A5196;
 	color: #FFFFFF;
+	display: inline-block;
+	padding: 1px 30px;
+	line-height: 1.8;
+	appearance: none;
+	box-shadow: none;
+	border-radius: 0;
+	text-shadow: -1px 1px #417CB8;
+	border: none;
 }
 
 button.button-white{
