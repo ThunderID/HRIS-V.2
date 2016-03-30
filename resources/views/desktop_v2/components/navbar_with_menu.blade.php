@@ -5,7 +5,7 @@ Fixed Navigation
 	<div class="container-fluid max-height-85">
 		<div class="row">
 			<div class="col-sm-12 padding-left-0 padding-right-0" >
-				<div class="padding-top-8 background-dark-blue height-85 width-85 pull-left text-xs-center padding-10" style="float:left;">
+				<div class="padding-top-8 background-dark-blue height-85 width-85 pull-left text-xs-center padding-left-10" style="float:left;">
 					<a class="link-white font-size-50" href="#menu" data-toggle="modal" data-target=".bd-example-modal-lg">
 						<i class="ion-android-apps padding-top-18"></i>
 					</a>

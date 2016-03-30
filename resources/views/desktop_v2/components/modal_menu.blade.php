@@ -1,10 +1,10 @@
 <div class="row">
-	<div class="col-sm-12 text-left padding-left-30">
-		<!-- logo -->
-		<a class="link-white font-size-50" href="#body" data-dismiss="modal" aria-hidden="true">
-			<i class="fa fa-times"></i>
-		</a>
-		<!-- /logo -->
+	<div class="col-sm-12 padding-left-10 padding-right-0" >
+		<div class="padding-top-8 height-85 width-85 pull-left text-xs-center padding-left-10" style="float:left;">
+			<a class="link-white font-size-50" href="#body" data-dismiss="modal" aria-hidden="true">
+				<i class="ion-ios-close-empty"></i>
+			</a>
+		</div>
 	</div>
 </div>
 

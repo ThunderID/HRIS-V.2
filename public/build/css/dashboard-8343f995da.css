@@ -7640,7 +7640,7 @@ button.button-blue {
   width: 85px; }
 
 .private-menu {
-  margin-top: 3px;
+  margin-top: -5px;
   margin-right: -75px;
   width: 245px;
   height: 150px;
