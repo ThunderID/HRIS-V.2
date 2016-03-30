@@ -22,16 +22,28 @@
 		@yield('css')
 	</head>
 	<body class="background-gray-238 font-black">
-		@include('desktop_v2.components.navbar_plain')
+		@include('mobile_v2.components.navbar_plain')
 
-		@include('desktop_v2.components.breadcrumb', ['padding_top' => 'padding-top-58', 'padding_left' => 'padding-left-15', 'padding_bottom' => 'padding-bottom-6'])
+		@include('mobile_v2.components.navbar_title', ['padding_top' => 'padding-top-58', 'padding_left' => 'padding-left-15', 'padding_bottom' => 'padding-bottom-6'])
 		
 		@yield('content')
+		
+		<div class="modal fade private-menu-modal padding-top-58 padding-left-35 padding-right-50" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			<div class="modal-dialog background-white height-300" style="width:calc(100% - 55px);">
+				<div class="modal-content background-white height-300">
+					@include('mobile_v2.components.private_menu')
+				</div>
+			</div>
+		</div>
 		
 		<script type="text/javascript" src="{{ elixir('js/dashboard.js') }}"></script>
 		@include('plugins.select2')
 
 		@yield('js')
+
+		<script type="text/javascript">
+			hris_private_menu.init();
+		</script>
 
 	</body>
 </html>
