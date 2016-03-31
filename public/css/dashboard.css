@@ -7572,6 +7572,9 @@ a.bg-danger:focus, a.bg-danger:hover {
 .background-light-blue {
   background-color: #CEDBE7; }
 
+.background-shade-blue {
+  background-color: #E6EDF3; }
+
 .background-gray-225 {
   background-color: #E1E1E1; }
 
@@ -7802,6 +7805,14 @@ button.button-white {
   text-align: center;
   width: 100%; }
 
+.container-second-nav {
+  width: 100%;
+  height: 50px;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  padding-left: 15px; }
+
 .font-size-10 {
   font-size: 10px; }
 
@@ -7839,7 +7850,7 @@ button.button-white {
   color: #2A5196; }
 
 .font-gray-225 {
-  font-color: #E1E1E1; }
+  color: #E1E1E1; }
 
 .text-uppercase {
   text-transform: uppercase; }
