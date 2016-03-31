@@ -1,6 +1,13 @@
 button.button-gray{
 	background-color: #E1E1E1;
 	color: #1A1718;
+	display: inline-block;
+	padding: 1px 30px;
+	line-height: 1.8;
+	appearance: none;
+	box-shadow: none;
+	border-radius: 0;
+	border: none;
 }
 
 button.button-red{
@@ -12,7 +19,6 @@ button.button-red{
 	appearance: none;
 	box-shadow: none;
 	border-radius: 0;
-	text-shadow: -1px 1px #417CB8;
 	border: none;
 }
 
@@ -25,7 +31,6 @@ button.button-blue{
 	appearance: none;
 	box-shadow: none;
 	border-radius: 0;
-	text-shadow: -1px 1px #417CB8;
 	border: none;
 }
 

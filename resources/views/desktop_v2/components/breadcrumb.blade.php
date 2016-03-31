@@ -5,7 +5,7 @@ Breadcrumb
 	<div class="col-sm-8"> 
 		<ul class="breadcrumb margin-bottom-0 font-size-12 text-uppercase {{(isset($padding_bottom) ? $padding_bottom : '')}} {{(isset($padding_top) ? $padding_top : '')}} {{(isset($padding_left) ? $padding_left : '')}}">
 		    <li>
-		    	<a href="#" class="link-black"><i class="ion-home"></i> Home</a>
+		    	<a href="{{route('org.index')}}" class="link-black"><i class="ion-home"></i> Home</a>
 		    </li>
 		    @yield('breadcrumb')
 		</ul>

@@ -91,7 +91,6 @@ class OrgController extends BaseController
         //4. set page datas
         $this->page_datas->datas                    = $data['data'];
 
-
         //5. generate view
         $view_source                                = $this->view_source_root . '.index';
         $route_source                               = route(Route::CurrentRouteName());
@@ -327,7 +326,7 @@ class OrgController extends BaseController
             $this->errors                           = $result['message'];
         }
 
-        $this->page_attributes->msg                 = "Data Produk telah dihapus";
+        $this->page_attributes->msg                 = "Data Perusahaan ".$result['data']['name']." telah dihapus";
         
         return $this->generateRedirectRoute('org.index'); 
     }

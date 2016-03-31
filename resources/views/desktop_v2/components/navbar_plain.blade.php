@@ -6,7 +6,7 @@ Fixed Navigation
 		<div class="row">
 			<div class="col-sm-12 padding-left-0 padding-right-0" >
 				<div class="background-blue height-50 padding-left-15 padding-top-10" style="float:left; width: 100%">
-					<a class="link-white font-size-25" href="#body">
+					<a class="link-white font-size-25" href="{{route('org.index')}}">
 						HRIS
 					</a>
 					<!-- main nav -->
