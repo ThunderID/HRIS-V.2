@@ -1,4 +1,4 @@
-@extends('desktop_v2.page_templates.wireframe_without_menu')
+@extends('desktop_v2.page_templates.wireframe_with_menu')
 
 @section('content')
 

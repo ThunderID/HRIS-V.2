@@ -23,7 +23,7 @@
 	<body class="background-gray-238 font-black">
 		@include('desktop_v2.components.navbar_plain')
 
-		@include('desktop_v2.components.breadcrumb', ['padding_top' => 'padding-top-58', 'padding_left' => 'padding-left-15', 'padding_bottom' => 'padding-bottom-6'])
+		@include('desktop_v2.components.breadcrumb', ['padding_top' => 'padding-top-58', 'padding_left' => 'padding-left-15', 'padding_bottom' => 'padding-bottom-6', 'padding_top_action' => 'padding-top-53'])
 		
 		@yield('content')
 		
