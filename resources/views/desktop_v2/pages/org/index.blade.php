@@ -28,18 +28,18 @@
 		<div class="row">
 			@forelse($page_datas->datas['data'] as $key => $dt)
 				@if($initial!=strtoupper($dt['name'][0]))
-					<div class="col-sm-12">
+					<div class="col-md-12 col-sm-12">
 						<h3 class="text-uppercase">{{strtoupper($dt['name'][0])}}</h3>
 					</div>
 				@endif
 
-			<div class="col-sm-6">
+			<div class="col-md-6 col-sm-12">
 				@include('desktop_v2.components.card', ['card_content' => $dt])
 			</div>
 			
 			<?php $initial = strtoupper($dt['name'][0]);?>
 			@empty
-				<div class="col-sm-12">
+				<div class="col-md-12 col-sm-12">
 					<p class="background-white padding-15">Tidak ada data organisasi</p>
 				</div>
 			@endforelse

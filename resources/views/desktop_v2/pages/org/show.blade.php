@@ -4,7 +4,7 @@
 
 <!-- Title -->
 <div class="row padding-15 left-15">
-		<div class="col-sm-12">
+		<div class="col-md-12">
 			<h3 class="padding-top-13">{{$page_attributes->page_subtitle}} "{{$page_datas->datas['name']}}"</h3>
 		</div>
 	</div>
@@ -13,7 +13,7 @@
 
 <!-- Stat -->
 <div class="row padding-top-15 margin-left-0 margin-right-0 font-white">
-	<div class="col-sm-3">
+	<div class="col-md-3 col-sm-6">
 		<div class="card">
 			<div class="card-header background-dark-blue">
 				Plan
@@ -25,7 +25,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-sm-3">
+	<div class="col-md-3 col-sm-6">
 		<div class="card">
 			<div class="card-header background-dark-blue">
 				Total Cabang
@@ -37,7 +37,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-sm-3">
+	<div class="col-md-3 col-sm-6">
 		<div class="card">
 			<div class="card-header background-dark-blue">
 				Total Karyawan
@@ -49,7 +49,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-sm-3">
+	<div class="col-md-3 col-sm-6">
 		<div class="card">
 			<div class="card-header background-dark-blue">
 				Loss Time Rate
@@ -66,7 +66,7 @@
 <div class="clearfix">&nbsp;</div>
 <!-- Report and Notif -->
 <div class="row padding-top-15 margin-left-0 margin-right-0 font-black">
-	<div class="col-sm-6">
+	<div class="col-md-6 col-sm-12">
 		<div class="card">
 			<div class="card-header background-white font-size-18">
 				Pengambilan Cuti Bulan ini
@@ -78,7 +78,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-sm-6">
+	<div class="col-md-6 col-sm-12">
 		<div class="card">
 			<div class="card-header background-yellow font-size-18">
 				Kontrak Kerja yang Akan Kadaluarsa
@@ -94,7 +94,7 @@
 <!-- End of Report and Notif -->
 <!-- Chart and Calendar -->
 <div class="row padding-top-15 margin-left-0 margin-right-0 font-black">
-	<div class="col-sm-6">
+	<div class="col-md-6 col-sm-12">
 		<div class="card">
 			<div class="card-header background-white font-size-18">
 				Grafik Kinerja Karyawan
@@ -106,7 +106,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-sm-6">
+	<div class="col-md-6 col-sm-12">
 		<div class="card">
 			<div class="card-header background-white font-size-18">
 				Kalender Kerja
