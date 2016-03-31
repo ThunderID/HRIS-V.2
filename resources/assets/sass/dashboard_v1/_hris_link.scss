@@ -41,3 +41,24 @@ a.link-gray{
 a.link-round-100{
 	border-radius: 100px;
 }
+
+.link-square-gray{
+	border-radius: 0px;
+	padding : 10px 30px;
+	color: #1A1718;
+	text-decoration: none;
+	&:hover, focus {
+		background-color : #F7F7F7 !important;
+		color: #1A1718;
+		text-decoration: none;
+		border-radius: 0px;
+	}
+}
+
+.link-square-blue{
+	border-radius: 0px;
+	padding : 10px 30px;
+	color: #FFFFFF !important;
+	background-color : #3F67AE !important;
+	text-decoration: none;
+}

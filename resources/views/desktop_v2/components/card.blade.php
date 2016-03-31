@@ -8,7 +8,7 @@
 			</div>
 		</div>	
 	</div>	
-	<div class="col-md-8 col-sm-9 padding-left-5">
+	<div class="col-lg-10 col-md-8 col-sm-9 padding-left-5">
 		<div class=" background-white padding-15 height-120">
 			<a class="text-uppercase font-25 link-black" href="{{route('org.show', $card_content['id'])}}">
 				{{$card_content['name']}}

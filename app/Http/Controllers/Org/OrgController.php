@@ -33,7 +33,6 @@ class OrgController extends BaseController
 
 		$this->page_attributes->page_title             = 'Perusahaan';
 		$this->page_attributes->breadcrumb             =    [
-																'Perusahaan'    => route('org.index'),
 															];        
 	}
 
