@@ -176,7 +176,7 @@ class OrgController extends BaseController
             //2. set page attributes
             $current_route                           = route(Route::CurrentRouteName(),['id' => $id]);
 
-            $this->page_attributes->page_subtitle    = 'edit';     
+            $this->page_attributes->page_subtitle    = 'Edit';     
             $this->page_attributes->breadcrumb       = array_merge(
                                                             $this->page_attributes->breadcrumb,
                                                             ['Edit ' . $data['data']['name'] => $current_route]
@@ -190,7 +190,7 @@ class OrgController extends BaseController
             //2. set page attributes
             $current_route                           = route(Route::CurrentRouteName());
 
-            $this->page_attributes->page_subtitle    = 'data baru';     
+            $this->page_attributes->page_subtitle    = 'Data Baru';     
             $this->page_attributes->breadcrumb       = array_merge(
                                                             $this->page_attributes->breadcrumb,
                                                             ['Data Baru' => $current_route]
@@ -244,6 +244,7 @@ class OrgController extends BaseController
         //1. get input
         $input['name']                              = Input::get('name');                          
         $input['code']                              = Input::get('code');
+        $input['logo']                              = Input::get('logo');
 
         //2. get data
         if(!is_null($id))
@@ -253,12 +254,14 @@ class OrgController extends BaseController
 
             $data['name']                            = $input['name'];
             $data['code']                            = $input['code'];
+            $data['logo']                            = $input['logo'];
         }
         else
         {
             $data['id']                              = ""; 
             $data['name']                            = $input['name'];
             $data['code']                            = $input['code'];
+            $data['logo']                            = $input['logo'];
             $data['branches']                        = [];
             $data['policies']                        = [];
         }
@@ -275,7 +278,7 @@ class OrgController extends BaseController
 
         if(!empty($id))
         {
-           $this->page_attributes->msg              = "Data Organisasi Telah Diedit";
+           $this->page_attributes->msg              = "Data Organisasi Telah Diubah";
         }
         else
         {

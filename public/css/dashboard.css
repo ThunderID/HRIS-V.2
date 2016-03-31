@@ -3213,8 +3213,7 @@ a.label:focus, a.label:hover {
 .alert {
   padding: 15px;
   margin-bottom: 1rem;
-  border: 1px solid transparent;
-  border-radius: 0.25rem; }
+  border: 1px solid transparent; }
   .alert > p,
   .alert > ul {
     margin-bottom: 0; }
@@ -7600,6 +7599,9 @@ a.bg-danger:focus, a.bg-danger:hover {
 .border-black {
   border: 1px solid #1A1718; }
 
+.border-top-0 {
+  border-top: 0px; }
+
 button.button-gray {
   background-color: #E1E1E1;
   color: #1A1718;
@@ -7795,6 +7797,9 @@ button.button-white {
   height: 180px;
   text-align: center;
   width: 100%; }
+
+.font-size-10 {
+  font-size: 10px; }
 
 .font-size-12 {
   font-size: 12px; }
