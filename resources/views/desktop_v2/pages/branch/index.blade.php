@@ -24,6 +24,9 @@
 			<!-- End of Content -->			
 		</div>
 	</div>
+	<div class="col-md-9">
+		@include('desktop_v2.components.secondary_navbar')
+	</div>
 </div>
 <!-- End of Branch Index -->
 @stop

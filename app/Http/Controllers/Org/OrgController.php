@@ -71,7 +71,7 @@ class OrgController extends BaseController
 
 		//2. get data parameter
 		$data_parameter                             = $this->setPageDataParameter();
-	   
+
 		//3. get data
 		$APIOrg                                     = new APIOrg;
 		$search                                     = array_merge(
