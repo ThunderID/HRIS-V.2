@@ -7,7 +7,7 @@
 		<!-- Search Box -->
 		<div class="row padding-top-30">
 			<div class="col-sm-12">
-				@include('desktop_v2.components.grand_search_box', ['search_name' => 'q', 'search_placeholder' => 'Cari Perusahaan'])
+				@include('desktop_v2.components.grand_search_box', ['search_name' => 'q', 'search_placeholder' => 'Cari Perusahaan', 'background_search_box' => 'background-white', 'font_search_box' => 'font-gray-225'])
 
 				@if(isset($page_datas->search))
 					<div class="clearfix">&nbsp;</div>

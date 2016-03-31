@@ -45,9 +45,35 @@ class BranchController extends BaseController
      *
      * @return
      */
-	public function index()
+	public function index($org_id = 0)
 	{
+        //1. validate
+        if(is_null($org_id))
+        {
+            App::abort(403, 'Id Organisasi tidak ada');
+        }
 
+        //2. get data
+        $APIOrg                                     = new APIOrg;
+        $data                                       = $APIOrg->getShow($org_id);        
+
+        //3. set page attributes
+        $this->page_attributes->page_subtitle       = 'Dashboard';     
+        $this->page_attributes->breadcrumb          = array_merge(
+                                                            $this->page_attributes->breadcrumb,
+                                                            [$data['data']['name'] => route('org.show',['id' => $org_id]),
+                                                            'Cabang' => route(Route::CurrentRouteName(),['id' => $org_id])]
+                                                        );
+
+        //4. set page datas
+        $this->page_datas->datas                    = $data['data'];
+        $this->page_datas->cust_paging              = 0;
+
+        //5. generate view
+        $view_source                                = $this->view_source_root . '.index';
+        $route_source                               = route(Route::CurrentRouteName());
+
+        return $this->generateView($view_source, $route_source);
 	}
 
     /**
