@@ -8,7 +8,7 @@
   margin-bottom: $card-spacer-y;
   background-color: $card-bg;
   border: $card-border-width solid $card-border-color;
-  @include border-radius($card-border-radius);
+//@include border-radius($card-border-radius);
 }
 
 .card-block {
@@ -73,7 +73,7 @@
   border-bottom: $card-border-width solid $card-border-color;
 
   &:first-child {
-    @include border-radius($card-border-radius-inner $card-border-radius-inner 0 0);
+//@include border-radius($card-border-radius-inner $card-border-radius-inner 0 0);
   }
 }
 

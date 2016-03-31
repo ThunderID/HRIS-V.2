@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="row padding-15" style="left:15px;">
+<div class="row padding-15 left-15">
 	<div class="col-sm-12">
 
 		<!-- Title -->

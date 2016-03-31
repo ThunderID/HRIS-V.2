@@ -129,7 +129,7 @@ class OrgController extends BaseController
         $data                                       = $APIOrg->getShow($id);        
 
         //3. set page attributes
-        $this->page_attributes->page_subtitle       = 'detail';     
+        $this->page_attributes->page_subtitle       = 'Dashboard';     
         $this->page_attributes->breadcrumb          = array_merge(
                                                             $this->page_attributes->breadcrumb,
                                                             [$data['data']['name'] => route(Route::CurrentRouteName(),['id' => $id])]
