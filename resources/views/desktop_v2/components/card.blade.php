@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-lg-2 col-md-4 col-sm-3 padding-right-0">
+	<div class="col-lg-2 col-md-4 col-sm-3 col-xs-3 padding-right-0">
 		<div class="background-white " id="col-eq-height">
 			<div>
 				<a class="link-white" href="{{route('org.show', $card_content['id'])}}">
@@ -8,7 +8,7 @@
 			</div>
 		</div>	
 	</div>	
-	<div class="col-lg-10 col-md-8 col-sm-9 padding-left-5">
+	<div class="col-lg-10 col-md-8 col-sm-9 col-xs-9 padding-left-5">
 		<div class=" background-white padding-15 height-120">
 			<a class="text-uppercase font-25 link-black" href="{{route('org.show', $card_content['id'])}}">
 				{{$card_content['name']}}

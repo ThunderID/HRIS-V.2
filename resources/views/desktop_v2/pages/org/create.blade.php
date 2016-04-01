@@ -50,7 +50,7 @@
 						<img src="{{$page_datas->datas['logo']}}" style="width:100%;">
 					</div>
 				@endif
-				<input name="logo" value="{{$page_datas->datas['logo']}}" class="form-control font-size-10 border-top-0" id="logo" placeholder="p.s. ukuran maksimal gambar 1mb">
+				<input name="logo" value="{{$page_datas->datas['logo']}}" class="form-control font-size-10 border-top-0" id="logo" placeholder="masukkan url logo">
 				{!!Form::close()!!}
 			</div>
 		</div>

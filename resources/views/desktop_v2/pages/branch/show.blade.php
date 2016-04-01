@@ -43,8 +43,10 @@
 				@include('desktop_v2.components.single_card', ['card_content' => $page_datas->datas['branch']])
 
 				<div class="row text-xs-center">
-					<div class="col-sm-12">
-						<p class="font-size-25 text-xs-left">Struktur Organisasi Cabang {{$page_datas->datas['branch']['name']}}</p>
+					<div class="col-sm-12 text-xs-left">
+						<p class="font-size-25">Struktur Organisasi Cabang {{$page_datas->datas['branch']['name']}}</p>
+						
+						@include('desktop_v2.components.alert_box')
 					</div>
 					
 					@forelse($page_datas->datas['charts'] as $key => $dt)

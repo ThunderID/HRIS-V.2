@@ -33,6 +33,7 @@
 				<div class="font-size-25 padding-bottom-15">
 					{{(($page_datas->datas['branch']['id']!='') ? $page_datas->datas['branch']['name'] : 'Tambah Cabang Baru')}}
 				</div>
+				@include('desktop_v2.components.alert_box')
 				 <fieldset class="form-group">
 					<label for="branchname">Nama Cabang</label>
 					<input name="name" value="{{$page_datas->datas['branch']['name']}}" class="form-control" id="branchname" placeholder="Masukkan nama perusahaan">
