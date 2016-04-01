@@ -87,3 +87,18 @@ a.link-transparent{
 	background-color: transparent;
 	color: inherit;
 }
+
+a.link-menu{
+	text-decoration: none;
+	background-color: transparent;
+	color: #274659;
+	&:hover{
+		.card {
+			border: 3px solid #fff;
+		}
+		.card-block {
+			background-color: #274659;
+			color: #fff;
+		}
+	}
+}

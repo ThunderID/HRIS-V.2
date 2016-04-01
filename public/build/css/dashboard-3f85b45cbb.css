@@ -7974,6 +7974,16 @@ a.link-transparent {
   background-color: transparent;
   color: inherit; }
 
+a.link-menu {
+  text-decoration: none;
+  background-color: transparent;
+  color: #274659; }
+  a.link-menu:hover .card {
+    border: 3px solid #fff; }
+  a.link-menu:hover .card-block {
+    background-color: #274659;
+    color: #fff; }
+
 .margin-top-0 {
   margin-top: 0px; }
 
