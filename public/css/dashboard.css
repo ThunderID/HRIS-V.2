@@ -8188,8 +8188,8 @@ a.link-menu {
 .padding-35 {
   padding: 35px; }
 
-#slim-scroll {
-  width: 100%;
+.slim-scroll {
+  width: 98%;
   height: 100%;
   overflow: scroll;
   overflow-x: hidden; }

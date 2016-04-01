@@ -4,7 +4,7 @@
 		doc_height = $(window).height();
 		doc_height = doc_height - 135;
 
-   		$('#slim-scroll').slimScroll({
+   		$('.slim-scroll').slimScroll({
 	        height: doc_height
 	    });
 	},

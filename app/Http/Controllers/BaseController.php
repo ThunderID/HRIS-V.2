@@ -238,12 +238,12 @@ abstract class BaseController extends Controller
 	{
 		$Mobile_Detect 								= new Mobile_Detect;
 
-		if($Mobile_Detect->isMobile() == true)
+		if($Mobile_Detect->isMobile() == true || $Mobile_Detect->isTablet() == true)
 		{
-			if($Mobile_Detect->isTablet() == false)
-			{
+			// if($Mobile_Detect->isTablet() == false)
+			// {
 				return 'mobile_v2';
-			}
+			// }
 		}
 
 		return 'desktop_v2';
