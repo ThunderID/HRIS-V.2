@@ -44,7 +44,7 @@
 
 				<div class="row text-xs-center">
 					<div class="col-sm-12">
-						<p class="font-size-25">Struktur Organisasi Cabang {{$page_datas->datas['branch']['name']}}</p>
+						<p class="font-size-25 text-xs-left">Struktur Organisasi Cabang {{$page_datas->datas['branch']['name']}}</p>
 					</div>
 					
 					@forelse($page_datas->datas['charts'] as $key => $dt)
