@@ -46,21 +46,9 @@
 		</div>
 		<!-- End of Content -->
 
-		<!-- Modal Delete -->
-		@include('desktop_v2.components.modal_delete', [
-				'modal_id'      => 'organisation_del', 
-				'modal_route'   => ''
-		])
-		<!-- End of Modal Delete -->
 		<!-- Button Create -->
 		<a class="link-white background-blue link-round-100 font-size-50 padding-right-15 padding-left-22" id="link-add-fixed" href="{{route('org.create')}}"><i class ="ion-android-add"></i></a>
 		<!-- End of Button Create -->
 	</div>
 </div>
-@stop
-
-@section('js')
-	<script type="text/javascript">
-		hris_modal_delete.init();
-	</script>
 @stop

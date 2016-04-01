@@ -85,6 +85,13 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
    		$('#modal').modal('toggle');
 	},
 };
+
+; var hris_modal_select_organisation = {
+	
+	init  : function () {
+   		$('#modal').modal('toggle');
+	},
+};
 ; var hris_modal_delete = {
 
     init: function(){

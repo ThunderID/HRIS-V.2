@@ -11,3 +11,10 @@
    		$('#modal').modal('toggle');
 	},
 };
+
+; var hris_modal_select_organisation = {
+	
+	init  : function () {
+   		$('#modal').modal('toggle');
+	},
+};

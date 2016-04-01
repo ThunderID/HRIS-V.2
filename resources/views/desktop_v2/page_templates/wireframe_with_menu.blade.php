@@ -35,7 +35,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<script type="text/javascript" src="{{ elixir('js/dashboard.js') }}"></script>
 		<script type="text/javascript" src="/assets/js/slimscroll/jquery.slimscroll.min.js"></script>
 		

@@ -44,6 +44,21 @@
 			</div>
 		</div>
 		
+		<div class="modal fade select-organisation padding-top-58" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			<div class="modal-dialog background-white">
+				<div class="modal-content background-white">
+					@include('mobile_v2.components.modal_select_organisation')
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal Delete -->
+		@include('desktop_v2.components.modal_delete', [
+				'modal_id'      => 'organisation_del', 
+				'modal_route'   => ''
+		])
+		<!-- End of Modal Delete -->
+		
 		<script type="text/javascript" src="{{ elixir('js/dashboard.js') }}"></script>
 		<script type="text/javascript" src="/assets/js/slimscroll/jquery.slimscroll.min.js"></script>
 		@include('plugins.select2')
@@ -53,6 +68,8 @@
 		<script type="text/javascript">
 			hris_menu.init();
 			hris_private_menu.init();
+			hris_modal_delete.init();
+			hris_modal_select_organisation.init();
 		</script>
 
 	</body>
