@@ -15,8 +15,8 @@
 			MENU
 		</a>
 		<br/>
-		<a class="link-white font-size-18" href="#body">
-			PT Mindsoft A
+		<a class="link-white font-size-18" href="{{route('org.index')}}">
+			{{$page_datas->datas['name']}}
 		</a>
 		<!-- /logo -->
 	</div>

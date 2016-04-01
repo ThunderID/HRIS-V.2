@@ -74,4 +74,16 @@ a.link-round-100{
 	color: #FFFFFF !important;
 	background-color : #3F67AE !important;
 	text-decoration: none;
+		&:hover, focus {
+		background-color : #F7F7F7 !important;
+		color: #1A1718 !important;
+		text-decoration: none;
+		border-radius: 0px;
+	}
+}
+
+a.link-transparent{
+	text-decoration: none;
+	background-color: transparent;
+	color: inherit;
 }

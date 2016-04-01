@@ -33,7 +33,7 @@
 					</div>
 				@endif
 
-			<div class="col-md-6 col-sm-12">
+			<div class="col-md-6 col-sm-12 padding-15">
 				@include('desktop_v2.components.card', ['card_content' => $dt])
 			</div>
 			

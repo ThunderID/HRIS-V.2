@@ -1,6 +1,6 @@
 <div class="row">
-	<div class="col-sm-12 padding-15 link-square-gray {{isset($is_selected) && $is_selected ? 'link-square-blue' : ''}}">
-		<a class="{{isset($is_selected) && $is_selected ? 'link-white' : 'link-black'}}" href="{{route('branch.show', ['org_id' => $card_content['organisation_id'], 'id' => $card_content['id']])}}">
+	<div class="col-sm-12 padding-15 {{isset($is_selected) && $is_selected ? 'link-square-blue' : 'link-square-gray'}}">
+		<a class="link-transparent" href="{{route('branch.show', ['org_id' => $card_content['organisation_id'], 'id' => $card_content['id']])}}">
 			<div class="font-size-18 padding-left-15">
 				{{$card_content['name']}}
 			</div>

@@ -74,18 +74,35 @@ class OrgController extends BaseController
 
 		//3. get data
 		$APIOrg                                     = new APIOrg;
-		$search                                     = array_merge(
+		if(($data_parameter['search']!=null))
+		{
+			$search									= array_merge(
 															['name' => $data_parameter['search']],
 															$data_parameter['filter']
 														);
+		}
+		else
+		{
+			$search 								= [];
+		}
 
-
-		$data                                       = $APIOrg->getIndex([
+		if(($data_parameter['take']!=null))
+		{
+			$data									= $APIOrg->getIndex([
 														'search'    => $search,
 														'sort'      => $data_parameter['sort'],
 														'take'      => $data_parameter['take'],
 														'skip'      => ($data_parameter['page'] - 1) * $data_parameter['take'],
 														]);
+		}
+		else
+		{
+			$data									 = $APIOrg->getIndex([
+														'search'    => $search,
+														'sort'      => $data_parameter['sort'],
+														]);
+		}
+
 
 		//4. set page datas
 		$this->page_datas->datas                    = $data['data'];

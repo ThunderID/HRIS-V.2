@@ -37,7 +37,7 @@ abstract class BaseController extends Controller
 	protected $errors;
 
 	//public settings
-	private $take 						= 2;
+	private $take 						= 100;
 
 	function __construct() 
 	{
@@ -220,6 +220,8 @@ abstract class BaseController extends Controller
 	private function paginate($route = null, $count = null, $current = null)
 	{
 		$paginator 									= new LengthAwarePaginator($count, $count, $this->take, $current);
+		
+
 	    return $paginator->setPath($route);
 	}
 
