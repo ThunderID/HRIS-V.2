@@ -11,11 +11,11 @@ Fixed Navigation
 			</div>
 			<div class="col-xs-8 background-blue height-50 padding-top-15" >
 				<a class="padding-left-0 link-white font-size-14" href="#selectorg" data-toggle="modal" data-target=".select-organisation">
-					{{$page_datas->datas['name']}}&nbsp;<i class="ion-android-arrow-dropdown"></i>
+					{{substr($page_datas->datas['name'], 0, 27)}}...&nbsp;<i class="ion-android-arrow-dropdown"></i>
 				</a>
 			</div>
 			<div class="col-xs-2 background-blue height-50 padding-left-15" >
-				<a class="link-white font-size-16 padding-right-15 font-size-25 padding-top-5" style="float:right;" href="#private" data-toggle="modal" data-target=".private-menu-modal">
+				<a class="link-white font-size-16 font-size-25 padding-top-5" style="float:right;" href="#private" data-toggle="modal" data-target=".private-menu-modal">
 					<i class="ion-android-contact"></i>
 				</a>
 			</div>

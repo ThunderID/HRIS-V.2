@@ -215,7 +215,7 @@ class BranchController extends BaseController
 			$current_route                           = route(Route::CurrentRouteName(),['org_id' => $org_id ,'id' => $id]);
 
 
-			$this->page_attributes->page_subtitle    = 'edit';     
+			$this->page_attributes->page_subtitle    = 'Edit Cabang '.$data['data']['name'];     
 			$this->page_attributes->breadcrumb       = array_merge(
 															$this->page_attributes->breadcrumb,
 															[
@@ -239,7 +239,7 @@ class BranchController extends BaseController
 			//3. set page attributes
 			$current_route                           = route(Route::CurrentRouteName(),['org_id' => $org_id]);
 
-			$this->page_attributes->page_subtitle    = 'data baru';     
+			$this->page_attributes->page_subtitle    = 'Cabang Baru';     
 			$this->page_attributes->breadcrumb       = array_merge(
 															$this->page_attributes->breadcrumb,
 															[
@@ -256,6 +256,7 @@ class BranchController extends BaseController
 
 		//4. set page datas
 		$this->page_datas->datas['id']				= $org_id;
+		$this->page_datas->datas['name']			= $org['data']['name'];
 		$this->page_datas->datas['branch']			= $data['data'];
 		$this->page_datas->datas['branches']		= $branches['data']['data'];
 

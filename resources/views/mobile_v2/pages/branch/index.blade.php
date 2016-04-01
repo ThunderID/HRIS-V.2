@@ -28,7 +28,7 @@
 		@endforelse
 		<!-- End of Content -->			
 	
-		<a class="link-white background-blue link-round-100 font-size-25 padding-right-7 padding-left-12" id="link-add-fixed-small" href="{{route('org.create')}}"><i class ="ion-android-add"></i></a>
+		<a class="link-white background-blue link-round-100 font-size-25 padding-right-7 padding-left-12" id="link-add-fixed-small" href="{{route('branch.create', ['org_id' => $page_datas->datas['id']])}}"><i class ="ion-android-add"></i></a>
 	
 	</div>
 </div>
