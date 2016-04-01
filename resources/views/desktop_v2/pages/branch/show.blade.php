@@ -71,11 +71,20 @@
 		'modal_route'   => ''
 ])
 <!-- End of Modal Delete -->
+
+<!-- Modal Edit -->
+@include('desktop_v2.components.modal_chart_edit', [
+		'modal_id'      => 'chart_edit', 
+		'modal_route'   => '',
+])
+<!-- End of Modal Edit -->
+
 @stop
 
 @section('js')
 	<script type="text/javascript">
 		hris_slimscroll.init();
 		hris_modal_delete.init();
+		hris_modal_chart_edit.init();
 	</script>
 @stop

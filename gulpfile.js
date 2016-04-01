@@ -15,7 +15,8 @@ elixir(function(mix) {
     mix.sass('dashboard.scss')
     	.scripts(['/dashboard_v1/jquery.min.js', '/dashboard_v1/hris_get_view.js', 
     			  'dashboard_v1/hris_submit.js', 'dashboard_v1/hris_menu.js', 
-    			  'dashboard_v1/hris_modal_delete.js', 'dashboard_v1/hris_slimscroll.js',
+                  'dashboard_v1/hris_modal_delete.js', 'dashboard_v1/hris_slimscroll.js',
+    			  'dashboard_v1/hris_modal_chart_edit.js',
     			  'dashboard_v1/bootstrap.min.js'
     			], 'public/js/dashboard.js')
 		.version(['public/css/dashboard.css',
