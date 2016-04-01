@@ -50,10 +50,11 @@ button.button-white{
 	background-color: #FFFFFF;
 	color: #373A3C;
 	display: inline-block;
-	padding: 1px 15px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-right: 15px;
 	line-height: 1.9;
 	appearance: none;
 	box-shadow: none;
 	border-radius: 0;
-	border: none;
 }

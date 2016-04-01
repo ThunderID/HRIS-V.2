@@ -17,9 +17,6 @@
 				@include('desktop_v2.components.alert_box')
 			</div>
 		</div>
-
-		<div class="clearfix">&nbsp;</div>
-
 		<!-- End of Search Box -->
 		
 		<!-- Content -->

@@ -7608,6 +7608,9 @@ a.bg-danger:focus, a.bg-danger:hover {
 .border-top-0 {
   border-top: 0px; }
 
+.border-0 {
+  border: 0px; }
+
 button.button-gray {
   background-color: #E1E1E1;
   color: #1A1718;
@@ -7664,14 +7667,15 @@ button.button-white {
   background-color: #FFFFFF;
   color: #373A3C;
   display: inline-block;
-  padding: 1px 15px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-right: 15px;
   line-height: 1.9;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   box-shadow: none;
-  border-radius: 0;
-  border: none; }
+  border-radius: 0; }
 
 .max-height-50 {
   max-height: 50px; }

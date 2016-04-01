@@ -10,8 +10,8 @@ Fixed Navigation
 				</a>
 			</div>
 			<div class="col-xs-8 background-blue height-50 padding-top-15" >
-				<a class="padding-left-15 link-white font-size-14" href="#body">
-					{{$page_datas->datas['name']}}
+				<a class="padding-left-0 link-white font-size-14" href="#selectorg" data-toggle="modal" data-target=".select-orgs">
+					{{$page_datas->datas['name']}}&nbsp;<i class="ion-android-arrow-dropdown"></i>
 				</a>
 			</div>
 			<div class="col-xs-2 background-blue height-50 padding-left-15" >

@@ -2,15 +2,6 @@
 
 @section('content')
 
-<!-- Title -->
-<div class="row padding-15 left-15">
-		<div class="col-md-12">
-			<h3 class="padding-top-13">{{$page_attributes->page_subtitle}} "{{$page_datas->datas['name']}}"</h3>
-		</div>
-	</div>
-</div>
-<!-- End of Title -->
-
 <!-- Stat -->
 <div class="row padding-top-15 margin-left-0 margin-right-0 font-white">
 	<div class="col-md-3 col-sm-6">

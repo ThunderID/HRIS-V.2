@@ -26,6 +26,16 @@
 
 <div class="row padding-left-45 font-white padding-right-45">
 	<div class="col-xs-6 text-xs-center">
+		<a href="{{route('org.show', ['org_id' => $page_datas->datas['id']])}}" class="link-black">
+			<div class="card padding-top-15">
+				<img class="card-img-top" src="{{url('/assets/img/menu/dashboard-96.png')}}" alt="Card image cap" style="vertical-align:center;">
+				<div class="card-block padding-10">
+					<p class="card-text">Dashboard</p>
+				</div>
+			</div>
+		</a>
+	</div>
+	<div class="col-xs-6 text-xs-center">
 		<a href="{{route('branch.index', ['org_id' => $page_datas->datas['id']])}}" class="link-black">
 			<div class="card padding-top-15">
 				<img class="card-img-top" src="{{url('/assets/img/menu/building-96.png')}}" alt="Card image cap" style="vertical-align:center;">
