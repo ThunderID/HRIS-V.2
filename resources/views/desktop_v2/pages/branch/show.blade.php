@@ -23,7 +23,6 @@
 					}
 					?>
 					@include('desktop_v2.components.card_plain', ['card_content' => $dt, 'is_selected' => $is_selected])
-					<?php $is_selected = false;?>
 				</div>
 				
 				@empty

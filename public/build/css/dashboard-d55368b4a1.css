@@ -7920,6 +7920,17 @@ a.link-round-100 {
     text-decoration: none;
     border-radius: 0px; }
 
+.link-square-white {
+  border-radius: 0px;
+  padding: 10px 30px;
+  color: #1A1718;
+  text-decoration: none; }
+  .link-square-white:hover, .link-square-white focus {
+    background-color: #FFFFFF !important;
+    color: #1A1718 !important;
+    text-decoration: none;
+    border-radius: 0px; }
+
 .link-square-blue {
   border-radius: 0px;
   padding: 10px 30px;
