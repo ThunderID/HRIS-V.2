@@ -17,7 +17,9 @@
 						Tambah
 				</a>
 
-				&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a class="link-blue" href="javascript:void(0);" data-backdrop="static" data-keyboard="false" data-toggle="modal" 
 						data-target="#chart_edit"
 						data-id="{{$card_content['id']}}"
@@ -30,7 +32,9 @@
 						Ubah
 				</a>
 
-				&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a class="link-blue" href="javascript:void(0);" data-backdrop="static" data-keyboard="false" data-toggle="modal" 
 						data-target="#organisation_del"
 						data-id="{{$card_content['id']}}"

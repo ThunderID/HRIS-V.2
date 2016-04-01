@@ -150,6 +150,7 @@ class BranchController extends BaseController
 		$charts										= $APIChart->getIndex($org_id, $id);  
 
 		//3. set page attributes
+		$this->page_attributes->page_title			= $data['data']['name'];     
 		$this->page_attributes->page_subtitle       = $data['data']['name'];     
 		$this->page_attributes->breadcrumb          = array_merge(
 															$this->page_attributes->breadcrumb,
@@ -165,6 +166,7 @@ class BranchController extends BaseController
 		$this->page_datas->datas['branches']		= $branches['data']['data'];
 		$this->page_datas->datas['branch']			= $data['data'];
 		$this->page_datas->datas['id']				= $org_id;
+		$this->page_datas->datas['name']			= $data['data']['organisation']['name'];
 		$this->page_datas->cust_paging              = 0;
 		
 		//5. generate view
