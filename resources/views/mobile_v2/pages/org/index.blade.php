@@ -19,7 +19,6 @@
 		</div>
 
 		<div class="clearfix">&nbsp;</div>
-		<div class="clearfix">&nbsp;</div>
 
 		<!-- End of Search Box -->
 		
@@ -55,7 +54,7 @@
 		])
 		<!-- End of Modal Delete -->
 		<!-- Button Create -->
-		<a class="link-white background-blue link-round-100 font-size-50 padding-right-15 padding-left-22" id="link-add-fixed" href="{{route('org.create')}}"><i class ="ion-android-add"></i></a>
+		<a class="link-white background-blue link-round-100 font-size-25 padding-right-7 padding-left-12" id="link-add-fixed-small" href="{{route('org.create')}}"><i class ="ion-android-add"></i></a>
 		<!-- End of Button Create -->
 	</div>
 </div>

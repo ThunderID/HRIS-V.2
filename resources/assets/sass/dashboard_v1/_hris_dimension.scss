@@ -177,6 +177,14 @@
   box-shadow:0px 0px 3px rgba(86, 96, 117, 0.698);
 }
 
+#link-add-fixed-small {
+  position: fixed;
+  bottom: 15px;
+  right: calc(100% / 12);
+  width: 40px;
+  box-shadow:0px 0px 3px rgba(86, 96, 117, 0.698);
+}
+
 //fileupload
 .file-upload-box {
   position: relative;

@@ -7804,6 +7804,13 @@ button.button-white {
   width: 75px;
   box-shadow: 0px 0px 3px rgba(86, 96, 117, 0.698); }
 
+#link-add-fixed-small {
+  position: fixed;
+  bottom: 15px;
+  right: calc(100% / 12);
+  width: 40px;
+  box-shadow: 0px 0px 3px rgba(86, 96, 117, 0.698); }
+
 .file-upload-box {
   position: relative;
   overflow: hidden;
@@ -7851,7 +7858,10 @@ button.button-white {
   font-size: 25px; }
 
 .font-size-28 {
-  font-size: 25px; }
+  font-size: 28px; }
+
+.font-size-35 {
+  font-size: 35px; }
 
 .font-size-50 {
   font-size: 50px; }
@@ -8019,6 +8029,9 @@ a.link-round-100 {
 .padding-top-13 {
   padding-top: 13px; }
 
+.padding-top-15 {
+  padding-top: 15px; }
+
 .padding-top-18 {
   padding-top: 18px; }
 
@@ -8067,6 +8080,9 @@ a.link-round-100 {
 .padding-left-5 {
   padding-left: 5px; }
 
+.padding-left-12 {
+  padding-left: 12px; }
+
 .padding-left-15 {
   padding-left: 15px; }
 
@@ -8091,6 +8107,9 @@ a.link-round-100 {
 .padding-right-0 {
   padding-right: 0px; }
 
+.padding-right-7 {
+  padding-right: 7px; }
+
 .padding-right-15 {
   padding-right: 15px; }
 
@@ -8105,6 +8124,9 @@ a.link-round-100 {
 
 .padding-right-50 {
   padding-right: 50px; }
+
+.padding-right-60 {
+  padding-right: 60px; }
 
 .padding-0 {
   padding: 0px; }
