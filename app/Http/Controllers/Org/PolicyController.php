@@ -68,6 +68,7 @@ class PolicyController extends BaseController
 
 		//4. set page datas
 		$this->page_datas->datas['id']				= $org_id;
+		$this->page_datas->datas['name']			= $organisation['data']['name'];
 
 		//5. generate view
 		$this->page_attributes->breadcrumb          = array_merge(
