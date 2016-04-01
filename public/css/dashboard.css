@@ -7662,7 +7662,16 @@ button.button-shade-blue {
 
 button.button-white {
   background-color: #FFFFFF;
-  color: #373A3C; }
+  color: #373A3C;
+  display: inline-block;
+  padding: 1px 15px;
+  line-height: 1.9;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  border-radius: 0;
+  border: none; }
 
 .max-height-50 {
   max-height: 50px; }
