@@ -214,6 +214,7 @@ class BranchController extends BaseController
 															$this->page_attributes->breadcrumb,
 															[
 																$org['data']['name'] => route('org.show', ['id' => $org_id]),
+																'Cabang' => route('branch.index', ['org_id' => $org_id]),
 																'Edit Cabang ' . $data['data']['name'] => $current_route,
 															]
 														);                           
@@ -237,13 +238,20 @@ class BranchController extends BaseController
 															$this->page_attributes->breadcrumb,
 															[
 																$org['data']['name'] => route('org.show', ['id' => $org_id]),
+																'Cabang' => route('branch.index', ['org_id' => $org_id]),
 																'Cabang Baru' => $current_route,
 															]
 														);               
 		}      
 
+		$APIBranch									= new APIBranch;
+		$branches									= $APIBranch->getIndex($org_id, [
+														]);
+
 		//4. set page datas
-		$this->page_datas->datas                    = $data['data'];
+		$this->page_datas->datas['id']				= $org_id;
+		$this->page_datas->datas['branch']			= $data['data'];
+		$this->page_datas->datas['branches']		= $branches['data']['data'];
 
 		//5. generate view
 		$view_source                                = $this->view_source_root . '.create';

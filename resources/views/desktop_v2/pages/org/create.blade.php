@@ -8,7 +8,7 @@
 		<!-- Title -->
 		<div class="row">
 			<div class="col-sm-12">
-				<h3 class="padding-top-13">{{$page_attributes->page_subtitle}} {{$page_attributes->page_title}} </h3>
+				<h3 class="padding-top-13">{{$page_attributes->page_subtitle}} </h3>
 			</div>
 		</div>
 

@@ -7647,6 +7647,19 @@ button.button-blue {
   border-radius: 0;
   border: none; }
 
+button.button-shade-blue {
+  background-color: #E6EDF3;
+  color: #2A5196;
+  display: inline-block;
+  padding: 1px 15px;
+  line-height: 1.9;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  border-radius: 0;
+  border: none; }
+
 button.button-white {
   background-color: #FFFFFF;
   color: #373A3C; }
@@ -7903,7 +7916,7 @@ a.link-round-100 {
   text-decoration: none; }
   .link-square-gray:hover, .link-square-gray focus {
     background-color: #F7F7F7 !important;
-    color: #1A1718;
+    color: #1A1718 !important;
     text-decoration: none;
     border-radius: 0px; }
 
@@ -8030,6 +8043,9 @@ a.link-round-100 {
 
 .padding-bottom-7 {
   padding-bottom: 7px; }
+
+.padding-bottom-15 {
+  padding-bottom: 15px; }
 
 .padding-left-0 {
   padding-left: 0px; }

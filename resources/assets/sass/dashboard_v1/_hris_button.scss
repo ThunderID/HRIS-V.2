@@ -34,6 +34,18 @@ button.button-blue{
 	border: none;
 }
 
+button.button-shade-blue{
+	background-color: #E6EDF3;
+	color: #2A5196;
+	display: inline-block;
+	padding: 1px 15px;
+	line-height: 1.9;
+	appearance: none;
+	box-shadow: none;
+	border-radius: 0;
+	border: none;
+}
+
 button.button-white{
 	background-color: #FFFFFF;
 	color: #373A3C;

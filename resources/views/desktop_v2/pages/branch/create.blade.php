@@ -1,99 +1,68 @@
-<div class="row">
-	<h2>Page Attributes ($page_attributes)</h2>
-</div>
+@extends('desktop_v2.page_templates.wireframe_with_menu')
 
-<div class="row">
-	<h4>Title : {{$page_attributes->page_title}}</h4>
-</div>
+@section('content')
 
+<!-- Branch Index -->
 <div class="row">
-	<h4>subtitle : {{$page_attributes->page_subtitle}}</h4>
-</div>
+	<div class="col-md-3">
+		@include('desktop_v2.components.grand_search_box', ['search_name' => 'q', 'search_placeholder' => 'Cari Cabang', 'background_search_box' => 'background-light-blue', 'font_search_box' => 'font-dark-blue'])
+		<div id="slim-scroll" class="background-white">
+			<!-- Content -->
+			<div class="row">
+				@forelse($page_datas->datas['branches'] as $key => $dt)
 
-<div class="row">
-	<h4>breadcrumb : 
-		@foreach($page_attributes->breadcrumb as $bc => $dt)
-			</br>
-			<a href="{{$dt}}">{{$bc}}</a>
-		@endforeach
-	</h4>
-</div>
-
-<div class="row">
-	<h4>filter : 
-		@foreach($page_attributes->filters as $key => $filter)
-			</br>
-			{{$key}} =>
-				@foreach($filter as $dt)
-					{{$dt}}
-					&nbsp;
-				@endforeach
-		@endforeach
-	</h4>
-</div>
-
-<div class="row">
-	<h4>sort : 
-		@foreach($page_attributes->sorts as $key => $sort)
-			</br>
-			{{$key}} => </br>
-				@foreach($sort as $k => $dt)
-					&nbsp; {{$k}} => {{$dt}}
-					</br>
-				@endforeach
-		@endforeach
-	</h4>
-</div>
-
-<div class="row">
-	<h2>Form</h2>
-</div>
-
-<div class="row">
-	@if(!empty($page_datas->datas['id']))
-    {!! Form::open(['url' => route('branch.update', ['org_id' => $page_datas->datas['organisation_id'], 'id' => $page_datas->datas['id']]), 'method' => 'PATCH']) !!}
-    @else
-    {!! Form::open(['url' => route('branch.store', ['org_id' => $page_datas->datas['organisation_id']]), 'method' => 'POST']) !!}
-    @endif
-
-		<div class="row">
-			<label for="tag">Name</label>
-			{!! Form::text('name',  $page_datas->datas['name'], [
-			]) !!}
+				<div class="col-sm-12">
+					@include('desktop_v2.components.card_plain', ['card_content' => $dt])
+				</div>
+				
+				@empty
+					<div class="col-md-12 col-sm-12">
+						<p class="background-white padding-15">Tidak ada data cabang</p>
+					</div>
+				@endforelse
+			</div>
+			<!-- End of Content -->			
 		</div>
-
-		<div class="row">
-			<label for="tag">Address</label>
-			{!! Form::text('address',  $page_datas->datas['address'], [
-			]) !!}
+	</div>
+	<div class="col-md-9 margin-left-negative-10">
+		<div class="row background-shade-blue text-xs-right">
+			@include('desktop_v2.components.secondary_navbar')
 		</div>
-
-		<div class="row">
-			<label for="tag">Phone</label>
-			{!! Form::text('phone',  $page_datas->datas['phone'], [
-			]) !!}
+		<div class="row background-white">
+			<div class="col-sm-12 padding-15">
+				<div class="font-size-25 padding-bottom-15">
+					{{(($page_datas->datas['branch']['id']!='') ? $page_datas->datas['branch']['name'] : 'Tambah Cabang Baru')}}
+				</div>
+				 <fieldset class="form-group">
+					<label for="branchname">Nama Cabang</label>
+					<input name="name" value="{{$page_datas->datas['branch']['name']}}" class="form-control" id="branchname" placeholder="Masukkan nama perusahaan">
+				</fieldset>
+				<fieldset class="form-group">
+					<label for="branchphone">Telepon</label>
+					<input name="phone" value="{{$page_datas->datas['branch']['phone']}}" class="form-control" id="branchphone" placeholder="Masukkan telepon perusahaan">
+				</fieldset>
+				<fieldset class="form-group">
+					<label for="branchmail">Email</label>
+					<input name="mail" value="{{$page_datas->datas['branch']['phone']}}" class="form-control" id="branchmail" placeholder="Masukkan email perusahaan">
+					<small class="text-muted">Email harus unik</small>
+				</fieldset>
+				<fieldset class="form-group">
+					<label for="branchaddress">Alamat</label>
+					<textarea name="address" class="form-control" id="branchaddress" placeholder="Masukkan alamat kantor cabang">
+						{{$page_datas->datas['branch']['address']}}
+					</textarea>
+				</fieldset>
+				{!!Form::close()!!}
+			</div>
 		</div>
-
-		<div class="row">
-			<label for="tag">Email</label>
-			{!! Form::text('email',  $page_datas->datas['email'], [
-			]) !!}
-		</div>
-
-		<div class="row">
-			<a href="{{ URL::route('org.index') }}">Batal</a>
-			<button>Simpan</button>
-	 	</div>
-    {!! Form::close() !!}
+	</div>
 </div>
 
-<div class="row">
-	<h2>Page Datas ($page_datas)</h2>
-</div>
+<!-- End of Branch Index -->
+@stop
 
-<div class="row">
-	<?php
-		var_dump($page_datas->datas);
-	?>
-</div>
-
+@section('js')
+	<script type="text/javascript">
+		hris_slimscroll.init();
+	</script>
+@stop

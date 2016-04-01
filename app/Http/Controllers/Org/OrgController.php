@@ -175,7 +175,7 @@ class OrgController extends BaseController
 			//2. set page attributes
 			$current_route                           = route(Route::CurrentRouteName(),['id' => $id]);
 
-			$this->page_attributes->page_subtitle    = 'Edit';     
+			$this->page_attributes->page_subtitle    = 'Edit '. $data['data']['name'];     
 			$this->page_attributes->breadcrumb       = array_merge(
 															$this->page_attributes->breadcrumb,
 															['Edit ' . $data['data']['name'] => $current_route]
@@ -189,10 +189,10 @@ class OrgController extends BaseController
 			//2. set page attributes
 			$current_route                           = route(Route::CurrentRouteName());
 
-			$this->page_attributes->page_subtitle    = 'Data Baru';     
+			$this->page_attributes->page_subtitle    = 'Perusahaan Baru';     
 			$this->page_attributes->breadcrumb       = array_merge(
 															$this->page_attributes->breadcrumb,
-															['Data Baru' => $current_route]
+															['Perusahaan Baru' => $current_route]
 														);               
 		}      
 
