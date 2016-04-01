@@ -7709,6 +7709,12 @@ button.button-white {
 .left-15 {
   left: 15px; }
 
+.bottom-15 {
+  bottom: 15px; }
+
+.bottom-30 {
+  bottom: 30px; }
+
 .private-menu {
   margin-top: -3px;
   margin-right: -75px;
@@ -7870,9 +7876,6 @@ button.button-white {
 
 .position-absolute {
   position: absolute; }
-
-.bottom-15 {
-  bottom: 15px; }
 
 a.link-white {
   color: #FFFFFF;

@@ -2,6 +2,7 @@
 
 use App\API\Connectors\APIOrg;
 use App\API\Connectors\APIBranch;
+use App\API\Connectors\APIChart;
 
 use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Helper\SortList;
@@ -144,6 +145,9 @@ class BranchController extends BaseController
 		$branches									= $APIBranch->getIndex($org_id, [
 														]);
 
+		$APIChart									= new APIChart;
+		$charts										= $APIChart->getIndex($org_id, $id);  
+
 		//3. set page attributes
 		$this->page_attributes->page_subtitle       = $data['data']['name'];     
 		$this->page_attributes->breadcrumb          = array_merge(
@@ -156,6 +160,7 @@ class BranchController extends BaseController
 														);
 
 		//4. set page datas
+		$this->page_datas->datas['charts']			= $charts['data']['data'];
 		$this->page_datas->datas['branches']		= $branches['data']['data'];
 		$this->page_datas->datas['branch']			= $data['data'];
 		$this->page_datas->datas['id']				= $org_id;

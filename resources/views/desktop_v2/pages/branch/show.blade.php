@@ -38,14 +38,39 @@
 		<div class="row background-shade-blue">
 			@include('desktop_v2.components.secondary_navbar', ['action_create_button' => route('branch.create', ['org_id' => $page_datas->datas['id']]), 'action_edit_button' =>  route('branch.edit', ['org_id' => $page_datas->datas['id'], 'branch' => $page_datas->datas['branch']['id']])])
 		</div>
-		<div class="row background-gray-238">
+		<div class="row background-white">
 			<div class="col-md-12 text-xs-left">
 				@include('desktop_v2.components.single_card', ['card_content' => $page_datas->datas['branch']])
+
+				<div class="row text-xs-center">
+					<div class="col-sm-12">
+						<p class="font-size-25">Struktur Organisasi Cabang {{$page_datas->datas['branch']['name']}}</p>
+					</div>
+					
+					@forelse($page_datas->datas['charts'] as $key => $dt)
+
+					<div class="col-md-3 col-sm-12">
+						@include('desktop_v2.components.node', ['card_content' => $dt])
+					</div>
+					
+					@empty
+						<div class="col-md-12 col-sm-12">
+							<p class="background-white padding-15">Tidak ada data struktur organisasi</p>
+						</div>
+					@endforelse
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
 <!-- End of Branch Index -->
+
+<!-- Modal Delete -->
+@include('desktop_v2.components.modal_delete', [
+		'modal_id'      => 'organisation_del', 
+		'modal_route'   => ''
+])
+<!-- End of Modal Delete -->
 @stop
 
 @section('js')

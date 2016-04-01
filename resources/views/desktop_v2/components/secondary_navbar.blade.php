@@ -26,12 +26,5 @@
 				<i class="ion-android-delete"></i> Hapus
 			</a>
 		</a>
-
-		<!-- Modal Delete -->
-		@include('desktop_v2.components.modal_delete', [
-				'modal_id'      => 'organisation_del', 
-				'modal_route'   => ''
-		])
-		<!-- End of Modal Delete -->
 	@endif
 </div>
