@@ -45,4 +45,14 @@
 			</div>
 		</a>
 	</div>
+		<div class="col-md-2 col-sm-3 text-xs-center">
+		<a href="{{route('employee.index', ['org_id' => $page_datas->datas['id']])}}" class="link-menu">
+			<div class="card padding-top-30">
+				<img class="card-img-top" src="{{url('/assets/img/menu/collaborator-96.png')}}" alt="Card image cap" style="vertical-align:center;">
+				<div class="card-block">
+					<p class="card-text">Karyawan</p>
+				</div>
+			</div>
+		</a>
+	</div>
 </div>

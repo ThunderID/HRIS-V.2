@@ -7939,6 +7939,7 @@ a.link-round-100 {
   border-radius: 0px;
   padding: 10px 30px;
   color: #1A1718;
+  background-color: #FFFFFF !important;
   text-decoration: none; }
   .link-square-gray:hover, .link-square-gray focus {
     background-color: #F7F7F7 !important;
@@ -7965,6 +7966,30 @@ a.link-round-100 {
   text-decoration: none; }
   .link-square-blue:hover, .link-square-blue focus {
     background-color: #F7F7F7 !important;
+    color: #1A1718 !important;
+    text-decoration: none;
+    border-radius: 0px; }
+
+.link-square-gray-225 {
+  border-radius: 0px;
+  padding: 10px 30px;
+  color: #1A1718 !important;
+  background-color: #E6E6E6 !important;
+  text-decoration: none; }
+  .link-square-gray-225:hover, .link-square-gray-225 focus {
+    background-color: #DCDCDC !important;
+    color: #1A1718 !important;
+    text-decoration: none;
+    border-radius: 0px; }
+
+.link-square-yellow {
+  border-radius: 0px;
+  padding: 10px 30px;
+  color: #1A1718 !important;
+  background-color: #FFFDEA !important;
+  text-decoration: none; }
+  .link-square-yellow:hover, .link-square-yellow focus {
+    background-color: #FFFBD2 !important;
     color: #1A1718 !important;
     text-decoration: none;
     border-radius: 0px; }
@@ -8189,7 +8214,7 @@ a.link-menu {
   padding: 35px; }
 
 .slim-scroll {
-  width: 98%;
+  width: 100%;
   height: 100%;
   overflow: scroll;
   overflow-x: hidden; }

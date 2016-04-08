@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="{{ elixir('css/dashboard.css') }}" media="screen" title="no title" charset="utf-8">
 
 		<link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="http://ionicons.com/css/ionicons.min.css?v=2.0.1">
+		{!! Html::style('/assets/css/ionicons.min.css') !!}
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

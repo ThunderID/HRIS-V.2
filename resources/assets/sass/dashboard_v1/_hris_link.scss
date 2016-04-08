@@ -46,6 +46,7 @@ a.link-round-100{
 	border-radius: 0px;
 	padding : 10px 30px;
 	color: #1A1718;
+	background-color : #FFFFFF !important;
 	text-decoration: none;
 	&:hover, focus {
 		background-color : #F7F7F7 !important;
@@ -76,6 +77,34 @@ a.link-round-100{
 	text-decoration: none;
 		&:hover, focus {
 		background-color : #F7F7F7 !important;
+		color: #1A1718 !important;
+		text-decoration: none;
+		border-radius: 0px;
+	}
+}
+
+.link-square-gray-225{
+	border-radius: 0px;
+	padding : 10px 30px;
+	color: #1A1718 !important;
+	background-color : #E6E6E6 !important;
+	text-decoration: none;
+		&:hover, focus {
+		background-color : #DCDCDC !important;
+		color: #1A1718 !important;
+		text-decoration: none;
+		border-radius: 0px;
+	}
+}
+
+.link-square-yellow{
+	border-radius: 0px;
+	padding : 10px 30px;
+	color: #1A1718 !important;
+	background-color : #FFFDEA !important;
+	text-decoration: none;
+		&:hover, focus {
+		background-color : #FFFBD2 !important;
 		color: #1A1718 !important;
 		text-decoration: none;
 		border-radius: 0px;
