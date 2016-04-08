@@ -15,10 +15,7 @@
 							<p class="font-size-18 margin-bottom-0 padding-15">Karyawan</p>
 						</div>
 						<div class="col-sm-6 text-xs-right">
-							<div class="dropdown">
-								<span><p class="font-size-18 margin-bottom-0 padding-top-15"><a class="link-blue" href=""><i class="ion-funnel"></i></a></p></span>
-								
-							</div>
+							<a href="#" class="link-blue font-size-16 link-filter-menu" role="button" aria-haspopup="true"><p class="font-size-18 margin-bottom-0 padding-top-15"><i class="ion-funnel"></i></a>
 						</div>
 					</div>
 				</div>
@@ -38,9 +35,6 @@
 		</div>
 	</div>
 	<div class="col-md-9 margin-left-negative-10">
-		<div class="dropdown-content">
-			<p>Hello World!</p>
-		</div>
 		<div class="row background-shade-blue">
 			@include('desktop_v2.components.secondary_navbar', ['action_create_button' => route('employee.create', ['org_id' => $page_datas->datas['id']])])
 		</div>
@@ -50,6 +44,48 @@
 			</div>
 		</div>
 	</div>
+
+	<ul class="dropdown-menu filter-menu filter-menu-employee" style="position:absolute; display:none; left: 345px; top: 145px;">
+		<li class="dropdown-item border-bottom-1">
+			<div class="row">
+				<div class="col-sm-9 padding-10">
+					<p class="font-size-16 font-black margin-bottom-0">Alat Pencarian</p>
+				</div>
+				<div class="col-sm-3 padding-10">
+					<a href="#" class="link-blue font-size-16 link-filter-menu-close" style="float:right;" role="button" aria-haspopup="true"><i class="ion-android-close"></i></a>
+				</div>
+			</div>	
+		</li>
+		<li class="dropdown-item padding-top-10">
+			<div class="row padding-bottom-10">
+				<div class="col-sm-3">
+					<div class="slim-scroll-mini border-right-1">
+						<p>Filter</p>
+						<p>Urutkan</p>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="slim-scroll-mini border-right-1 padding-left-0">
+						<p>Cabang</p>
+						<p>Department</p>
+						<p>Jabatan</p>
+						<p>Kelas Jabatan</p>
+						<p>Status Pekerjaan</p>
+						<p>Status Pernikahan</p>
+						<p>Mulai Bekerja</p>
+						<p>Berhenti Bekerja</p>
+					</div>
+				</div>
+				<div class="col-sm-5">
+					<div class="slim-scroll-mini padding-left-0">
+						<div class="filter-branch" style="display:none;">
+							<p>MMS</p>
+						</div>
+					</div>
+				</div> 
+			</div>	
+		</li>
+	</ul>
 </div>
 
 <!-- End of Employee Index -->
@@ -58,5 +94,7 @@
 @section('js')
 	<script type="text/javascript">
 		hris_slimscroll.init();
+		hris_slimscroll_mini.init();
+		hris_filter.init();
 	</script>
 @stop

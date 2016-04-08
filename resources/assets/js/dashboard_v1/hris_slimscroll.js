@@ -9,3 +9,14 @@
 	    });
 	},
 };
+
+; var hris_slimscroll_mini = {
+	
+	init  : function () {
+		doc_height = 225;
+
+   		$('.slim-scroll-mini').slimScroll({
+	        height: doc_height
+	    });
+	},
+};

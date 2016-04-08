@@ -122,6 +122,17 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 	},
 };
 
+; var hris_slimscroll_mini = {
+	
+	init  : function () {
+		doc_height = 225;
+
+   		$('.slim-scroll-mini').slimScroll({
+	        height: doc_height
+	    });
+	},
+};
+
 ; var hris_modal_chart_edit = {
 
     init: function(){
@@ -145,6 +156,18 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
     }
 };
 
+
+; var hris_filter = {
+	
+	init  : function () {
+		$('.link-filter-menu').click(function(){
+			$('.filter-menu-employee').css('display', 'block');
+		});
+		$('.link-filter-menu-close').click(function(){
+			$('.filter-menu-employee').css('display', 'none');
+		});
+	},
+};
 
 /*!
  * Bootstrap v4.0.0-alpha.2 (http://getbootstrap.com)

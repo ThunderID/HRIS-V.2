@@ -78,9 +78,9 @@
   border: 0; // For `<button>`s
 
   @include hover-focus {
-    color: $dropdown-link-hover-color;
-    text-decoration: none;
-    background-color: $dropdown-link-hover-bg;
+//    color: $dropdown-link-hover-color;
+//    text-decoration: none;
+//    background-color: $dropdown-link-hover-bg;
   }
 
   // Active state
