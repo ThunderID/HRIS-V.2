@@ -341,9 +341,9 @@ abstract class BaseController extends Controller
 
 		foreach ($filters as $key => $tmp) 
 		{
-			if (Input::has($key))
+			if (Input::has($tmp))
 			{
-				$filter[$key]						= Input::get($key); 
+				$filter[$tmp]						= Input::get($tmp); 
 			}
 		}
 

@@ -98,5 +98,38 @@ class APIChart extends APIData
 		$this->apiData 					= array_merge($this->apiData);
 
 		return $this->delete();
-	}		
+	}
+
+	/**
+	 * { getDepartment }
+	 *
+	 * @param
+	 * 1. $org_id 		: org id    
+	 *
+	 * @return
+	 * 1. index data
+	 */
+	public function getDepartments($org_id = 0)
+	{
+		$this->apiUrl 					= '/organisation/'.$org_id.'/departments';
+
+		return $this->get();
+	}	
+
+	/**
+	 * { getPosition }
+	 *
+	 * @param
+	 * 1. $org_id 		: org id    
+	 *
+	 * @return
+	 * 1. index data
+	 */
+	public function getPositions($org_id = 0)
+	{
+		$this->apiUrl 					= '/organisation/'.$org_id.'/positions';
+
+		return $this->get();
+	}	
+
 }

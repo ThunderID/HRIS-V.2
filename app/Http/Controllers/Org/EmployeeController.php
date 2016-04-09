@@ -2,6 +2,8 @@
 
 use App\API\Connectors\APIOrg;
 use App\API\Connectors\APIEmployee;
+use App\API\Connectors\APIBranch;
+use App\API\Connectors\APIChart;
 
 use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Helper\SortList;
@@ -57,20 +59,26 @@ class EmployeeController extends BaseController
 
 		$this->page_attributes->page_subtitle       = 'index';
 		//dummy
+
 		$this->page_attributes->filters             =   [
-															'b'             => ['ab', 'ba'],
-															'c'             => ['ac', 'ca'],
+															'branchname',
+															'department',
+															'position',
+															'currentgrade',
+															'workstatus',
+															'currentmaritalstatus',
+															'workstart',
+															'workend',
 														];
 		//dummy
 		$this->page_attributes->sorts               =   [
 															'nama'          => $SortList->getSortingList('nama')
 														];       
-
 		//2. get data parameter
 		$data_parameter                             = $this->setPageDataParameter();
 
 		//3. get data
-		$APIEmployee									= new APIEmployee;
+		$APIEmployee								= new APIEmployee;
 		$search                                     = array_merge(
 															['nameornik' => $data_parameter['search']],
 															$data_parameter['filter']
@@ -87,8 +95,27 @@ class EmployeeController extends BaseController
 														'skip'      => ($data_parameter['page'] - 1) * $data_parameter['take'],
 														]);
 
+		$APIBranch									= new APIBranch;
+		$APIChart									= new APIChart;
+
+		$branches									= $APIBranch->getIndex($org_id, [
+														]);
+		$positions									= $APIChart->getPositions($org_id, [
+														]);
+		$departments								= $APIChart->getDepartments($org_id, [
+														]);
+		$maritalstatuses							= $APIEmployee->getMaritalStatuses($org_id, [
+														]);
+		$grades										= $APIEmployee->getGrades($org_id, [
+														]);
 		//4. set page datas
-		$this->page_datas->datas['employees']		= $data['data'];
+		$this->page_datas->datas['employees']		= $data['data']['data'];
+		$this->page_datas->datas['branches']		= $branches['data']['data'];
+		$this->page_datas->datas['positions']		= $positions['data'];
+		$this->page_datas->datas['departments']		= $departments['data'];
+		$this->page_datas->datas['maritalstatuses']	= $maritalstatuses['data'];
+		$this->page_datas->datas['grades']			= $grades['data'];
+		
 		$this->page_datas->datas['id']				= $org_id;
 		$this->page_datas->datas['name']			= $organisation['data']['name'];
 

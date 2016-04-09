@@ -94,5 +94,37 @@ class APIEmployee extends APIData
 		$this->apiData 					= array_merge($this->apiData,  ["id" => $id]);
 
 		return $this->delete();
-	}		
+	}
+
+	/**
+	 * { getGrade }
+	 *
+	 * @param
+	 * 1. $org_id 		: org id    
+	 *
+	 * @return
+	 * 1. index data
+	 */
+	public function getGrades($org_id = 0)
+	{
+		$this->apiUrl 					= '/organisation/'.$org_id.'/grades';
+
+		return $this->get();
+	}	
+
+	/**
+	 * { getMaritalStatus }
+	 *
+	 * @param
+	 * 1. $org_id 		: org id    
+	 *
+	 * @return
+	 * 1. index data
+	 */
+	public function getMaritalStatuses($org_id = 0)
+	{
+		$this->apiUrl 					= '/organisation/'.$org_id.'/marital/statuses';
+
+		return $this->get();
+	}	
 }

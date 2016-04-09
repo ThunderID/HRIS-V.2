@@ -146,11 +146,11 @@ abstract class APIData
 				dd($result);
 		    }
 
-		    if(empty($result['data']))
-		    {
-				print_r("RESPONSE ERROR : NO DATA FROM SERVER!");
-				dd($result);
-		    }
+		  //   if(empty($result['data']))
+		  //   {
+				// print_r("RESPONSE ERROR : NO DATA FROM SERVER!");
+				// dd($result);
+		  //   }
 		} 
 		catch (Exception $e) 
 		{
