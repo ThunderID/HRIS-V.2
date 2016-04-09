@@ -35,7 +35,10 @@ class BranchController extends BaseController
 
 		$this->page_attributes->page_title             = 'Cabang';
 		$this->page_attributes->breadcrumb             =    [
-															];        
+															];
+															
+        $this->middleware('password.needed', ['only' => ['destroy']]);
+
 	}
 
 	/**

@@ -36,7 +36,8 @@ class EmployeeController extends BaseController
 
 		$this->page_attributes->page_title             = 'Karyawan';
 		$this->page_attributes->breadcrumb             =    [
-															];        
+															];
+        $this->middleware('password.needed', ['only' => ['destroy']]);
 	}
 
 	/**
@@ -485,6 +486,83 @@ class EmployeeController extends BaseController
 			$datas[$key]['name']                    = ucwords($dt['name']);
 		}                                       
 
-		return $datas;          
-	}            
+		return $datas;
+	}
+
+	/**
+	 * { generateNIK }
+	 *
+	 * @param     
+	 *1. code
+	 *2. id
+	 *3. join year
+	 *
+	 * @return
+	 * 1. nik
+	 * 
+	 * Step:
+	 * 1. get data
+	 * 2. validate
+	 * 3. returning data
+	 */
+	public function generateNIK($code = null, $id = null, $join_year = 00)
+	{
+		//1. get data
+		if(is_null($code))
+		{
+			App::abort(403, 'code Organisasi tidak ada');
+		}
+
+		$APIEmployee		= new APIEmployee;
+
+		$Employee			= $APIEmployee->getNIK($code, $id, $join_year);
+
+		//2. validate
+		if($Employee['status'] != 'success')
+		{
+			return abort(404);
+		}
+
+		//3. returning data
+
+		return $Employee['data']['nik'];
+	}
+
+	/**
+	 * { generateUsername }
+	 *
+	 * @param     
+	 *1. code
+	 *2. name
+	 *
+	 * @return
+	 * 1. username
+	 * 
+	 * Step:
+	 * 1. get data
+	 * 2. validate
+	 * 3. returning data
+	 */
+	public function generateUsername($code = null, $name = null)
+	{
+		//1. get data
+		if(is_null($code))
+		{
+			App::abort(403, 'code Organisasi tidak ada');
+		}
+
+		$APIEmployee		= new APIEmployee;
+
+		$Employee			= $APIEmployee->getUsername($code, $name);
+
+		//2. validate
+		if($Employee['status'] != 'success')
+		{
+			return abort(404);
+		}
+
+		//3. returning data
+
+		return $Employee['data']['username'];
+	}
 }

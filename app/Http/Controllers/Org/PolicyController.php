@@ -26,7 +26,9 @@ class PolicyController extends BaseController
 
 		$this->page_attributes->page_title             = 'Kebijakan';
 		$this->page_attributes->breadcrumb             =    [
-															];        
+															];
+															
+        $this->middleware('password.needed', ['only' => ['destroy']]);
 	}
 
 	/**

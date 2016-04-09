@@ -23,7 +23,7 @@
 								data-target="#organisation_del"
 								data-id="{{$card_content['id']}}"
 								data-title="Hapus Data Cabang {{$card_content['name']}}"
-								data-effect="Menghapus data akan menghapus struktur organisasi. Lanjutkan Menghapus ?"
+								data-effect="Menghapus data akan menghapus struktur organisasi. Masukkan password Anda untuk melanjutkan "
 								data-action="{{ route('branch.destroy', ['org_id' => $card_content['organisation_id'], 'branch' => $card_content['id']]) }}">
 								<i class="ion-android-delete"></i> Hapus
 							</a>

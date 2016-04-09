@@ -33,7 +33,9 @@ class OrgController extends BaseController
 
 		$this->page_attributes->page_title             = 'Perusahaan';
 		$this->page_attributes->breadcrumb             =    [
-															];        
+															];
+															
+        $this->middleware('password.needed', ['only' => ['destroy']]);
 	}
 
 	/**

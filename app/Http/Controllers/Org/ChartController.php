@@ -35,7 +35,9 @@ class ChartController extends BaseController
 		$this->page_attributes->page_title             = 'Struktur';
 		$this->page_attributes->breadcrumb             =    [
 																'Perusahaan'    => route('org.index'),
-															];        
+															];
+
+        $this->middleware('password.needed', ['only' => ['destroy']]);
 	}
 
 	/**

@@ -38,7 +38,7 @@
 						data-target="#organisation_del"
 						data-id="{{$card_content['id']}}"
 						data-title="Hapus Data Struktur Organisasi {{$card_content['name']}}"
-						data-effect="Lanjutkan Menghapus ?"
+						data-effect="Masukkan password Anda untuk melanjutkan "
 						data-action="{{ route('chart.destroy', ['org_id' => $page_datas->datas['id'], 'branch' => $card_content['branch_id'], 'id' => $card_content['id']]) }}">
 						Hapus
 					</a>

@@ -103,7 +103,7 @@ class APIEmployee extends APIData
 	 * 1. $org_id 		: org id    
 	 *
 	 * @return
-	 * 1. index data
+	 * 1. distinct data
 	 */
 	public function getGrades($org_id = 0)
 	{
@@ -119,11 +119,47 @@ class APIEmployee extends APIData
 	 * 1. $org_id 		: org id    
 	 *
 	 * @return
-	 * 1. index data
+	 * 1. distinct data
 	 */
 	public function getMaritalStatuses($org_id = 0)
 	{
 		$this->apiUrl 					= '/organisation/'.$org_id.'/marital/statuses';
+
+		return $this->get();
+	}	
+
+
+	/**
+	 * { getNik }
+	 *
+	 * @param
+	 * 1. $code 		: org code    
+	 * 2. $id 			: employee id    
+	 * 3. $join_year	: 2 digits of joined year (start work)    
+	 *
+	 * @return
+	 * 1. nik
+	 */
+	public function getNik($code = 0, $id = 0, $join_year = 00)
+	{
+		$this->apiUrl 					= '/organisation/'.$code.'/nik/'.$id.'/'.$join_year;
+
+		return $this->get();
+	}	
+
+	/**
+	 * { getUsername }
+	 *
+	 * @param
+	 * 1. $code 		: org code    
+	 * 2. $name 		: employee full name    
+	 *
+	 * @return
+	 * 1. nik
+	 */
+	public function getUsername($code = 0, $name = 0)
+	{
+		$this->apiUrl 					= '/organisation/'.$code.'/username/'.$name;
 
 		return $this->get();
 	}	
