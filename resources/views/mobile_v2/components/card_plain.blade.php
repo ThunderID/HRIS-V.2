@@ -26,7 +26,6 @@
 								data-effect="Menghapus data akan menghapus struktur organisasi. Masukkan password Anda untuk melanjutkan "
 								data-action="{{ route('branch.destroy', ['org_id' => $card_content['organisation_id'], 'branch' => $card_content['id']]) }}">
 								<i class="ion-android-delete"></i> Hapus
-							</a>
 						</a>
 					</div>
 				</div>

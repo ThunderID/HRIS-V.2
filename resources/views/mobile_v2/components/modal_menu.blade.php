@@ -46,11 +46,11 @@
 		</a>
 	</div>
 	<div class="col-xs-6 text-xs-center">
-		<a href="{{route('policy.index', ['org_id' => $page_datas->datas['id']])}}" class="link-black">
-			<div class="card padding-top-15">
-				<img class="card-img-top" src="{{url('/assets/img/menu/police-badge-96.png')}}" alt="Card image cap" style="vertical-align:center;">
-				<div class="card-block padding-10">
-					<p class="card-text">Kebijakan</p>
+		<a href="{{route('employee.index', ['org_id' => $page_datas->datas['id']])}}" class="link-menu">
+			<div class="card padding-top-30">
+				<img class="card-img-top" src="{{url('/assets/img/menu/collaborator-96.png')}}" alt="Card image cap" style="vertical-align:center;">
+				<div class="card-block">
+					<p class="card-text">Karyawan</p>
 				</div>
 			</div>
 		</a>
