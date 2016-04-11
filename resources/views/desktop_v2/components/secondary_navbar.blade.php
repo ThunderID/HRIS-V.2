@@ -19,10 +19,10 @@
 		&nbsp;
 		<a class="link-blue font-14" href="javascript:void(0);" data-backdrop="static" data-keyboard="false" data-toggle="modal" 
 				data-target="#organisation_del"
-				data-id="{{$page_datas->datas['branch']['id']}}"
-				data-title="Hapus Data Cabang {{$page_datas->datas['branch']['name']}}"
-				data-effect="Menghapus cabang akan menghapus data struktur organisasi. Masukkan password Anda untuk melanjutkan "
-				data-action="{{ route('branch.destroy', ['org_id' => $page_datas->datas['id'], 'branch' => $page_datas->datas['branch']['id']]) }}">
+				data-id="{{$action_delete_id}}"
+				data-title="{{$action_delete_title}}"
+				data-effect="{{$action_delete_effect}}"
+				data-action="{{$action_delete_url}}">
 				<i class="ion-android-delete"></i> Hapus
 			</a>
 		</a>

@@ -2610,8 +2610,7 @@ input[type="button"].btn-block {
 .nav-tabs .nav-link {
   display: block;
   padding: 0.5em 1em;
-  border: 1px solid transparent;
-  border-radius: 0.25rem 0.25rem 0 0; }
+  border: 1px solid transparent; }
   .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
     border-color: #eceeef #eceeef #ddd; }
   .nav-tabs .nav-link.disabled, .nav-tabs .nav-link.disabled:focus, .nav-tabs .nav-link.disabled:hover {
@@ -7588,10 +7587,10 @@ a.bg-danger:focus, a.bg-danger:hover {
   border: 1px solid #DB141A; }
 
 .border-blue {
-  border: 1px solid #3F67AE; }
+  border-top: 1px solid #3F67AE; }
 
 .border-dark-blue {
-  border: 1px solid #2A5196; }
+  border-top: 1px solid #2A5196; }
 
 .border-gray-225 {
   border: 1px solid #E1E1E1; }
@@ -7724,6 +7723,9 @@ button.button-white {
 
 .height-300 {
   height: 300px; }
+
+.max-width-third {
+  max-width: 33%; }
 
 .width-85 {
   width: 85px; }
@@ -7914,6 +7916,15 @@ button.button-white {
 .font-gray-225 {
   color: #E1E1E1; }
 
+.font-gray-238 {
+  color: #EEEEEE; }
+
+.font-green {
+  color: #38AD1A; }
+
+.font-bold {
+  font-weight: bold; }
+
 .text-uppercase {
   text-transform: uppercase; }
 
@@ -7937,6 +7948,14 @@ a.link-blue {
   a.link-blue:hover, a.link-blue focus {
     background-color: none !important;
     color: #3F67AE;
+    text-decoration: none; }
+
+a.link-dark-blue {
+  color: #2A5196;
+  text-decoration: none; }
+  a.link-dark-blue:hover, a.link-dark-blue focus {
+    background-color: none !important;
+    color: #2A5196;
     text-decoration: none; }
 
 a.link-black {
@@ -8017,6 +8036,18 @@ a.link-round-100 {
     text-decoration: none;
     border-radius: 0px; }
 
+.link-square-green {
+  border-radius: 0px;
+  padding: 10px 15px;
+  border: 1px solid #E6E6E6;
+  background-color: #FFFFFF !important;
+  text-decoration: none; }
+  .link-square-green:hover, .link-square-green focus {
+    background-color: #FFFFFF !important;
+    border: 1px solid #38AD1A;
+    text-decoration: none;
+    border-radius: 0px; }
+
 a.link-transparent {
   text-decoration: none;
   background-color: transparent;
@@ -8043,6 +8074,9 @@ a.link-menu {
 
 .margin-top-8 {
   margin-top: 8px; }
+
+.margin-top-10 {
+  margin-top: 10px; }
 
 .margin-top-13 {
   margin-top: 13px; }
@@ -8169,6 +8203,9 @@ a.link-menu {
 
 .padding-bottom-15 {
   padding-bottom: 15px; }
+
+.padding-bottom-30 {
+  padding-bottom: 30px; }
 
 .padding-left-0 {
   padding-left: 0px; }

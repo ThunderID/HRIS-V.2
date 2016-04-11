@@ -163,18 +163,33 @@ class EmployeeController extends BaseController
 		}
 		if(is_null($id))
 		{
-			App::abort(403, 'Id cabang tidak ada');
+			App::abort(403, 'Id Karyawan tidak ada');
 		}        
 
 		//2. get data
-		$APIEmployee									= new APIEmployee;
+		$APIOrg										= new APIOrg;
+		$organisation								= $APIOrg->getShow($org_id);
+
+		$APIEmployee								= new APIEmployee;
 		$data                                       = $APIEmployee->getShow($org_id, $id);  
 
-		$Employeees									= $APIEmployee->getIndex($org_id, [
+		$employees									= $APIEmployee->getIndex($org_id, [
 														]);
 
+		$APIBranch									= new APIBranch;
 		$APIChart									= new APIChart;
-		$charts										= $APIChart->getIndex($org_id, $id);  
+
+		$branches									= $APIBranch->getIndex($org_id, [
+														]);
+		$positions									= $APIChart->getPositions($org_id, [
+														]);
+		$departments								= $APIChart->getDepartments($org_id, [
+														]);
+		$maritalstatuses							= $APIEmployee->getMaritalStatuses($org_id, [
+														]);
+		$grades										= $APIEmployee->getGrades($org_id, [
+														]);
+
 
 		//3. set page attributes
 		$this->page_attributes->page_title			= $data['data']['name'];     
@@ -182,18 +197,22 @@ class EmployeeController extends BaseController
 		$this->page_attributes->breadcrumb          = array_merge(
 															$this->page_attributes->breadcrumb,
 															[
-																$data['data']['organisation']['name'] => route('org.show', ['id' => $org_id]),
-																'Cabang' => route('employee.index', ['org_id' => $org_id]),
+																$organisation['data']['name'] => route('org.show', ['id' => $org_id]),
+																'Karyawan' => route('employee.index', ['org_id' => $org_id]),
 																$data['data']['name'] => route(Route::CurrentRouteName(), ['org_id' => $org_id, 'id' => $id]),
 															]
 														);
 
 		//4. set page datas
-		$this->page_datas->datas['charts']			= $charts['data']['data'];
-		$this->page_datas->datas['employees']		= $Employeees['data']['data'];
-		$this->page_datas->datas['Employee']			= $data['data'];
+		$this->page_datas->datas['branches']		= $branches['data']['data'];
+		$this->page_datas->datas['positions']		= $positions['data'];
+		$this->page_datas->datas['departments']		= $departments['data'];
+		$this->page_datas->datas['maritalstatuses']	= $maritalstatuses['data'];
+		$this->page_datas->datas['grades']			= $grades['data'];
+		$this->page_datas->datas['employees']		= $employees['data']['data'];
+		$this->page_datas->datas['employee']		= $data['data'];
 		$this->page_datas->datas['id']				= $org_id;
-		$this->page_datas->datas['name']			= $data['data']['organisation']['name'];
+		$this->page_datas->datas['name']			= $organisation['data']['name'];
 		$this->page_datas->cust_paging              = 0;
 		
 		//5. generate view
@@ -244,13 +263,13 @@ class EmployeeController extends BaseController
 			$current_route                           = route(Route::CurrentRouteName(),['org_id' => $org_id ,'id' => $id]);
 
 
-			$this->page_attributes->page_subtitle    = 'Edit Cabang '.$data['data']['name'];     
+			$this->page_attributes->page_subtitle    = 'Edit Karyawan '.$data['data']['name'];     
 			$this->page_attributes->breadcrumb       = array_merge(
 															$this->page_attributes->breadcrumb,
 															[
 																$org['data']['name'] => route('org.show', ['id' => $org_id]),
-																'Cabang' => route('employee.index', ['org_id' => $org_id]),
-																'Edit Cabang ' . $data['data']['name'] => $current_route,
+																'Karyawan' => route('employee.index', ['org_id' => $org_id]),
+																'Edit Karyawan ' . $data['data']['name'] => $current_route,
 															]
 														);                           
 		}
@@ -268,26 +287,26 @@ class EmployeeController extends BaseController
 			//3. set page attributes
 			$current_route                           = route(Route::CurrentRouteName(),['org_id' => $org_id]);
 
-			$this->page_attributes->page_subtitle    = 'Cabang Baru';     
+			$this->page_attributes->page_subtitle    = 'Karyawan Baru';     
 			$this->page_attributes->breadcrumb       = array_merge(
 															$this->page_attributes->breadcrumb,
 															[
 																$org['data']['name'] => route('org.show', ['id' => $org_id]),
-																'Cabang' => route('employee.index', ['org_id' => $org_id]),
-																'Cabang Baru' => $current_route,
+																'Karyawan' => route('employee.index', ['org_id' => $org_id]),
+																'Karyawan Baru' => $current_route,
 															]
 														);               
 		}      
 
 		$APIEmployee									= new APIEmployee;
-		$Employeees									= $APIEmployee->getIndex($org_id, [
+		$employees									= $APIEmployee->getIndex($org_id, [
 														]);
 
 		//4. set page datas
 		$this->page_datas->datas['id']				= $org_id;
 		$this->page_datas->datas['name']			= $org['data']['name'];
-		$this->page_datas->datas['Employee']			= $data['data'];
-		$this->page_datas->datas['employees']		= $Employeees['data']['data'];
+		$this->page_datas->datas['employee']		= $data['data'];
+		$this->page_datas->datas['employees']		= $employees['data']['data'];
 
 		//5. generate view
 		$view_source                                = $this->view_source_root . '.create';
@@ -381,11 +400,11 @@ class EmployeeController extends BaseController
 
 		if(!empty($id))
 		{
-		   $this->page_attributes->msg              = "Data Cabang Telah Diedit";
+		   $this->page_attributes->msg              = "Data Karyawan Telah Diedit";
 		}
 		else
 		{
-			$this->page_attributes->msg             = "Data Cabang Telah Ditambahkan";           
+			$this->page_attributes->msg             = "Data Karyawan Telah Ditambahkan";           
 		}
 
 		return $this->generateRedirectRoute('org.show',['id' => $org_id]);        
@@ -434,7 +453,7 @@ class EmployeeController extends BaseController
 			$this->errors                           = $result['message'];
 		}
 
-		$this->page_attributes->msg                 = "Data cabang telah dihapus";
+		$this->page_attributes->msg                 = "Data Karyawan telah dihapus";
 		
 		return $this->generateRedirectRoute('org.show', ['org_id' => $org_id]); 
 	}

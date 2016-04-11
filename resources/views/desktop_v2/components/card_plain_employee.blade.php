@@ -14,7 +14,7 @@
 ?>
 <div class="row margin-right-0">
 	<div class="col-sm-12 padding-15 {{isset($is_selected) && $is_selected ? 'link-square-blue' : $bg }}">
-		<a class="link-transparent" href="{{route('branch.show', ['org_id' => $card_content['organisation_id'], 'id' => $card_content['id']])}}">
+		<a class="link-transparent" href="{{route('employee.show', ['org_id' => $card_content['organisation_id'], 'id' => $card_content['id']])}}">
 			<div class="font-size-18 padding-left-15">
 				{{$card_content['name']}}
 				{!!$icon!!}

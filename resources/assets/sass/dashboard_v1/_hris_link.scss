@@ -18,6 +18,16 @@ a.link-blue{
 	}
 }
 
+a.link-dark-blue{
+	color: #2A5196;
+	text-decoration: none;
+	&:hover, focus {
+		background-color : none !important;
+		color: #2A5196;
+		text-decoration: none;
+	}
+}
+
 a.link-black{
 	color: #1A1718;
 	text-decoration: none;
@@ -106,6 +116,20 @@ a.link-round-100{
 		&:hover, focus {
 		background-color : #FFFBD2 !important;
 		color: #1A1718 !important;
+		text-decoration: none;
+		border-radius: 0px;
+	}
+}
+
+.link-square-green{
+	border-radius: 0px;
+	padding : 10px 15px;
+	border : 1px solid #E6E6E6;
+	background-color : #FFFFFF !important;
+	text-decoration: none;
+		&:hover, focus {
+		background-color : #FFFFFF !important;
+		border : 1px solid #38AD1A;
 		text-decoration: none;
 		border-radius: 0px;
 	}
