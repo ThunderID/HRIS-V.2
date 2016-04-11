@@ -246,7 +246,7 @@ abstract class BaseController extends Controller
 			// }
 		}
 
-		return 'desktop_v2';
+		return 'mobile_v2';
 	}
 
 
