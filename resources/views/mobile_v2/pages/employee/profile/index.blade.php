@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-sm-12">
+	<div class="col-sm-12 padding-right-30">
 		<div class="padding-top-15 font-size-18 padding-bottom-10">Profil </div>
 		<div class="slim-scroll">
 			<div class="row">

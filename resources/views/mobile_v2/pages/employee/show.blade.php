@@ -72,7 +72,7 @@
 			</div>
 
 			<div class="row padding-15">
-				<div class="col-sm-12 font-size-10"> 
+				<div class="col-sm-12 font-size-10 padding-right-0"> 
 					<ul class="nav nav-tabs">
 						<li class="nav-item">
 							<a class="nav-link active" href="#profile" data-toggle="tab">Profil</a>
