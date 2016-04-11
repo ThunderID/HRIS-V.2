@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-sm-12">
-		<h4 class="padding-top-15">Karir <a href=""><i class="ion-android-add"></i></a></h4>
+		<div class="padding-top-15 font-size-18 padding-bottom-10">Karir <a href=""><i class="ion-ios-plus-outline"></i></a></div>
 		<div class="slim-scroll">
 			@foreach($page_datas->datas['employee']['works'] as $key => $value)
 				<div class="row">

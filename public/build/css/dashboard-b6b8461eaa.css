@@ -7727,6 +7727,12 @@ button.button-white {
 .max-width-third {
   max-width: 33%; }
 
+.max-width-75 {
+  max-width: 75px; }
+
+.max-width-100 {
+  max-width: 100px; }
+
 .width-85 {
   width: 85px; }
 

@@ -46,7 +46,7 @@
 				<div class="slim-scroll">
 					<div class="row padding-left-15 padding-top-15 font-black">
 						<div class="col-sm-12">
-							<img src="http://cdncms.fonts.net/images/1fbc3283deeda23a/Letterhart.gif" class="img-circle max-width-third">
+							<img src="{{$page_datas->datas['employee']['avatar']}}" class="img-circle max-width-third">
 						</div>
 						
 						<div class="clearfix">&nbsp;</div>
@@ -126,7 +126,7 @@
 				</div>
 			</div>
 			<div class="col-sm-8 text-xs-left padding-right-0 padding-left-5">
-				<div class="slim-scroll background-white">
+				<div class="background-white">
 					<div class="row">
 						<div class="col-sm-12 padding-left-30 padding-top-15 padding-right-15"> 
 							<ul class="nav nav-tabs">
