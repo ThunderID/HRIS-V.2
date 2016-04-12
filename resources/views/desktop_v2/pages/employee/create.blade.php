@@ -34,10 +34,14 @@
 			<!-- End of Content -->			
 		</div>
 	</div>
+	@if($page_datas->datas['employee']['id']!='')
+		{!! Form::open(['url' => route('employee.update', ['org_id' => $page_datas->datas['id'], 'employee' => $page_datas->datas['employee']['id']]), 'method' => 'PATCH']) !!}
+	@else
+		{!! Form::open(['url' => route('employee.store', ['org_id' => $page_datas->datas['id']]), 'method' => 'POST']) !!}
+	@endif
 	<div class="col-md-9 margin-left-negative-10">
 		<div class="row background-shade-blue text-xs-right">
-			@include('desktop_v2.components.secondary_navbar', ['action_create_id' => $page_datas->datas['employee']['id'], 'action_store_route' => route('employee.store', ['org_id' => $page_datas->datas['id']]), 
-			'action_update_route' => route('employee.update', ['org_id' => $page_datas->datas['id'], 'employee' => $page_datas->datas['employee']['id']]),
+			@include('desktop_v2.components.secondary_navbar', ['action_create_id' => $page_datas->datas['employee']['id'], 
 			'action_redirect_route' => route('employee.index', ['org_id' => $page_datas->datas['id']])
 			])
 		</div>
@@ -80,10 +84,10 @@
 							<fieldset class="form-group">
 								<label for="employegender">Jenis Kelamin</label>
 								<select name="gender" class="form-control" id="employegender">
-									<option @if($page_datas->datas['employee']['gender'] == 'male') class="selected" @endif>
+									<option @if($page_datas->datas['employee']['gender'] == 'male') class="selected" @endif value="male">
 										Pria
 									</option>
-									<option @if($page_datas->datas['employee']['gender'] == 'female') class="selected" @endif>
+									<option @if($page_datas->datas['employee']['gender'] == 'female') class="selected" @endif value="female">
 										Wanita
 									</option>
 								</select>
@@ -154,11 +158,11 @@
 						<div class="clearfix">&nbsp;</div>
 						<div class="clearfix">&nbsp;</div>
 					@endif
-					{!!Form::close()!!}
 				</div>
 			</div>
 		</div>
 	</div>
+	{!!Form::close()!!}
 
 	@include('desktop_v2.components.modal_filter')
 </div>

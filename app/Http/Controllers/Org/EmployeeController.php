@@ -8,6 +8,7 @@ use App\API\Connectors\APIChart;
 use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Helper\SortList;
 use Input, Route;
+use Carbon\Carbon;
 
 /**
  * { OrgController Class }
@@ -393,11 +394,19 @@ class EmployeeController extends BaseController
 			$data									= $input;
 			$data['id']								= '';
 			$data['works'][0]['id']					= '';
+			$data['maritalstatuses'][0]['id']		= '';
+			$data['maritalstatuses'][0]['status']	= $input['current_marital_status'];
+			$data['maritalstatuses'][0]['ondate']	= Carbon::now()->format('Y-m-d H:i:s');
+
+			if(empty($input['works'][0]['end']))
+			{
+				$data['works'][0]['end']			= '0000-00-00 00:00:00';
+			}
 		}
 
 		//3. post to API
-		$APIEmployee                                  = new APIEmployee;
-		$result                                     = $APIEmployee->postData($org_id,$data);
+		$APIEmployee								= new APIEmployee;
+		$result										= $APIEmployee->postData($org_id,$data);
 
 		//4. return response 
 		if($result['status'] != 'success')

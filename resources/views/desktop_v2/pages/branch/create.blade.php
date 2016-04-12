@@ -24,10 +24,14 @@
 			<!-- End of Content -->			
 		</div>
 	</div>
+	@if($page_datas->datas['branch']['id']!='')
+		{!! Form::open(['url' => route('branch.update', ['org_id' => $page_datas->datas['id'], 'branch' => $page_datas->datas['branch']['id']]), 'method' => 'PATCH']) !!}
+	@else
+		{!! Form::open(['url' => route('branch.store', ['org_id' => $page_datas->datas['id']]), 'method' => 'POST']) !!}
+	@endif
 	<div class="col-md-9 margin-left-negative-10">
 		<div class="row background-shade-blue text-xs-right">
-			@include('desktop_v2.components.secondary_navbar', ['action_create_id' => $page_datas->datas['branch']['id'], 'action_store_route' => route('branch.store', ['org_id' => $page_datas->datas['id']]), 
-			'action_update_route' => route('branch.update', ['org_id' => $page_datas->datas['id'], 'branch' => $page_datas->datas['branch']['id']]),
+			@include('desktop_v2.components.secondary_navbar', ['action_create_id' => $page_datas->datas['branch']['id'], 
 			'action_redirect_route' => route('branch.index', ['org_id' => $page_datas->datas['id']])
 			])
 		</div>
@@ -56,10 +60,10 @@
 						{{$page_datas->datas['branch']['address']}}
 					</textarea>
 				</fieldset>
-				{!!Form::close()!!}
 			</div>
 		</div>
 	</div>
+	{!!Form::close()!!}
 </div>
 
 <!-- End of Branch Index -->
