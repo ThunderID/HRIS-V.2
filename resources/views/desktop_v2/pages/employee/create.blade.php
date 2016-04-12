@@ -142,13 +142,13 @@
 					</div>
 					@if($page_datas->datas['employee']['id']!='')
 						<div class="clearfix">&nbsp;</div>
-						@include('desktop_v2.pages.employee.carrier.create')
+						@include('desktop_v2.pages.employee.carrier.index', ['scroll_class' => ''])
 
 						<div class="clearfix">&nbsp;</div>
-						@include('desktop_v2.pages.employee.document.create')
+						@include('desktop_v2.pages.employee.document.index', ['scroll_class' => ''])
 
 						<div class="clearfix">&nbsp;</div>
-						@include('desktop_v2.pages.employee.relation.create')
+						@include('desktop_v2.pages.employee.relation.index', ['scroll_class' => ''])
 						<div class="clearfix">&nbsp;</div>
 						<div class="clearfix">&nbsp;</div>
 					@else

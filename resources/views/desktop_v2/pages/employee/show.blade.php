@@ -53,18 +53,49 @@
 						
 						<div class="col-sm-12">
 							<h5 class="font-dark-blue">{{$page_datas->datas['employee']['name']}}</h5>
-							<p>Karyawan {{$page_datas->datas['employee']['newest_status']}} @if(is_null($page_datas->datas['employee']['activation_link']) || $page_datas->datas['employee']['activation_link'] == '') - <span class="font-green font-bold">Aktif</span> @endif</p>
-
-							<label>Jabatan :</label>
-							<p>{{$page_datas->datas['employee']['newest_position']}}</p>
-							<label>NIK :</label>
-							<p>{{$page_datas->datas['employee']['newest_nik']}}</p>
-							<label>Email :</label>
-							<p>{{$page_datas->datas['employee']['email']}}</p>
-							<label>Nomor Telepon :</label>
-							<p>{{$page_datas->datas['employee']['phone']}}</p>
+							<div class="row">
+								<div class="col-sm-12">
+									Karyawan {{$page_datas->datas['employee']['newest_status']}} @if(is_null($page_datas->datas['employee']['activation_link']) || $page_datas->datas['employee']['activation_link'] == '') - <span class="font-green font-bold">Aktif</span> @else - <span class="font-red font-bold">Tidak Aktif</span> @endif
+								</div>
+							</div>
+							<div class="clearfix">&nbsp;</div>
+							<div class="row">
+								<div class="col-sm-12">
+									Jabatan :
+								</div>
+								<div class="col-sm-12">
+									{{$page_datas->datas['employee']['newest_position']}}
+								</div>
+							</div>
+							<div class="clearfix">&nbsp;</div>
+							<div class="row">
+								<div class="col-sm-12">
+									NIK :
+								</div>
+								<div class="col-sm-12">
+									{{$page_datas->datas['employee']['newest_nik']}}
+								</div>
+							</div>
+							<div class="clearfix">&nbsp;</div>
+							<div class="row">
+								<div class="col-sm-12">
+									Email :
+								</div>
+								<div class="col-sm-12">
+									{{$page_datas->datas['employee']['email']}}
+								</div>
+							</div>
+							<div class="clearfix">&nbsp;</div>
+							<div class="row">
+								<div class="col-sm-12">
+									Nomor Telepon :
+								</div>
+								<div class="col-sm-12">
+									{{$page_datas->datas['employee']['phone']}}
+								</div>
+							</div>
 						</div>
-
+						<div class="clearfix">&nbsp;</div>
 						<div class="col-sm-12 padding-right-45">
 							<h6 class="font-dark-blue">Stat</h6>
 
@@ -108,20 +139,58 @@
 							</div>
 							<hr class="margin-top-0 margin-bottom-0 border-dark-blue"/>
 						</div>
-
+						
+						<div class="clearfix">&nbsp;</div>
 						<div class="col-sm-12 padding-right-45">
 							<h6 class="font-dark-blue padding-bottom-10 padding-top-15">Profil Karyawan</h6>
-							<label>Jenis Kelamin :</label>
-							<p>{{$page_datas->datas['employee']['gender']}}</p>
-							<label>Umur :</label>
-							<p>{{Carbon\Carbon::parse($page_datas->datas['employee']['date_of_birth'])->diffInYears(Carbon\Carbon::now())}} Tahun</p>
-							<label>TTL :</label>
-							<p>{{$page_datas->datas['employee']['place_of_birth']}} , {{Carbon\Carbon::parse($page_datas->datas['employee']['date_of_birth'])->format('d M Y')}}</p>
-							<label>Status Perkawinan :</label>
-							<p>{{$page_datas->datas['employee']['current_marital_status']}}</p>
-							<label>Alamat :</label>
-							<p>{{$page_datas->datas['employee']['address']}}</p>
+							<div class="row">
+								<div class="col-sm-12">
+									Jenis Kelamin :
+								</div>
+								<div class="col-sm-12">
+									{{$page_datas->datas['employee']['gender']}}
+								</div>
+							</div>
+							<div class="clearfix">&nbsp;</div>
+							<div class="row">
+								<div class="col-sm-12">
+									Umur :
+								</div>
+								<div class="col-sm-12">
+									{{Carbon\Carbon::parse($page_datas->datas['employee']['date_of_birth'])->diffInYears(Carbon\Carbon::now())}} Tahun
+								</div>
+							</div>
+							<div class="clearfix">&nbsp;</div>
+							<div class="row">
+								<div class="col-sm-12">
+									TTL :
+								</div>
+								<div class="col-sm-12">
+									{{$page_datas->datas['employee']['place_of_birth']}} , {{Carbon\Carbon::parse($page_datas->datas['employee']['date_of_birth'])->format('d M Y')}}
+								</div>
+							</div>
+							<div class="clearfix">&nbsp;</div>
+							<div class="row">
+								<div class="col-sm-12">
+									Status Perkawinan :
+								</div>
+								<div class="col-sm-12">
+									{{$page_datas->datas['employee']['current_marital_status']}}
+								</div>
+							</div>
+							<div class="clearfix">&nbsp;</div>
+							<div class="row">
+								<div class="col-sm-12">
+									Alamat :
+								</div>
+								<div class="col-sm-12">
+									{{$page_datas->datas['employee']['address']}}
+								</div>
+							</div>
 						</div>
+						<div class="clearfix">&nbsp;</div>
+						<div class="clearfix">&nbsp;</div>
+						<div class="clearfix">&nbsp;</div>
 					</div>
 				</div>
 			</div>
@@ -146,16 +215,16 @@
 
 							<div class="tab-content">
 								<div id="carrier" class="tab-pane fade in active">
-									@include('desktop_v2.pages.employee.carrier.index')
+									@include('desktop_v2.pages.employee.carrier.index', ['scroll_class' => 'slim-scroll-tab'])
 								</div>
 								<div id="document" class="tab-pane fade">
-									@include('desktop_v2.pages.employee.document.index')
+									@include('desktop_v2.pages.employee.document.index', ['scroll_class' => 'slim-scroll-tab'])
 								</div>
 								<div id="contract" class="tab-pane fade">
 									@include('desktop_v2.pages.employee.contract.index')
 								</div>
 								<div id="relation" class="tab-pane fade">
-									@include('desktop_v2.pages.employee.relation.index')
+									@include('desktop_v2.pages.employee.relation.index', ['scroll_class' => 'slim-scroll-tab'])
 								</div>
 							</div>
 						</div>
@@ -169,12 +238,23 @@
 </div>
 
 <!-- End of Employee Index -->
+
+<!-- Modal Delete -->
+@include('desktop_v2.components.modal_delete', [
+		'modal_id'      => 'organisation_del', 
+		'modal_route'   => ''
+])
+<!-- End of Modal Delete -->
+
 @stop
 
 @section('js')
 	<script type="text/javascript">
 		hris_slimscroll.init();
 		hris_slimscroll_mini.init();
+		hris_slimscroll_tab.init();
 		hris_filter.init();
+		hris_modal_delete.init();
+		hris_modal_work_update.init();
 	</script>
 @stop

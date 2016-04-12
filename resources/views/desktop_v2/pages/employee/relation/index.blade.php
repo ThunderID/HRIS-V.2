@@ -2,7 +2,7 @@
 	<div class="col-sm-12">
 		<div class="padding-top-15 font-size-18 padding-bottom-10">Relasi <a href=""><i class="ion-ios-plus-outline"></i></a></div>
 		@if(!is_null($page_datas->datas['employee']['relatives']))
-			<div class="slim-scroll">
+			<div class="{{$scroll_class}}">
 				@foreach($page_datas->datas['employee']['relatives'] as $key => $value)
 					<div class="row">
 						<div class="col-sm-12 padding-right-30">
@@ -20,7 +20,7 @@
 												data-id="{{$value['id']}}"
 												data-title="Hapus Data Relasi {{$value['relative']['name']}}"
 												data-effect="Menghapus data relasi. Masukkan password Anda untuk melanjutkan "
-												data-action="#">
+												data-action="{{route('employee.relation.destroy', ['org_id' => $page_datas->datas['id'], 'employee' => $page_datas->datas['employee']['id'], 'id' => $value['id']] )}}">
 												<i class="ion-android-delete"></i> 
 										</a>
 									</div>

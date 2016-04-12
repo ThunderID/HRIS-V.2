@@ -2,7 +2,7 @@
 	<div class="col-sm-12">
 		<div class="padding-top-15 font-size-18 padding-bottom-10">Dokumen <a href=""><i class="ion-ios-plus-outline"></i></a></div>
 		@if(!is_null($page_datas->datas['employee']['persondocuments']))
-			<div class="slim-scroll">
+			<div class="{{$scroll_class}}">
 				@foreach($page_datas->datas['employee']['persondocuments'] as $key => $value)
 					<?php $document = json_decode($value['documents'], true);?>
 					<div class="row">
@@ -21,7 +21,7 @@
 												data-id="{{$value['id']}}"
 												data-title="Hapus Data Dokumen {{$document['code']}}"
 												data-effect="Menghapus data dokumen. Masukkan password Anda untuk melanjutkan "
-												data-action="#">
+												data-action="{{route('employee.document.destroy', ['org_id' => $page_datas->datas['id'], 'employee' => $page_datas->datas['employee']['id'], 'id' => $value['id']] )}}">
 												<i class="ion-android-delete"></i> 
 										</a>
 									</div>
