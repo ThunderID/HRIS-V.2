@@ -6,7 +6,7 @@ use App\API\Connectors\APIChart;
 
 use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Helper\SortList;
-use Input, Route;
+use Input, Route, Response;
 
 /**
  * { OrgController Class }
@@ -357,6 +357,59 @@ class ChartController extends BaseController
 		}                                       
 
 		dd($chart);
-		return $datas;          
-	}             
+		return $datas;
+	}
+
+
+
+	/**
+	 * { FindChartByOrganisation }
+	 *
+	 * @param     
+	 *1. name
+	 *2. org id
+	 *
+	 * @return
+	 * 1. id
+	 * 2. name
+	 * 
+	 * Step:
+	 * 1. get data
+	 * 2. validate
+	 * 3. returning data
+	 */
+	public function FindChartByOrganisation($org_id = null)
+	{
+		//1. get data
+		if(is_null($org_id))
+		{
+			App::abort(403, 'Id Organisasi tidak ada');
+		}
+	
+
+		$APIChart                                  = new APIChart;
+		$search                                    = array_merge(
+															['name' => Input::get('term'), 'branch' => true]
+														);
+
+		$chart                                     = $APIChart->getIndex($org_id, 0, [
+														'search'    => $search,
+														]);
+
+		//2. validate
+		if($chart['status'] != 'success')
+		{
+			return \App::abort(404);
+		}
+
+		//3. returning data
+		$datas                                      = [];
+		foreach ($chart['data']['data'] as $key => $dt) 
+		{
+			$datas[$key]['id']                      = $dt['id'];
+			$datas[$key]['text']                    = ucwords($dt['name'].' cabang '.$dt['branch']['name']);
+		}                                       
+
+		return Response::json($datas);
+	}
 }

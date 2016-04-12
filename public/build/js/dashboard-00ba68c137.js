@@ -183,6 +183,39 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
    		$('#modal').modal('toggle');
 	},
 };
+; var hris_select_chart = {
+	
+	init  : function () {
+		var action = $('.select-chart').attr('data-route');
+
+		$('.select-chart').select2({
+		placeholder: 'Masukkan jabatan karyawan',
+		minimumInputLength: 3,
+		tags: false,
+		ajax: {
+			url: action,
+			dataType: 'json',
+			data: function (term) {
+				return {
+					term
+				};
+			},
+			processResults: function (data) {
+                // parse the results into the format expected by Select2.
+                // since we are using custom formatting functions we do not need to
+                // alter the remote JSON data
+                return {
+                    results: data
+                };
+
+            },
+            cache: true
+
+			}
+		});	
+	},
+};
+
 /*!
  * Bootstrap v4.0.0-alpha.2 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.

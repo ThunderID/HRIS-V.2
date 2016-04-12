@@ -11,5 +11,6 @@ Route::group(['namespace' => 'Org\\'], function()
 	Route::get('org/ajax/findname',														['uses' => 'OrgController@FindOrgByName', 	'as' => 'ajax.org.findByName']);
 	Route::get('org/{org_id?}/branch/ajax/findname',									['uses' => 'BranchController@FindBranchByName', 	'as' => 'ajax.branch.findByName']);
 	Route::get('org/{org_id?}/branch/{branch_id?}/chart/ajax/findname',					['uses' => 'ChartController@FindChartByName', 	'as' => 'ajax.chart.findByName']);
+	Route::get('org/{org_id?}/ajax/charts',											['uses' => 'ChartController@FindChartByOrganisation', 	'as' => 'ajax.organisation.charts']);
 	
 });

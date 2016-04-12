@@ -6,7 +6,7 @@
 <div class="row">
 	<div class="col-md-3">
 		@include('desktop_v2.components.grand_search_box', ['search_name' => 'q', 'search_placeholder' => 'Cari Cabang', 'background_search_box' => 'background-light-blue', 'font_search_box' => 'font-dark-blue'])
-		<div id="slim-scroll" class="background-white">
+		<div class="background-white slim-scroll">
 			<!-- Content -->
 			<div class="row">
 				@forelse($page_datas->datas['branches'] as $key => $dt)
@@ -26,25 +26,28 @@
 	</div>
 	<div class="col-md-9 margin-left-negative-10">
 		<div class="row background-shade-blue text-xs-right">
-			@include('desktop_v2.components.secondary_navbar')
+			@include('desktop_v2.components.secondary_navbar', ['action_create_id' => $page_datas->datas['branch']['id'], 'action_store_route' => route('branch.store', ['org_id' => $page_datas->datas['id']]), 
+			'action_update_route' => route('branch.update', ['org_id' => $page_datas->datas['id'], 'branch' => $page_datas->datas['branch']['id']]),
+			'action_redirect_route' => route('branch.index', ['org_id' => $page_datas->datas['id']])
+			])
 		</div>
 		<div class="row background-white">
 			<div class="col-sm-12 padding-15">
 				<div class="font-size-25 padding-bottom-15">
-					{{(($page_datas->datas['branch']['id']!='') ? $page_datas->datas['branch']['name'] : 'Tambah Cabang Baru')}}
+					{{(($page_datas->datas['branch']['id']!='') ? $page_datas->datas['branch']['name'] : 'Tambah Kantor Baru')}}
 				</div>
 				@include('desktop_v2.components.alert_box')
 				 <fieldset class="form-group">
-					<label for="branchname">Nama Cabang</label>
-					<input name="name" value="{{$page_datas->datas['branch']['name']}}" class="form-control" id="branchname" placeholder="Masukkan nama perusahaan">
+					<label for="branchname">Nama Kantor</label>
+					<input name="name" value="{{$page_datas->datas['branch']['name']}}" class="form-control" id="branchname" placeholder="Masukkan nama kantor">
 				</fieldset>
 				<fieldset class="form-group">
 					<label for="branchphone">Telepon</label>
-					<input name="phone" value="{{$page_datas->datas['branch']['phone']}}" class="form-control" id="branchphone" placeholder="Masukkan telepon perusahaan">
+					<input name="phone" value="{{$page_datas->datas['branch']['phone']}}" class="form-control" id="branchphone" placeholder="Masukkan telepon kantor">
 				</fieldset>
 				<fieldset class="form-group">
 					<label for="branchmail">Email</label>
-					<input name="mail" value="{{$page_datas->datas['branch']['phone']}}" class="form-control" id="branchmail" placeholder="Masukkan email perusahaan">
+					<input name="mail" value="{{$page_datas->datas['branch']['email']}}" class="form-control" id="branchmail" placeholder="Masukkan email kantor">
 					<small class="text-muted">Email harus unik</small>
 				</fieldset>
 				<fieldset class="form-group">
