@@ -31,7 +31,6 @@ class EmployeeWorkController extends BaseController
 		$this->middleware('password.needed', ['only' => ['destroy']]);
 	}
 
-
 	/**
 	 * { store }
 	 *

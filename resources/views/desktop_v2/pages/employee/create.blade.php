@@ -175,6 +175,6 @@
 		hris_slimscroll.init();
 		hris_slimscroll_mini.init();
 		hris_filter.init();
-		hris_select_chart.init();
+		hris_select_chart.init([]);
 	</script>
 @stop

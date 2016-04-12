@@ -137,6 +137,7 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 
 	init: function(){
 		$('#work_update').on('show.bs.modal', function (e) {
+
 			var id          = $(e.relatedTarget).attr('data-id');
 			var title       = $(e.relatedTarget).attr('data-title');
 			var personid    = $(e.relatedTarget).attr('data-personid');
@@ -148,6 +149,12 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 			var reason  	= $(e.relatedTarget).attr('data-reason');
 			var action      = $(e.relatedTarget).attr('data-action');
 
+			var preload_data_tag = [];
+
+			var chartid      = $(e.relatedTarget).attr('data-chartid');
+			var chartname	 = $(e.relatedTarget).attr('data-chartname');
+
+
 			$('.mod_id').val(id);
 			$('.modal_title').html(title);
 			$('.modal_personid').val(personid);
@@ -158,6 +165,21 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 			$('.modal_end').val(end);
 			$('.modal_reason').val(reason);
 			$('.modal_work_update').attr('action', action);
+			
+			if(chartid!='')
+			{
+				preload_data_tag.push({id: chartid, text: chartname})
+			}
+
+			hris_select_chart.init(preload_data_tag);
+			if(chartid!='')
+			{
+				$('select').val(chartid);
+
+				$(".select2-selection__rendered").text(chartname);
+				$(".select2-selection__rendered").attr("title",chartname);
+			}
+
 		}); 
 	}
 };
@@ -226,12 +248,13 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 };
 ; var hris_select_chart = {
 	
-	init  : function () {
+	init  : function (preload_data_tag) {
 		var action = $('.select-chart').attr('data-route');
 
 		$('.select-chart').select2({
 		placeholder: 'Masukkan jabatan karyawan',
 		minimumInputLength: 3,
+		data: preload_data_tag,
 		tags: false,
 		ajax: {
 			url: action,

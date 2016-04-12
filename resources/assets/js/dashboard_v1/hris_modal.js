@@ -43,6 +43,7 @@
 
 	init: function(){
 		$('#work_update').on('show.bs.modal', function (e) {
+
 			var id          = $(e.relatedTarget).attr('data-id');
 			var title       = $(e.relatedTarget).attr('data-title');
 			var personid    = $(e.relatedTarget).attr('data-personid');
@@ -54,6 +55,12 @@
 			var reason  	= $(e.relatedTarget).attr('data-reason');
 			var action      = $(e.relatedTarget).attr('data-action');
 
+			var preload_data_tag = [];
+
+			var chartid      = $(e.relatedTarget).attr('data-chartid');
+			var chartname	 = $(e.relatedTarget).attr('data-chartname');
+
+
 			$('.mod_id').val(id);
 			$('.modal_title').html(title);
 			$('.modal_personid').val(personid);
@@ -64,6 +71,21 @@
 			$('.modal_end').val(end);
 			$('.modal_reason').val(reason);
 			$('.modal_work_update').attr('action', action);
+			
+			if(chartid!='')
+			{
+				preload_data_tag.push({id: chartid, text: chartname})
+			}
+
+			hris_select_chart.init(preload_data_tag);
+			if(chartid!='')
+			{
+				$('select').val(chartid);
+
+				$(".select2-selection__rendered").text(chartname);
+				$(".select2-selection__rendered").attr("title",chartname);
+			}
+
 		}); 
 	}
 };
