@@ -2,12 +2,7 @@
 	@if(isset($action_create_button))
 		<a class="link-blue font-14" href="{{$action_create_button}}"><i class="ion-android-add"></i> Tambah</a>
 	@else
-		@if($page_datas->datas['branch']['id']!='')
-			{!! Form::open(['url' => route('branch.update', ['org_id' => $page_datas->datas['id'], 'branch' => $page_datas->datas['branch']['id']]), 'method' => 'PATCH']) !!}
-		@else
-			{!! Form::open(['url' => route('branch.store', ['org_id' => $page_datas->datas['id']]), 'method' => 'POST']) !!}
-		@endif
-		<a href="{{route('branch.index', ['org_id' => $page_datas->datas['id']])}}" class="link-blue padding-left-15 padding-right-15 padding-bottom-5"><i class="ion-android-close"></i>&nbsp;Batal</a>
+		<a href="{{$action_redirect_route}}" class="link-blue padding-left-15 padding-right-15 padding-bottom-5"><i class="ion-android-close"></i>&nbsp;Batal</a>
 		<button type="submit" class="button-shade-blue"><i class="ion-android-folder"></i>&nbsp;Simpan</button>
 	@endif
 	@if(isset($action_edit_button))

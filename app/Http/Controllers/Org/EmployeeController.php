@@ -8,6 +8,7 @@ use App\API\Connectors\APIChart;
 use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Helper\SortList;
 use Input, Route;
+use Carbon\Carbon;
 
 /**
  * { OrgController Class }
@@ -37,7 +38,7 @@ class EmployeeController extends BaseController
 		$this->page_attributes->page_title             = 'Karyawan';
 		$this->page_attributes->breadcrumb             =    [
 															];
-        $this->middleware('password.needed', ['only' => ['destroy']]);
+		$this->middleware('password.needed', ['only' => ['destroy']]);
 	}
 
 	/**
@@ -250,13 +251,31 @@ class EmployeeController extends BaseController
 		}
 
 		// 2 & 3        
-		$APIOrg                                      = new APIOrg;
-		$org                                         = $APIOrg->getShow($org_id);  
+		$APIOrg										= new APIOrg;
+		$organisation								= $APIOrg->getShow($org_id);
+
+		$APIEmployee								= new APIEmployee;
+
+		$employees									= $APIEmployee->getIndex($org_id, [
+														]);
+
+		$APIBranch									= new APIBranch;
+		$APIChart									= new APIChart;
+
+		$branches									= $APIBranch->getIndex($org_id, [
+														]);
+		$positions									= $APIChart->getPositions($org_id, [
+														]);
+		$departments								= $APIChart->getDepartments($org_id, [
+														]);
+		$maritalstatuses							= $APIEmployee->getMaritalStatuses($org_id, [
+														]);
+		$grades										= $APIEmployee->getGrades($org_id, [
+														]);
 
 		if(!is_null($id))
 		{
 			//2. get data
-			$APIEmployee                               = new APIEmployee;
 			$data                                    = $APIEmployee->getShow($org_id, $id);  
 
 			//3. set page attributes
@@ -267,7 +286,7 @@ class EmployeeController extends BaseController
 			$this->page_attributes->breadcrumb       = array_merge(
 															$this->page_attributes->breadcrumb,
 															[
-																$org['data']['name'] => route('org.show', ['id' => $org_id]),
+																$organisation['data']['name'] => route('org.show', ['id' => $org_id]),
 																'Karyawan' => route('employee.index', ['org_id' => $org_id]),
 																'Edit Karyawan ' . $data['data']['name'] => $current_route,
 															]
@@ -276,13 +295,7 @@ class EmployeeController extends BaseController
 		else
 		{
 			//2. get data
-			$data['data']['id']                      = ""; 
-			$data['data']['organisation_id']         = $org_id;
-			$data['data']['name']                    = null;
-			$data['data']['address']                 = null;
-			$data['data']['phone']                   = null;
-			$data['data']['email']                   = null;
-			$data['data']['charts']                  = [];
+			$data['data']							 = null; 
 
 			//3. set page attributes
 			$current_route                           = route(Route::CurrentRouteName(),['org_id' => $org_id]);
@@ -291,7 +304,7 @@ class EmployeeController extends BaseController
 			$this->page_attributes->breadcrumb       = array_merge(
 															$this->page_attributes->breadcrumb,
 															[
-																$org['data']['name'] => route('org.show', ['id' => $org_id]),
+																$organisation['data']['name'] => route('org.show', ['id' => $org_id]),
 																'Karyawan' => route('employee.index', ['org_id' => $org_id]),
 																'Karyawan Baru' => $current_route,
 															]
@@ -303,10 +316,15 @@ class EmployeeController extends BaseController
 														]);
 
 		//4. set page datas
-		$this->page_datas->datas['id']				= $org_id;
-		$this->page_datas->datas['name']			= $org['data']['name'];
-		$this->page_datas->datas['employee']		= $data['data'];
+		$this->page_datas->datas['branches']		= $branches['data']['data'];
+		$this->page_datas->datas['positions']		= $positions['data'];
+		$this->page_datas->datas['departments']		= $departments['data'];
+		$this->page_datas->datas['maritalstatuses']	= $maritalstatuses['data'];
+		$this->page_datas->datas['grades']			= $grades['data'];
 		$this->page_datas->datas['employees']		= $employees['data']['data'];
+		$this->page_datas->datas['employee']		= $data['data'];
+		$this->page_datas->datas['id']				= $org_id;
+		$this->page_datas->datas['name']			= $organisation['data']['name'];
 
 		//5. generate view
 		$view_source                                = $this->view_source_root . '.create';
@@ -361,36 +379,34 @@ class EmployeeController extends BaseController
 		}
 
 		//2. get input
-		$input['name']                              = Input::get('name');                          
-		$input['address']                           = Input::get('address');
-		$input['phone']                             = Input::get('phone');
-		$input['email']                             = Input::get('email');
+		$input										= Input::all();
 
 		//3. get data
 		if(!is_null($id))
 		{
-			$APIEmployee                               = new APIEmployee;
-			$data                                    = $APIEmployee->getShow($org_id,$id)['data'];
+			$APIEmployee							= new APIEmployee;
+			$data									= $APIEmployee->getShow($org_id,$id)['data'];
 
-			$data['name']                            = $input['name'];
-			$data['address']                         = $input['address'];
-			$data['phone']                           = $input['phone'];
-			$data['email']                           = $input['email'];
+			$data									= $input;
 		}
 		else
 		{
-			$data['id']                              = ""; 
-			$data['organisation_id']                 = $org_id;
-			$data['name']                            = $input['name'];
-			$data['address']                         = $input['address'];
-			$data['phone']                           = $input['phone'];
-			$data['email']                           = $input['email'];
-			$data['charts']                          = [];
+			$data									= $input;
+			$data['id']								= '';
+			$data['works'][0]['id']					= '';
+			$data['maritalstatuses'][0]['id']		= '';
+			$data['maritalstatuses'][0]['status']	= $input['current_marital_status'];
+			$data['maritalstatuses'][0]['ondate']	= Carbon::now()->format('Y-m-d H:i:s');
+
+			if(empty($input['works'][0]['end']))
+			{
+				$data['works'][0]['end']			= '0000-00-00 00:00:00';
+			}
 		}
 
 		//3. post to API
-		$APIEmployee                                  = new APIEmployee;
-		$result                                     = $APIEmployee->postData($org_id,$data);
+		$APIEmployee								= new APIEmployee;
+		$result										= $APIEmployee->postData($org_id,$data);
 
 		//4. return response 
 		if($result['status'] != 'success')

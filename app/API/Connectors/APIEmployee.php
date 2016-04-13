@@ -163,4 +163,21 @@ class APIEmployee extends APIData
 
 		return $this->get();
 	}	
+
+	/**
+	 * { getDocumentTemplates }
+	 *
+	 * @param
+	 * 1. $code 		: org code    
+	 * 2. $name 		: employee full name    
+	 *
+	 * @return
+	 * 1. nik
+	 */
+	public function getDocumentTemplates()
+	{
+		$this->apiUrl 					= '/document/templates';
+
+		return $this->get();
+	}	
 }

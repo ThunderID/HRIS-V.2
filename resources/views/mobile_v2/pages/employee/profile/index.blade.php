@@ -1,8 +1,8 @@
 <div class="row">
-	<div class="col-sm-12 padding-right-30">
+	<div class="col-sm-12">
 		<div class="padding-top-15 font-size-18 padding-bottom-10">Profil </div>
-		<div class="slim-scroll">
-			<div class="row">
+		<div class="slim-scroll-tab">
+			<div class="row padding-right-30">
 				<div class="col-xs-6">
 					<div class="card">
 						<div class="card-header background-dark-blue font-white">
@@ -28,7 +28,7 @@
 					</div>
 				</div>	
 			</div>	
-			<div class="row">
+			<div class="row padding-right-30">
 				<div class="col-xs-6">
 					<div class="card">
 						<div class="card-header background-dark-blue font-white">
@@ -55,7 +55,7 @@
 				</div>	
 			</div>
 
-			<div class="row">
+			<div class="row padding-right-30">
 				<div class="col-xs-12">
 					<h6 class="font-dark-blue padding-bottom-10 padding-top-15">Profil Karyawan</h6>
 				</div>

@@ -1,29 +1,16 @@
 <div class="row">
-	<div class="col-sm-12">
-		<div class="padding-top-15 font-size-18 padding-bottom-10">Relatif
-			<a class="link-dark-blue" href="javascript:void(0);" data-backdrop="static" data-keyboard="false" data-toggle="modal" 
-				data-target="#relative_update"
-				data-id=""
-				data-title="Tambah Data relatif {{$page_datas->datas['employee']['name']}}"
-				data-personid="{{$page_datas->datas['employee']['id']}}"
-				data-relativeid=""
-				data-name=""
-				data-placeofbirth=""
-				data-gender=""
-				data-relation=""
-				data-dateofbirth=""
-				data-phone=""
-				data-email=""
-				data-address=""
-				data-action="{{route('employee.relation.store', ['org_id' => $page_datas->datas['id'], 'employee' => $page_datas->datas['employee']['id']] )}}">
-				<i class="ion-ios-plus-outline"></i> 
-			</a>
-		</div>
+	<div class="col-xs-12">
+		<strong>Relatif</strong>
+	</div>
+</div>
+<div class="clearfix">&nbsp;</div>
+<div class="row">
+	<div class="col-xs-12">
 		@if(!is_null($page_datas->datas['employee']['relatives']))
 			<div class="{{$scroll_class}}">
 				@foreach($page_datas->datas['employee']['relatives'] as $key => $value)
 					<div class="row">
-						<div class="col-sm-12 padding-right-30">
+						<div class="col-xs-12 padding-right-30">
 							<div class="link-square-green">
 								<div class="font-size-18 font-dark-blue padding-top-5">
 									{{$value['relative']['name']}} - {{$value['relationship']}}
@@ -70,6 +57,26 @@
 		@endif
 	</div>
 </div>
+
+<a class="link-white background-blue link-round-100 font-size-25 padding-right-7 padding-left-12" id="link-add-fixed-small" 
+	data-backdrop="static" data-keyboard="false" data-toggle="modal" 
+	data-target="#relative_update"
+	data-id=""
+	data-title="Tambah Data relatif {{$page_datas->datas['employee']['name']}}"
+	data-personid="{{$page_datas->datas['employee']['id']}}"
+	data-relativeid=""
+	data-name=""
+	data-placeofbirth=""
+	data-gender=""
+	data-relation=""
+	data-dateofbirth=""
+	data-phone=""
+	data-email=""
+	data-address=""
+	data-action="{{route('employee.relation.store', ['org_id' => $page_datas->datas['id'], 'employee' => $page_datas->datas['employee']['id']] )}}"
+	href="javascript:void(0);">
+	<i class ="ion-android-add"></i>
+</a>
 
 <!-- Modal Relative -->
 @include('desktop_v2.components.modals.modal_relative_update', [

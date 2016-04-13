@@ -1,28 +1,17 @@
 <div class="row">
-	<div class="col-sm-12">
-		<div class="padding-top-15 font-size-18 padding-bottom-10">Karir 
-			<a class="link-dark-blue" href="javascript:void(0);" data-backdrop="static" data-keyboard="false" data-toggle="modal" 
-				data-target="#work_update"
-				data-id=""
-				data-title="Tambah Data Pekerjaan {{$page_datas->datas['employee']['name']}}"
-				data-personid="{{$page_datas->datas['employee']['id']}}"
-				data-chartid=""
-				data-chartname=""
-				data-nik=""
-				data-grade=""
-				data-status=""
-				data-start=""
-				data-end=""
-				data-reason=""
-				data-action="{{route('employee.work.store', ['org_id' => $page_datas->datas['id'], 'employee' => $page_datas->datas['employee']['id']] )}}">
-				<i class="ion-ios-plus-outline"></i> 
-			</a>
-		</div>
+	<div class="col-xs-12">
+		<strong>Karir</strong>
+	</div>
+</div>
+<div class="clearfix">&nbsp;</div>
+
+<div class="row">
+	<div class="col-xs-12">
 		@if(!is_null($page_datas->datas['employee']['works']))
 			<div class="{{$scroll_class}}">
 				@foreach($page_datas->datas['employee']['works'] as $key => $value)
 					<div class="row">
-						<div class="col-sm-12 padding-right-30">
+						<div class="col-xs-12 padding-right-30">
 							<div class="link-square-green">
 								<div class="font-size-18 font-dark-blue padding-top-5">
 									{{$value['chart']['name']}} - {{$value['chart']['branch']['name']}}
@@ -66,7 +55,27 @@
 			<p class="font-size-14 font-gray-225">Belum ada data pekerjaan</p>
 		@endif
 	</div>
+
 </div>
+
+<a class="link-white background-blue link-round-100 font-size-25 padding-right-7 padding-left-12" id="link-add-fixed-small" 
+	data-backdrop="static" data-keyboard="false" data-toggle="modal" 
+	data-target="#work_update"
+	data-id=""
+	data-title="Tambah Data Pekerjaan {{$page_datas->datas['employee']['name']}}"
+	data-personid="{{$page_datas->datas['employee']['id']}}"
+	data-chartid=""
+	data-chartname=""
+	data-nik=""
+	data-grade=""
+	data-status=""
+	data-start=""
+	data-end=""
+	data-reason=""
+	data-action="{{route('employee.work.store', ['org_id' => $page_datas->datas['id'], 'employee' => $page_datas->datas['employee']['id']] )}}"
+	href="javascript:void(0);">
+	<i class ="ion-android-add"></i>
+</a>
 
 <!-- Modal Work -->
 @include('desktop_v2.components.modals.modal_work_update', [

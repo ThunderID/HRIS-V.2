@@ -7880,6 +7880,12 @@ button.button-white {
   border-radius: 0px;
   box-shadow: 0px 0px 3px rgba(86, 96, 117, 0.698); }
 
+.secondary-navbar-fixed {
+  position: fixed;
+  right: 0px;
+  left: 0px;
+  z-index: 1020; }
+
 .font-size-10 {
   font-size: 10px; }
 
@@ -8051,6 +8057,18 @@ a.link-round-100 {
   .link-square-green:hover, .link-square-green focus {
     background-color: #FFFFFF !important;
     border: 1px solid #38AD1A;
+    text-decoration: none;
+    border-radius: 0px; }
+
+.link-square-white-border-gray {
+  border-radius: 0px;
+  padding: 10px 15px;
+  border: 1px solid #E6E6E6;
+  background-color: #FFFFFF !important;
+  text-decoration: none; }
+  .link-square-white-border-gray:hover, .link-square-white-border-gray focus {
+    background-color: #FFFFFF !important;
+    border: 1px solid #3F67AE;
     text-decoration: none;
     border-radius: 0px; }
 

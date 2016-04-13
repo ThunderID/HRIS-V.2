@@ -92,23 +92,213 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
    		$('#modal').modal('toggle');
 	},
 };
-; var hris_modal_delete = {
+; var hris_modal_chart_edit = {
 
-    init: function(){
-        $('#organisation_del').on('show.bs.modal', function (e) {
-            var id      = $(e.relatedTarget).attr('data-id');
-            var title   = $(e.relatedTarget).attr('data-title');
-            var effect  = $(e.relatedTarget).attr('data-effect');
-            var action  = $(e.relatedTarget).attr('data-action');
+	init: function(){
+		$('#chart_edit').on('show.bs.modal', function (e) {
+			var id          = $(e.relatedTarget).attr('data-id');
+			var title       = $(e.relatedTarget).attr('data-title');
+			var parent      = $(e.relatedTarget).attr('data-parent');
+			var parentid    = $(e.relatedTarget).attr('data-parentid');
+			var name        = $(e.relatedTarget).attr('data-name');
+			var department  = $(e.relatedTarget).attr('data-department');
+			var action      = $(e.relatedTarget).attr('data-action');
 
-            $('.mod_id').val(id);
-            $('.modal_title').html(title);
-            $('.modal_effect').html(effect);
-            $('.modal1').attr('action', action);
-        }); 
-    }
+			$('.mod_id').val(id);
+			$('.modal_title').html(title);
+			$('.modal_parent').val(parent);
+			$('.modal_chart_id').val(parentid);
+			$('.modal_name').val(name);
+			$('.modal_department').val(department);
+			$('.modal2').attr('action', action);
+		}); 
+	}
 };
 
+; var hris_modal_delete = {
+
+	init: function(){
+		$('#organisation_del').on('show.bs.modal', function (e) {
+			var id      = $(e.relatedTarget).attr('data-id');
+			var title   = $(e.relatedTarget).attr('data-title');
+			var effect  = $(e.relatedTarget).attr('data-effect');
+			var action  = $(e.relatedTarget).attr('data-action');
+
+			$('.mod_id').val(id);
+			$('.modal_title').html(title);
+			$('.modal_effect').html(effect);
+			$('.modal1').attr('action', action);
+		}); 
+	}
+};
+
+
+; var hris_modal_work_update = {
+
+	init: function(){
+		$('#work_update').on('show.bs.modal', function (e) {
+
+			var id          = $(e.relatedTarget).attr('data-id');
+			var title       = $(e.relatedTarget).attr('data-title');
+			var personid    = $(e.relatedTarget).attr('data-personid');
+			var nik    		= $(e.relatedTarget).attr('data-nik');
+			var grade       = $(e.relatedTarget).attr('data-grade');
+			var status  	= $(e.relatedTarget).attr('data-status');
+			var start 	 	= $(e.relatedTarget).attr('data-start');
+			var end  		= $(e.relatedTarget).attr('data-end');
+			var reason  	= $(e.relatedTarget).attr('data-reason');
+			var action      = $(e.relatedTarget).attr('data-action');
+
+			var preload_data_tag = [];
+
+			var chartid      = $(e.relatedTarget).attr('data-chartid');
+			var chartname	 = $(e.relatedTarget).attr('data-chartname');
+
+
+			$('.mod_id').val(id);
+			$('.modal_title').html(title);
+			$('.modal_personid').val(personid);
+			$('.modal_nik').val(nik);
+			$('.modal_grade').val(grade);
+			$('.modal_status').val(status);
+			$('.modal_start').val(start);
+			$('.modal_end').val(end);
+			$('.modal_reason').val(reason);
+			$('.modal_work_update').attr('action', action);
+			
+			if(chartid!='')
+			{
+				preload_data_tag.push({id: chartid, text: chartname})
+			}
+
+			hris_select_chart.init(preload_data_tag);
+			if(chartid!='')
+			{
+				$('select').val(chartid);
+
+				$(".select2-selection__rendered").text(chartname);
+				$(".select2-selection__rendered").attr("title",chartname);
+			}
+
+		}); 
+	}
+};
+
+; var hris_modal_relative_update = {
+
+	init: function(){
+		$('#relative_update').on('show.bs.modal', function (e) {
+
+			var id				= $(e.relatedTarget).attr('data-id');
+			var title			= $(e.relatedTarget).attr('data-title');
+			var personid		= $(e.relatedTarget).attr('data-personid');
+			var relativeid		= $(e.relatedTarget).attr('data-relativeid');
+			var name			= $(e.relatedTarget).attr('data-name');
+			var placeofbirth	= $(e.relatedTarget).attr('data-placeofbirth');
+			var gender			= $(e.relatedTarget).attr('data-gender');
+			var relation  		= $(e.relatedTarget).attr('data-relation');
+			var dateofbirth  	= $(e.relatedTarget).attr('data-dateofbirth');
+			var phone 		 	= $(e.relatedTarget).attr('data-phone');
+			var email  			= $(e.relatedTarget).attr('data-email');
+			var address			= $(e.relatedTarget).attr('data-address');
+			var action      	= $(e.relatedTarget).attr('data-action');
+
+
+			$('.mod_id').val(id);
+			$('.modal_title').html(title);
+			$('.modal_personid').val(personid);
+			$('.modal_relativeid').val(relativeid);
+			$('.modal_relative_name').val(name);
+			$('.modal_relative_place_of_birth').val(placeofbirth);
+			$('.modal_relative_gender').val(gender);
+			$('.modal_relationship').val(relation);
+			$('.modal_relative_date_of_birth').val(dateofbirth);
+			$('.modal_relative_phone').val(phone);
+			$('.modal_relative_email').val(email);
+			$('.modal_relative_address').val(address);
+			$('.modal_relative_update').attr('action', action);
+
+		}); 
+	}
+};
+
+; var hris_modal_document_update = {
+
+	init: function(){
+		$('#document_update').on('show.bs.modal', function (e) {
+
+			var id				= $(e.relatedTarget).attr('data-id');
+			var title			= $(e.relatedTarget).attr('data-title');
+			var personid		= $(e.relatedTarget).attr('data-personid');
+			var code			= $(e.relatedTarget).attr('data-code');
+			var action      	= $(e.relatedTarget).attr('data-action');
+
+			$('.mod_id').val(id);
+			$('.modal_document_secondary_title').html(title);
+			$('.modal_personid').val(personid);
+			$('.modal_document_update').attr('action', action);
+
+			if(code!='')
+			{
+				var doc	= JSON.parse($(e.relatedTarget).attr('data-documents'));
+
+				for(var k in doc) 
+				{
+					$('.modal_documents_'+k).val(doc[k]);
+				}
+
+				$(".document_form").hide();
+			    $(".document_"+code+"_form").show();
+				$(".document_click").hide();
+				$(".document_back").hide();
+				$(".document_cancel").show();
+				$('.modal_document_title').html(title);
+				$(".modal_document_title").show();
+				$(".modal_document_secondary_title").hide();
+				$('.modal_code').val(code);
+			}
+			else
+			{
+				$(".document_form").hide();
+				$(".document_back").hide();
+				$(".document_cancel").hide();
+				$(".document_click").show();
+				$(".modal_document_title").hide();
+				$(".modal_document_secondary_title").show();
+			}
+
+		}); 
+
+		$(".document_click").click(function(){
+			var code			= $(this).attr('data-code');
+			title 				=code.replace('_',' ');
+
+			$(".document_"+code+"_form").show();
+			$(".document_click").hide();
+			$(".document_back").show();
+			$(".document_cancel").hide();
+			$('.modal_document_title').html(title);
+			$(".modal_document_title").show();
+			$(".modal_document_secondary_title").hide();
+			$('.modal_code').val(code);
+		});
+
+		$(".document_back").click(function(){
+
+			$(".document_form").hide();
+			$(".document_back").hide();
+			$(".document_cancel").hide();
+			$(".document_click").show();
+			$(".modal_document_title").hide();
+			$(".modal_document_secondary_title").show();
+		});
+
+		$(".document_back").hide();
+		$(".document_cancel").hide();
+		$(".document_form").hide();
+		$(".modal_document_title").hide();
+	}
+};
 
 ; var hris_slimscroll = {
 	
@@ -133,29 +323,17 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 	},
 };
 
-; var hris_modal_chart_edit = {
+; var hris_slimscroll_tab = {
+	
+	init  : function () {
+		doc_height = $(window).height();
+		doc_height = doc_height - 240;
 
-    init: function(){
-        $('#chart_edit').on('show.bs.modal', function (e) {
-            var id          = $(e.relatedTarget).attr('data-id');
-            var title       = $(e.relatedTarget).attr('data-title');
-            var parent      = $(e.relatedTarget).attr('data-parent');
-            var parentid    = $(e.relatedTarget).attr('data-parentid');
-            var name        = $(e.relatedTarget).attr('data-name');
-            var department  = $(e.relatedTarget).attr('data-department');
-            var action      = $(e.relatedTarget).attr('data-action');
-
-            $('.mod_id').val(id);
-            $('.modal_title').html(title);
-            $('.modal_parent').val(parent);
-            $('.modal_chart_id').val(parentid);
-            $('.modal_name').val(name);
-            $('.modal_department').val(department);
-            $('.modal2').attr('action', action);
-        }); 
-    }
+   		$('.slim-scroll-tab').slimScroll({
+	        height: doc_height
+	    });
+	},
 };
-
 
 ; var hris_filter = {
 	
@@ -182,6 +360,194 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 	init  : function () {
    		$('#modal').modal('toggle');
 	},
+};
+; var hris_select_chart = {
+	
+	init  : function (preload_data_tag) {
+		var action = $('.select-chart').attr('data-route');
+
+		$('.select-chart').select2({
+		placeholder: 'Masukkan jabatan karyawan',
+		minimumInputLength: 3,
+		data: preload_data_tag,
+		tags: false,
+		ajax: {
+			url: action,
+			dataType: 'json',
+			data: function (term) {
+				return {
+					term
+				};
+			},
+			processResults: function (data) {
+                // parse the results into the format expected by Select2.
+                // since we are using custom formatting functions we do not need to
+                // alter the remote JSON data
+                return {
+                    results: data
+                };
+
+            },
+            cache: true
+
+			}
+		});	
+	},
+};
+
+; var hris_wizard_new_employee = {
+
+	init: function(){
+		$(".hris_form_wizard").hide();
+		$(".link-mobile-create").hide();
+		$(".modal_employee_profile").show();
+		$(".link-mobile-next-profile").show();
+		$(".link-mobile-prev-profile").show();
+
+		hris_wizard_employee_profile.init();
+		hris_wizard_new_employee_contact.init();
+		hris_wizard_new_employee_carrier.init();
+	}
+};
+
+; var hris_wizard_exists_employee = {
+
+	init: function(){
+		$(".hris_form_wizard").hide();
+		$(".link-mobile-create").hide();
+		$(".modal_employee_profile").show();
+		$(".link-mobile-next-profile").show();
+		$(".link-mobile-prev-profile").show();
+
+		hris_wizard_employee_profile.init();
+		hris_wizard_exists_employee_contact.init();
+		hris_wizard_exists_employee_carrier.init();
+		hris_wizard_employee_document.init();
+		hris_wizard_employee_relation.init();
+	}
+};
+
+; var hris_wizard_employee_profile = {
+
+	init: function(){
+		$(".link-mobile-next-profile").click(function(){
+			$(".hris_form_wizard").hide();
+			$(".link-mobile-create").hide();
+			$(".modal_employee_contact").show();
+			$(".link-mobile-prev-contact").show();
+			$(".link-mobile-next-contact").show();
+		});
+	}
+};
+
+; var hris_wizard_new_employee_contact = {
+
+	init: function(){
+		$(".link-mobile-prev-contact").click(function(){
+			$(".hris_form_wizard").hide();
+			$(".link-mobile-create").hide();
+			$(".modal_employee_profile").show();
+			$(".link-mobile-prev-profile").show();
+			$(".link-mobile-next-profile").show();
+		});
+
+		$(".link-mobile-next-contact").click(function(){
+			$(".hris_form_wizard").hide();
+			$(".link-mobile-create").hide();
+			$(".modal_employee_carrier_new").show();
+			$(".link-mobile-prev-carrier-new").show();
+			$(".link-mobile-next-carrier-new").show();
+		});
+	}
+};
+
+; var hris_wizard_exists_employee_contact = {
+
+	init: function(){
+		$(".link-mobile-prev-contact").click(function(){
+			$(".hris_form_wizard").hide();
+			$(".link-mobile-create").hide();
+			$(".modal_employee_profile").show();
+			$(".link-mobile-prev-profile").show();
+			$(".link-mobile-next-profile").show();
+		});
+
+		$(".link-mobile-next-contact").click(function(){
+			$(".hris_form_wizard").hide();
+			$(".link-mobile-create").hide();
+			$(".modal_employee_carrier").show();
+			$(".link-mobile-prev-carrier").show();
+			$(".link-mobile-next-carrier").show();
+		});
+	}
+};
+
+; var hris_wizard_new_employee_carrier = {
+
+	init: function(){
+		$(".link-mobile-prev-carrier-new").click(function(){
+			$(".hris_form_wizard").hide();
+			$(".link-mobile-create").hide();
+			$(".modal_employee_contact").show();
+			$(".link-mobile-prev-contact").show();
+			$(".link-mobile-next-contact").show();
+		});
+	}
+};
+
+; var hris_wizard_exists_employee_carrier = {
+
+	init: function(){
+		$(".link-mobile-prev-carrier").click(function(){
+			$(".hris_form_wizard").hide();
+			$(".link-mobile-create").hide();
+			$(".modal_employee_contact").show();
+			$(".link-mobile-prev-contact").show();
+			$(".link-mobile-next-contact").show();
+		});
+
+		$(".link-mobile-next-carrier").click(function(){
+			$(".hris_form_wizard").hide();
+			$(".link-mobile-create").hide();
+			$(".modal_employee_document").show();
+			$(".link-mobile-prev-document").show();
+			$(".link-mobile-next-document").show();
+		});
+	}
+};
+
+; var hris_wizard_employee_document = {
+
+	init: function(){
+		$(".link-mobile-prev-document").click(function(){
+			$(".hris_form_wizard").hide();
+			$(".link-mobile-create").hide();
+			$(".modal_employee_carrier").show();
+			$(".link-mobile-prev-carrier").show();
+			$(".link-mobile-next-carrier").show();
+		});
+
+		$(".link-mobile-next-document").click(function(){
+			$(".hris_form_wizard").hide();
+			$(".link-mobile-create").hide();
+			$(".modal_employee_relation").show();
+			$(".link-mobile-prev-relation").show();
+			$(".link-mobile-next-relation").show();
+		});
+	}
+};
+
+; var hris_wizard_employee_relation = {
+
+	init: function(){
+		$(".link-mobile-prev-relation").click(function(){
+			$(".hris_form_wizard").hide();
+			$(".link-mobile-create").hide();
+			$(".modal_employee_document").show();
+			$(".link-mobile-prev-document").show();
+			$(".link-mobile-next-document").show();
+		});
+	}
 };
 /*!
  * Bootstrap v4.0.0-alpha.2 (http://getbootstrap.com)

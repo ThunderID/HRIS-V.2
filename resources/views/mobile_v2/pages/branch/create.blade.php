@@ -21,7 +21,7 @@
 				</div>
 			</div>
 		@stop
-
+		
 		@include('desktop_v2.components.alert_box')
 		 <fieldset class="form-group">
 			<label for="branchname">Nama Cabang</label>
