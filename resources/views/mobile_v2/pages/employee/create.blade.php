@@ -155,6 +155,8 @@
 		</div>
 
 		@if($page_datas->datas['employee']['id']!='')
+			{!!Form::close()!!}
+			
 			<div class="hris_form_wizard modal_employee_carrier">
 				@include('mobile_v2.pages.employee.carrier.index', ['scroll_class' => ''])
 			</div>
@@ -173,8 +175,8 @@
 			</div>
 			<div class="clearfix">&nbsp;</div>
 			<div class="clearfix">&nbsp;</div>
+			{!!Form::close()!!}
 		@endif
-		{!!Form::close()!!}
 	</div>
 </div>
 

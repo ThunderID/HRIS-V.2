@@ -141,6 +141,8 @@
 						</div>
 					</div>
 					@if($page_datas->datas['employee']['id']!='')
+						{!!Form::close()!!}
+						
 						<div class="clearfix">&nbsp;</div>
 						@include('desktop_v2.pages.employee.carrier.index', ['scroll_class' => ''])
 
@@ -157,12 +159,12 @@
 						<div class="clearfix">&nbsp;</div>
 						<div class="clearfix">&nbsp;</div>
 						<div class="clearfix">&nbsp;</div>
+						{!!Form::close()!!}
 					@endif
 				</div>
 			</div>
 		</div>
 	</div>
-	{!!Form::close()!!}
 
 	@include('desktop_v2.components.modal_filter')
 </div>

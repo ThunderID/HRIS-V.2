@@ -67,7 +67,7 @@
 						<div class="col-sm-12">
 							<fieldset class="form-group">
 								<label for="employeeworkreason">Alasan Berhenti Bekerja</label>
-								<textarea name="employeeworkreason" class="form-control modal_reason" id="employeeworkendreason">
+								<textarea name="reason_end_job" class="form-control modal_reason" id="employeeworkendreason">
 								</textarea>
 							</fieldset>
 						</div>
