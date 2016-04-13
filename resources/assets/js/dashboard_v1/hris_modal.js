@@ -128,7 +128,6 @@
 	}
 };
 
-
 ; var hris_modal_document_update = {
 
 	init: function(){

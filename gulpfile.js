@@ -17,6 +17,7 @@ elixir(function(mix) {
 						'dashboard_v1/hris_submit.js', 'dashboard_v1/hris_menu.js', 
 						'dashboard_v1/hris_modal.js', 'dashboard_v1/hris_slimscroll.js',
 						'dashboard_v1/hris_filter.js', 'dashboard_v1/hris_select_2.js',
+						'dashboard_v1/hris_wizard.js',
 						'dashboard_v1/bootstrap.min.js'
 					], 'public/js/dashboard.js')
 		.version(['public/css/dashboard.css',

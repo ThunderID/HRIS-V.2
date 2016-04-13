@@ -14,18 +14,33 @@
 			@endif
 			<div class="row">
 				<div class="col-xs-6 padding-top-5">
-					<a href="{{route('org.index')}}" class="link-blue background-white padding-right-15 padding-top-5 padding-bottom-5"><i class="ion-android-arrow-back"></i></a> {{$page_attributes->page_subtitle}}
+					<a href="{{route('org.index')}}" class="link-mobile-create link-mobile-prev-profile link-blue background-white padding-right-15 padding-top-5 padding-bottom-5"><i class="ion-android-arrow-back"></i> {{$page_attributes->page_subtitle}} </a>
+					<a href="#" class="link-mobile-create  link-mobile-prev-contact link-blue background-white padding-right-15 padding-bottom-5">  <i class="ion-android-arrow-back"></i> Kembali </a>
+					@if($page_datas->datas['employee']['id']=='')
+						<a href="#" class="link-mobile-create link-mobile-prev-carrier-new link-blue background-white padding-right-15 padding-bottom-5">  <i class="ion-android-arrow-back"></i> Kembali </a>
+					@else
+						<a href="#" class="link-mobile-create link-mobile-prev-carrier link-blue background-white padding-right-15 padding-bottom-5">  <i class="ion-android-arrow-back"></i> Kembali </a>
+						<a href="#" class="link-mobile-create link-mobile-prev-document link-blue background-white padding-right-15 padding-bottom-5">  <i class="ion-android-arrow-back"></i> Kembali </a>
+						<a href="#" class="link-mobile-create link-mobile-prev-relation link-blue background-white padding-right-15 padding-bottom-5">  <i class="ion-android-arrow-back"></i> Kembali </a>
+					@endif
 				</div>
 				<div class="col-xs-6 text-xs-right padding-top-5">
-					<a href="#" class="link-blue background-white padding-right-15 padding-bottom-5"> Lanjutkan <i class="ion-android-arrow-forward"></i></a>
-					<!-- <button type="submit" class="button-white font-blue text-xs-right border-0"><i class="ion-android-done"></i></button> -->
+					<a href="#" class="link-mobile-create link-mobile-next-profile link-blue background-white padding-right-15 padding-bottom-5"> Lanjutkan <i class="ion-android-arrow-forward"></i></a>
+					<a href="#" class="link-mobile-create link-mobile-next-contact link-blue background-white padding-right-15 padding-bottom-5"> Lanjutkan <i class="ion-android-arrow-forward"></i></a>
+					@if($page_datas->datas['employee']['id']=='')
+						<button type="submit" class="link-mobile-create link-mobile-next-carrier-new button-white font-blue text-xs-right border-0"><i class="ion-android-done"></i></button>
+					@else
+						<a href="#" class="link-mobile-create link-mobile-next-carrier link-blue background-white padding-right-15 padding-bottom-5"> Lanjutkan <i class="ion-android-arrow-forward"></i></a>
+						<a href="#" class="link-mobile-create link-mobile-next-document link-blue background-white padding-right-15 padding-bottom-5"> Lanjutkan <i class="ion-android-arrow-forward"></i></a>
+						<button type="submit" class="link-mobile-create link-mobile-next-relation button-white font-blue text-xs-right border-0"><i class="ion-android-done"></i></button>
+					@endif
 				</div>
 			</div>
 		@stop
 
 		@include('desktop_v2.components.alert_box')
 
-		<div class="modal_employee_profile">
+		<div class="hris_form_wizard modal_employee_profile">
 			<div class="row">
 				<div class="col-xs-12">
 					<strong>Profil</strong>
@@ -106,9 +121,8 @@
 
 			<div class="clearfix">&nbsp;</div>
 			<div class="clearfix">&nbsp;</div>
-			<div class="clearfix">&nbsp;</div>
 		</div>
-		<div class="modal_employee_contact">
+		<div class="hris_form_wizard modal_employee_contact">
 			<div class="row">
 				<div class="col-xs-12">
 					<strong>Kontak</strong>
@@ -141,20 +155,22 @@
 		</div>
 
 		@if($page_datas->datas['employee']['id']!='')
-			<div class="clearfix">&nbsp;</div>
-			@include('mobile_v2.pages.employee.carrier.index', ['scroll_class' => ''])
+			<div class="hris_form_wizard modal_employee_carrier">
+				@include('mobile_v2.pages.employee.carrier.index', ['scroll_class' => ''])
+			</div>
+			<div class="hris_form_wizard modal_employee_document">
+				@include('mobile_v2.pages.employee.document.index', ['scroll_class' => ''])
+			</div>
 
-			<div class="clearfix">&nbsp;</div>
-			@include('mobile_v2.pages.employee.document.index', ['scroll_class' => ''])
-
-			<div class="clearfix">&nbsp;</div>
-			@include('mobile_v2.pages.employee.relation.index', ['scroll_class' => ''])
+			<div class="hris_form_wizard modal_employee_relation">
+				@include('mobile_v2.pages.employee.relation.index', ['scroll_class' => ''])
+			</div>
 			<div class="clearfix">&nbsp;</div>
 			<div class="clearfix">&nbsp;</div>
 		@else
-			@include('desktop_v2.pages.employee.carrier.create_no_submit')
-			<div class="clearfix">&nbsp;</div>
-			<div class="clearfix">&nbsp;</div>
+			<div class="hris_form_wizard modal_employee_carrier_new">
+				@include('desktop_v2.pages.employee.carrier.create_no_submit')
+			</div>
 			<div class="clearfix">&nbsp;</div>
 			<div class="clearfix">&nbsp;</div>
 		@endif
@@ -168,5 +184,17 @@
 @section('js')
 	<script type="text/javascript">
 		hris_slimscroll.init();
+		hris_slimscroll_tab.init();
+		hris_modal_delete.init();
+		hris_select_chart.init([]);
+		hris_modal_work_update.init();
+		hris_modal_relative_update.init();
+		hris_modal_document_update.init();
+
+		@if($page_datas->datas['employee']['id']=='')
+			hris_wizard_new_employee.init();
+		@else
+			hris_wizard_exists_employee.init();
+		@endif
 	</script>
 @stop
