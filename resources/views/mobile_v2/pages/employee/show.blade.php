@@ -70,7 +70,9 @@
 					<img src="{{$page_datas->datas['employee']['avatar']}}" class="img-circle max-width-75">
 				</div>
 			</div>
-
+		</div>
+		<div class="clearfix">&nbsp;</div>
+		<div class="background-white">
 			<div class="row padding-15">
 				<div class="col-sm-12 font-size-10 padding-right-0"> 
 					<ul class="nav nav-tabs">
@@ -87,7 +89,7 @@
 							<a class="nav-link" href="#contract" data-toggle="tab">Kontrak Kerja</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#relation" data-toggle="tab">Relasi</a>
+							<a class="nav-link" href="#relation" data-toggle="tab">Relatif</a>
 						</li>
 					</ul>
 
@@ -96,16 +98,16 @@
 							@include('mobile_v2.pages.employee.profile.index')
 						</div>
 						<div id="carrier" class="tab-pane fade">
-							@include('desktop_v2.pages.employee.carrier.index')
+							@include('desktop_v2.pages.employee.carrier.index', ['scroll_class' => 'slim-scroll-tab'])
 						</div>
 						<div id="document" class="tab-pane fade">
-							@include('desktop_v2.pages.employee.document.index')
+							@include('desktop_v2.pages.employee.document.index', ['scroll_class' => 'slim-scroll-tab'])
 						</div>
 						<div id="contract" class="tab-pane fade">
 							@include('desktop_v2.pages.employee.contract.index')
 						</div>
 						<div id="relation" class="tab-pane fade">
-							@include('desktop_v2.pages.employee.relation.index')
+							@include('desktop_v2.pages.employee.relation.index', ['scroll_class' => 'slim-scroll-tab'])
 						</div>
 					</div>
 				</div>
@@ -126,8 +128,10 @@
 
 @section('js')
 	<script type="text/javascript">
-		hris_slimscroll.init();
+		hris_slimscroll_tab.init();
 		hris_modal_delete.init();
-		hris_modal_chart_edit.init();
+		hris_modal_work_update.init();
+		hris_modal_relative_update.init();
+		hris_modal_document_update.init();
 	</script>
 @stop
