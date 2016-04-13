@@ -10,7 +10,7 @@
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"><i class="ion-android-close"></i></button>
 				<a  class="document_back link-blue font-size-13" href="#template"><i class="ion-android-arrow-back"></i></a>&nbsp;
-				<span class="font-18 modal_title text-uppercase"></span>
+				<span class="font-18 modal_document_secondary_title text-uppercase"></span>
 				<span class="font-18 modal_document_title text-uppercase"></span>
 			</div>
 			<div class="modal-body">

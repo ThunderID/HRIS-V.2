@@ -142,7 +142,7 @@
 
 
 			$('.mod_id').val(id);
-			$('.modal_title').html(title);
+			$('.modal_document_secondary_title').html(title);
 			$('.modal_personid').val(personid);
 			$('.modal_relative_update').attr('action', action);
 
@@ -162,7 +162,7 @@
 				$(".document_cancel").show();
 				$('.modal_document_title').html(title);
 				$(".modal_document_title").show();
-				$(".modal_title").hide();
+				$(".modal_document_secondary_title").hide();
 			}
 			else
 			{
@@ -171,7 +171,7 @@
 				$(".document_cancel").hide();
 				$(".document_click").show();
 				$(".modal_document_title").hide();
-				$(".modal_title").show();
+				$(".modal_document_secondary_title").show();
 			}
 
 		}); 
@@ -186,7 +186,7 @@
 			$(".document_cancel").hide();
 			$('.modal_document_title').html(title);
 			$(".modal_document_title").show();
-			$(".modal_title").hide();
+			$(".modal_document_secondary_title").hide();
 		});
 
 		$(".document_back").click(function(){
@@ -196,7 +196,7 @@
 			$(".document_cancel").hide();
 			$(".document_click").show();
 			$(".modal_document_title").hide();
-			$(".modal_title").show();
+			$(".modal_document_secondary_title").show();
 		});
 
 		$(".document_back").hide();
