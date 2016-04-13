@@ -165,7 +165,42 @@ class BranchController extends BaseController
 														);
 
 		//4. set page datas
-		$this->page_datas->datas['charts']			= $charts['data']['data'];
+		//shape chart data
+		$charts										= $charts['data']['data'];
+		$chartData 									= [];
+
+		if(count($charts) != 0)
+		{
+			foreach ($charts as $dt) 
+			{
+				if($dt['chart_id'] == 0)
+				{
+					$chartData[$dt['id']]					= 	[
+																	'name'			=> $dt['name'],
+																	'id_parent'		=> $dt['chart_id'],
+																	'childs'		=> []
+																];
+				}
+				else
+				{
+					$parents 								= explode(",", $dt['path']);
+					$trash 									= array_pop($parents);
+
+					$current								= &$chartData;
+					foreach ($parents as $key => $value) {
+						$current  							= &$current[$value]['childs'];
+					}
+
+					$current[$dt['id']]						= 	[
+																	'name'			=> $dt['name'],
+																	'id_parent'		=> $dt['chart_id'],
+																	'childs'		=> []
+																];
+				}
+			}
+		}
+
+		$this->page_datas->datas['charts']			= $chartData;
 		$this->page_datas->datas['branches']		= $branches['data']['data'];
 		$this->page_datas->datas['branch']			= $data['data'];
 		$this->page_datas->datas['id']				= $org_id;
