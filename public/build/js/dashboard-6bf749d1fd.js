@@ -221,6 +221,84 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 		}); 
 	}
 };
+
+
+; var hris_modal_document_update = {
+
+	init: function(){
+		$('#document_update').on('show.bs.modal', function (e) {
+
+			var id				= $(e.relatedTarget).attr('data-id');
+			var title			= $(e.relatedTarget).attr('data-title');
+			var personid		= $(e.relatedTarget).attr('data-personid');
+			var code			= $(e.relatedTarget).attr('data-code');
+			var action      	= $(e.relatedTarget).attr('data-action');
+
+
+			$('.mod_id').val(id);
+			$('.modal_title').html(title);
+			$('.modal_personid').val(personid);
+			$('.modal_relative_update').attr('action', action);
+
+			if(code!='')
+			{
+				var doc	= JSON.parse($(e.relatedTarget).attr('data-documents'));
+
+				for(var k in doc) 
+				{
+					$('.modal_documents_'+k).val(doc[k]);
+				}
+
+				$(".document_form").hide();
+			    $(".document_"+code+"_form").show();
+				$(".document_click").hide();
+				$(".document_back").hide();
+				$(".document_cancel").show();
+				$('.modal_document_title').html(title);
+				$(".modal_document_title").show();
+				$(".modal_title").hide();
+			}
+			else
+			{
+				$(".document_form").hide();
+				$(".document_back").hide();
+				$(".document_cancel").hide();
+				$(".document_click").show();
+				$(".modal_document_title").hide();
+				$(".modal_title").show();
+			}
+
+		}); 
+
+		$(".document_click").click(function(){
+			var code          = $(this).attr('data-code');
+			title 				=code.replace('_',' ');
+
+			$(".document_"+code+"_form").show();
+			$(".document_click").hide();
+			$(".document_back").show();
+			$(".document_cancel").hide();
+			$('.modal_document_title').html(title);
+			$(".modal_document_title").show();
+			$(".modal_title").hide();
+		});
+
+		$(".document_back").click(function(){
+
+			$(".document_form").hide();
+			$(".document_back").hide();
+			$(".document_cancel").hide();
+			$(".document_click").show();
+			$(".modal_document_title").hide();
+			$(".modal_title").show();
+		});
+
+		$(".document_back").hide();
+		$(".document_cancel").hide();
+		$(".document_form").hide();
+		$(".modal_document_title").hide();
+	}
+};
 ; var hris_slimscroll = {
 	
 	init  : function () {

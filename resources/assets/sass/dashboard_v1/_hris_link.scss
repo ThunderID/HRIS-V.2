@@ -135,6 +135,20 @@ a.link-round-100{
 	}
 }
 
+.link-square-white-border-gray{
+	border-radius: 0px;
+	padding : 10px 15px;
+	border : 1px solid #E6E6E6;
+	background-color : #FFFFFF !important;
+	text-decoration: none;
+		&:hover, focus {
+		background-color : #FFFFFF !important;
+		border : 1px solid #3F67AE;
+		text-decoration: none;
+		border-radius: 0px;
+	}
+}
+
 a.link-transparent{
 	text-decoration: none;
 	background-color: transparent;
