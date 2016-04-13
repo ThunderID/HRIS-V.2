@@ -73,7 +73,7 @@
 							<input name="avatar" value="{{$page_datas->datas['employee']['avatar']}}" class="form-control font-size-10 border-top-0" id="avatar" placeholder="masukkan url avatar">
 						</div>
 						<div class="col-md-5 col-sm-8">
-							 <fieldset class="form-group">
+							<fieldset class="form-group">
 								<label for="employeename">Nama Karyawan</label>
 								<input name="name" value="{{$page_datas->datas['employee']['name']}}" class="form-control" id="employeename" placeholder="Masukkan nama karyawan">
 							</fieldset>
@@ -176,5 +176,7 @@
 		hris_slimscroll_mini.init();
 		hris_filter.init();
 		hris_select_chart.init([]);
+		hris_modal_work_update.init();
+		hris_modal_relative_update.init();
 	</script>
 @stop

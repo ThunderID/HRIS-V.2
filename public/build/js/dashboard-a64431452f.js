@@ -184,7 +184,43 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 	}
 };
 
+; var hris_modal_relative_update = {
 
+	init: function(){
+		$('#relative_update').on('show.bs.modal', function (e) {
+
+			var id				= $(e.relatedTarget).attr('data-id');
+			var title			= $(e.relatedTarget).attr('data-title');
+			var personid		= $(e.relatedTarget).attr('data-personid');
+			var relativeid		= $(e.relatedTarget).attr('data-relativeid');
+			var name			= $(e.relatedTarget).attr('data-name');
+			var placeofbirth	= $(e.relatedTarget).attr('data-placeofbirth');
+			var gender			= $(e.relatedTarget).attr('data-gender');
+			var relation  		= $(e.relatedTarget).attr('data-relation');
+			var dateofbirth  	= $(e.relatedTarget).attr('data-dateofbirth');
+			var phone 		 	= $(e.relatedTarget).attr('data-phone');
+			var email  			= $(e.relatedTarget).attr('data-email');
+			var address			= $(e.relatedTarget).attr('data-address');
+			var action      	= $(e.relatedTarget).attr('data-action');
+
+
+			$('.mod_id').val(id);
+			$('.modal_title').html(title);
+			$('.modal_personid').val(personid);
+			$('.modal_relativeid').val(relativeid);
+			$('.modal_relative_name').val(name);
+			$('.modal_relative_place_of_birth').val(placeofbirth);
+			$('.modal_relative_gender').val(gender);
+			$('.modal_relationship').val(relation);
+			$('.modal_relative_date_of_birth').val(dateofbirth);
+			$('.modal_relative_phone').val(phone);
+			$('.modal_relative_email').val(email);
+			$('.modal_relative_address').val(address);
+			$('.modal_relative_update').attr('action', action);
+
+		}); 
+	}
+};
 ; var hris_slimscroll = {
 	
 	init  : function () {

@@ -1,6 +1,24 @@
 <div class="row">
 	<div class="col-sm-12">
-		<div class="padding-top-15 font-size-18 padding-bottom-10">Relasi <a href=""><i class="ion-ios-plus-outline"></i></a></div>
+		<div class="padding-top-15 font-size-18 padding-bottom-10">Relatif
+			<a class="link-dark-blue" href="javascript:void(0);" data-backdrop="static" data-keyboard="false" data-toggle="modal" 
+				data-target="#relative_update"
+				data-id=""
+				data-title="Tambah Data relatif {{$page_datas->datas['employee']['name']}}"
+				data-personid=""
+				data-relativeid=""
+				data-name=""
+				data-placeofbirth=""
+				data-gender=""
+				data-relation=""
+				data-dateofbirth=""
+				data-phone=""
+				data-email=""
+				data-address=""
+				data-action="{{route('employee.relation.store', ['org_id' => $page_datas->datas['id'], 'employee' => $page_datas->datas['employee']['id']] )}}">
+				<i class="ion-ios-plus-outline"></i> 
+			</a>
+		</div>
 		@if(!is_null($page_datas->datas['employee']['relatives']))
 			<div class="{{$scroll_class}}">
 				@foreach($page_datas->datas['employee']['relatives'] as $key => $value)
@@ -11,17 +29,31 @@
 									<div class="font-size-18 font-dark-blue padding-top-5">
 										{{$value['relative']['name']}} - {{$value['relationship']}}
 										&nbsp;&nbsp;
-										<a class="link-dark-blue" href="">
+										<a class="link-dark-blue" href="javascript:void(0);" data-backdrop="static" data-keyboard="false" data-toggle="modal" 
+											data-target="#relative_update"
+											data-id="{{$value['id']}}"
+											data-title="Ubah Data relatif {{$page_datas->datas['employee']['name']}}"
+											data-personid="{{$value['person_id']}}"
+											data-relativeid="{{$value['relative_id']}}"
+											data-name="{{$value['relative']['name']}}"
+											data-placeofbirth="{{$value['relative']['place_of_birth']}}"
+											data-gender="{{$value['relative']['gender']}}"
+											data-relation="{{$value['relationship']}}"
+											data-dateofbirth="{{$value['relative']['date_of_birth']}}"
+											data-phone="{{$value['relative']['phone']}}"
+											data-email="{{$value['relative']['email']}}"
+											data-address="{{$value['relative']['address']}}"
+											data-action="{{route('employee.relation.store', ['org_id' => $page_datas->datas['id'], 'employee' => $page_datas->datas['employee']['id']] )}}">
 											<i class="ion-android-create"></i> 
 										</a>
 										&nbsp;&nbsp;
 										<a class="link-dark-blue" href="javascript:void(0);" data-backdrop="static" data-keyboard="false" data-toggle="modal" 
-												data-target="#organisation_del"
-												data-id="{{$value['id']}}"
-												data-title="Hapus Data Relasi {{$value['relative']['name']}}"
-												data-effect="Menghapus data relasi. Masukkan password Anda untuk melanjutkan "
-												data-action="{{route('employee.relation.destroy', ['org_id' => $page_datas->datas['id'], 'employee' => $page_datas->datas['employee']['id'], 'id' => $value['id']] )}}">
-												<i class="ion-android-delete"></i> 
+											data-target="#organisation_del"
+											data-id="{{$value['id']}}"
+											data-title="Hapus Data Relatif {{$value['relative']['name']}}"
+											data-effect="Menghapus data relasi. Masukkan password Anda untuk melanjutkan "
+											data-action="{{route('employee.relation.destroy', ['org_id' => $page_datas->datas['id'], 'employee' => $page_datas->datas['employee']['id'], 'id' => $value['id']] )}}">
+											<i class="ion-android-delete"></i> 
 										</a>
 									</div>
 									<div class="font-size-14">
@@ -39,3 +71,10 @@
 		@endif
 	</div>
 </div>
+
+<!-- Modal Relative -->
+@include('desktop_v2.components.modals.modal_relative_update', [
+		'modal_id'      => 'relative_update', 
+		'modal_route'   => route('ajax.organisation.charts', ['id' => $page_datas->datas['id']])
+])
+<!-- End of Modal Relative -->

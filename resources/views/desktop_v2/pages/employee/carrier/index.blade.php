@@ -14,7 +14,7 @@
 				data-start=""
 				data-end=""
 				data-reason=""
-				data-action="', ['org_id' => $page_datas->datas['id'], 'employee' => $page_datas->datas['employee']['id']] )}}">
+				data-action="{{route('employee.work.store', ['org_id' => $page_datas->datas['id'], 'employee' => $page_datas->datas['employee']['id']] )}}">
 				<i class="ion-ios-plus-outline"></i> 
 			</a>
 		</div>
@@ -70,9 +70,9 @@
 	</div>
 </div>
 
-<!-- Modal Delete -->
+<!-- Modal Work -->
 @include('desktop_v2.components.modals.modal_work_update', [
 		'modal_id'      => 'work_update', 
 		'modal_route'   => route('ajax.organisation.charts', ['id' => $page_datas->datas['id']])
 ])
-<!-- End of Modal Delete -->
+<!-- End of Modal Work -->
