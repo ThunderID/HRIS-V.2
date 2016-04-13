@@ -39,6 +39,69 @@ class EmployeeDocumentController extends BaseController
 	 * 1. id
 	 * 2. org_id
 	 * 3. input name
+	 *
+	 * @return
+	 * 1. response
+	 * 
+	 * steps
+	 * 1. validate
+	 * 2. get data
+	 * 3. post to API
+	 * 4. return response
+	 */
+	public function store($org_id = null, $employee = null)
+	{
+		//1. validate
+		if(is_null($org_id))
+		{
+			App::abort(403, 'Id Organisasi tidak ada');
+		}
+
+		$input 									= Input::all();
+
+		$input['person_id']						= $employee;
+		$input['documents']						= json_encode($input['documents']);
+
+		//2. get data
+		$APIEmployee							= new APIEmployee;
+		$data									= $APIEmployee->getShow($org_id,$employee)['data'];
+
+		if(empty($input['id']))
+		{
+			$data['persondocuments'][] 			= $input;
+		}
+		else
+		{
+			foreach ($data['persondocuments'] as $key => $value) 
+			{
+				if($value['id']==$input['id'])
+				{
+					$data['persondocuments'][$key] = $input;
+				}
+			}
+		}
+
+		//3. post to API
+		$APIEmployee								= new APIEmployee;
+		$result										= $APIEmployee->postData($org_id, $data);
+
+		//4. return response 
+		if($result['status'] != 'success')
+		{
+			$this->errors                           = $result['message'];
+		}
+		$this->page_attributes->msg             = "Data Pekerjaan Telah Dihapus";           
+
+		return $this->generateRedirectRoute('org.show',['id' => $org_id]);        
+	}
+
+	/**
+	 * { store }
+	 *
+	 * @param     
+	 * 1. id
+	 * 2. org_id
+	 * 3. input name
 	 * 4. input address
 	 * 5. input email
 	 * 6. input phone

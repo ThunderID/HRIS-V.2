@@ -233,11 +233,10 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 			var code			= $(e.relatedTarget).attr('data-code');
 			var action      	= $(e.relatedTarget).attr('data-action');
 
-
 			$('.mod_id').val(id);
 			$('.modal_document_secondary_title').html(title);
 			$('.modal_personid').val(personid);
-			$('.modal_relative_update').attr('action', action);
+			$('.modal_document_update').attr('action', action);
 
 			if(code!='')
 			{
@@ -256,6 +255,7 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 				$('.modal_document_title').html(title);
 				$(".modal_document_title").show();
 				$(".modal_document_secondary_title").hide();
+				$('.modal_code').val(code);
 			}
 			else
 			{
@@ -270,7 +270,7 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 		}); 
 
 		$(".document_click").click(function(){
-			var code          = $(this).attr('data-code');
+			var code			= $(this).attr('data-code');
 			title 				=code.replace('_',' ');
 
 			$(".document_"+code+"_form").show();
@@ -280,6 +280,7 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 			$('.modal_document_title').html(title);
 			$(".modal_document_title").show();
 			$(".modal_document_secondary_title").hide();
+			$('.modal_code').val(code);
 		});
 
 		$(".document_back").click(function(){
