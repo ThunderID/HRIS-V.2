@@ -157,9 +157,9 @@ class APIEmployee extends APIData
 	 * @return
 	 * 1. nik
 	 */
-	public function getUsername($code = 0, $name = 0)
+	public function getUsername($code = 0, $id = 0, $name = 0)
 	{
-		$this->apiUrl 					= '/organisation/'.$code.'/username/'.$name;
+		$this->apiUrl 					= '/organisation/'.$code.'/username/'.$id.'?name='.$name;
 
 		return $this->get();
 	}	

@@ -75,7 +75,7 @@
 						<div class="col-md-5 col-sm-8">
 							<fieldset class="form-group">
 								<label for="employeename">Nama Karyawan</label>
-								<input name="name" value="{{$page_datas->datas['employee']['name']}}" class="form-control" id="employeename" placeholder="Masukkan nama karyawan">
+								<input name="name" value="{{$page_datas->datas['employee']['name']}}" class="form-control" id="employeename" placeholder="Masukkan usernama karyawan" data-unameurl="{{route('ajax.employee.username', ['code' => $page_datas->datas['code'], 'id' => (isset($page_datas->datas['employee']['id']) ? $page_datas->datas['employee']['id'] : 0 )] )}}">
 							</fieldset>
 							<fieldset class="form-group">
 								<label for="employeeplaceofbirth">Tempat Lahir</label>
@@ -178,6 +178,7 @@
 		hris_slimscroll_mini.init();
 		hris_filter.init();
 		hris_select_chart.init([]);
+		hris_auto_generate_username.init();
 		hris_modal_work_update.init();
 		hris_auto_generate_nik.init();
 		hris_modal_relative_update.init();

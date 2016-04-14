@@ -391,6 +391,7 @@ class EmployeeController extends BaseController
 			$data									= $APIEmployee->getShow($org_id,$id)['data'];
 
 			$data									= $input;
+			$data['id']								= $id;
 		}
 		else
 		{
@@ -501,8 +502,8 @@ class EmployeeController extends BaseController
 			App::abort(403, 'Id Organisasi tidak ada');
 		}
 
-		$APIEmployee                                  = new APIEmployee;
-		$search                                     = array_merge(
+		$APIEmployee                                  	= new APIEmployee;
+		$search                                     	= array_merge(
 															['name' => $name]
 														);
 
@@ -590,17 +591,19 @@ class EmployeeController extends BaseController
 	 * 2. validate
 	 * 3. returning data
 	 */
-	public function generateUsername($code = null, $name = null)
+	public function generateUsername($code = null, $id = 0)
 	{
 		//1. get data
-		if(is_null($code))
+		if(is_null($code) || !Input::has('name'))
 		{
 			App::abort(403, 'code Organisasi tidak ada');
 		}
 
+		$name 				= Input::get('name');
+
 		$APIEmployee		= new APIEmployee;
 
-		$Employee			= $APIEmployee->getUsername($code, $name);
+		$Employee			= $APIEmployee->getUsername($code, $id, $name);
 
 		//2. validate
 		if($Employee['status'] != 'success')

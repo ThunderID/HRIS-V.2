@@ -6,7 +6,7 @@ Route::group(['namespace' => 'Org\\'], function()
 	
 	Route::get('/generate/nik/{code}/{id}',								['uses' => 'EmployeeController@generateNIK', 	'as' => 'ajax.employee.nik']);
 	
-	Route::get('/generate/username/{code}/{name}',						['uses' => 'EmployeeController@generateUsername', 	'as' => 'ajax.employee.username']);
+	Route::get('/generate/username/{code}/{id}',						['uses' => 'EmployeeController@generateUsername', 	'as' => 'ajax.employee.username']);
 
 	Route::delete('/org/{org_id?}/employee/{employee}/work/{id}/delete',		['uses' => 'EmployeeWorkController@delete', 		'as' => 'employee.work.destroy']);
 	Route::delete('/org/{org_id?}/employee/{employee}/relation/{id}/delete',	['uses' => 'EmployeeRelationController@delete', 	'as' => 'employee.relation.destroy']);

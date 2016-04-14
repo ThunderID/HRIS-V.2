@@ -55,7 +55,7 @@
 					</fieldset>
 				</div>
 				<div class="col-xs-6 padding-15">
-					@if(!isset($page_datas->datas['id']))
+					@if(!isset($page_datas->datas['employee']['id']))
 						<div class="file-upload-box border-gray-225">
 							<p class="background-gray-238 margin-bottom-0 height-180 padding-top-85">Foto</p>
 						</div>
@@ -71,7 +71,7 @@
 				<div class="col-xs-12">
 					<fieldset class="form-group">
 						<label for="employeename">Nama Karyawan</label>
-						<input name="name" value="{{$page_datas->datas['employee']['name']}}" class="form-control" id="employeename" placeholder="Masukkan nama perusahaan">
+						<input name="name" value="{{$page_datas->datas['employee']['name']}}" class="form-control" id="employeename" placeholder="Masukkan nama perusahaan" data-unameurl="{{route('ajax.employee.username', ['code' => $page_datas->datas['code'], 'id' => (isset($page_datas->datas['employee']['id']) ? $page_datas->datas['employee']['id'] : 0 )] )}}">
 					</fieldset>
 				</div>
 				<div class="col-xs-12">
@@ -189,6 +189,7 @@
 		hris_slimscroll_tab.init();
 		hris_modal_delete.init();
 		hris_select_chart.init([]);
+		hris_auto_generate_username.init();
 		hris_modal_work_update.init();
 		hris_auto_generate_nik.init();
 		hris_modal_relative_update.init();
