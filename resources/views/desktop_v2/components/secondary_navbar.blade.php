@@ -33,4 +33,9 @@
 			</a>
 		</a>
 	@endif
+	@if(isset($action_resend_url))
+		&nbsp;
+		&nbsp;
+		<a class="link-blue font-14" href="{{$action_resend_url}}"><i class="ion-ios-paperplane-outline"></i> Kirim Ulang Email Aktivasi</a>
+	@endif
 </div>

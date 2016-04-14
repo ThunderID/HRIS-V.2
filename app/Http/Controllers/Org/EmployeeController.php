@@ -424,7 +424,7 @@ class EmployeeController extends BaseController
 		}
 		else
 		{
-			$this->page_attributes->msg             = "Data Karyawan Telah Ditambahkan";           
+			$this->page_attributes->msg             = "Data Karyawan Telah Ditambahkan";
 		}
 
 		return $this->generateRedirectRoute('org.show',['id' => $org_id]);        
@@ -614,5 +614,54 @@ class EmployeeController extends BaseController
 		//3. returning data
 
 		return $Employee['data']['username'];
+	}
+
+	/**
+	 * { resendActivationMail }
+	 *
+	 * @param     
+	 *1. code
+	 *2. name
+	 *
+	 * @return
+	 * 1. username
+	 * 
+	 * Step:
+	 * 1. get data
+	 * 2. validate
+	 * 3. returning data
+	 */
+	public function resendActivationMail($org_id = 0, $id = 0)
+	{
+		//1. get data
+		if(is_null($id))
+		{
+			App::abort(403, 'Person ID Tidak ada');
+		}
+
+		$name 				= Input::get('name');
+
+		$APIEmployee		= new APIEmployee;
+
+		$result				= $APIEmployee->resendActivationMail($id);
+
+		//2. validate
+		if($result['status'] != 'success')
+		{
+			$this->errors                           = $result['message'];
+		}
+
+		if(!empty($id))
+		{
+		   $this->page_attributes->msg              = "Data Karyawan Telah Diedit";
+		}
+		else
+		{
+			$this->page_attributes->msg             = "Data Karyawan Telah Ditambahkan";
+		}
+
+		//3. returning data
+
+		return $this->generateRedirectRoute('employee.show', ['org_id' => $org_id, 'id' => $id]); 
 	}
 }

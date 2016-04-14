@@ -165,6 +165,23 @@ class APIEmployee extends APIData
 	}	
 
 	/**
+	 * { resendActivationMail }
+	 *
+	 * @param
+	 * 1. $id 		: employee id    
+	 *
+	 * @return
+	 * 1. user
+	 */
+	public function resendActivationMail($id)
+	{
+		$this->apiUrl 					= '/employee/resend/activation/'.$id;
+		$this->timeout 					= 50;
+
+		return $this->get();
+	}	
+
+	/**
 	 * { getDocumentTemplates }
 	 *
 	 * @param

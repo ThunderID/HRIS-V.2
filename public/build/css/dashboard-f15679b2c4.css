@@ -7887,7 +7887,7 @@ button.button-white {
 .create-menu {
   top: 32px;
   left: -15px;
-  box-shadow: 1px 1px 1px #888888, -2px 1px 1px #888888; }
+  box-shadow: 3px 3px 3px rgba(86, 96, 117, 0.698), -4px 3px 3px rgba(86, 96, 117, 0.698); }
 
 .font-size-10 {
   font-size: 10px; }
