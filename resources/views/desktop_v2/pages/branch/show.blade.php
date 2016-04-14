@@ -174,7 +174,7 @@ right connector from last child*/
 				</div>
 				<div class="row text-xs-center">
 					<div class="col-md-12">
-						<div style="border-bottom: black 0.2px solid; border-left: black 0.2px solid; overflow-x: auto; overflow-y: auto; margin-bottom: 10px; height: 400px; border-top: black 0.2px solid; border-right: black 0.2px solid" class="tree">
+						<div id="frame-scroller" style="border-bottom: black 0.2px solid; border-left: black 0.2px solid; overflow-x: auto; overflow-y: auto; margin-bottom: 10px; height: 400px; border-top: black 0.2px solid; border-right: black 0.2px solid" class="tree">
 							<div id="frame-chart">
 								@forelse($page_datas->datas['charts'] as $key => $dt)
 									<?php
@@ -281,9 +281,16 @@ right connector from last child*/
 		    $("#frame-chart").width(new_width);
 		}
 
+		function centerViewPort(_width) {
+			var f_width = $("#frame-scroller").width();
+			$("#frame-scroller").scrollLeft((_width/2)-(f_width/2));
+		}
+
 		$( document ).ready(function() {
 		    setChartWidth({{$width}});
+		    centerViewPort({{$width}});
 		});
+
 
 		// hris_slimscroll.init(); 
 		hris_modal_delete.init();
