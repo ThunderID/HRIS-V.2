@@ -22,7 +22,7 @@
 						</div>
 						<div class="card-block background-blue">
 							<blockquote class="card-blockquote">
-								<div class="font-size-18 font-white">@number($page_datas->datas['employee']['newest_grade'])</div>
+								<div class="font-size-18 font-white">@if((int)$page_datas->datas['employee']['newest_grade']) @number($page_datas->datas['employee']['newest_grade']) @else {{$page_datas->datas['employee']['newest_grade']}} @endif</div>
 							</blockquote>
 						</div>
 					</div>

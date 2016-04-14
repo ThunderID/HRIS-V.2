@@ -12,7 +12,11 @@
 					<div class="col-xs-8 padding-top-5">
 						<a href="{{route('employee.index', ['org_id' => $page_datas->datas['id']])}}" class="link-blue background-white padding-right-15 padding-top-5 padding-bottom-5"><i class="ion-android-arrow-back"></i></a> {{$page_attributes->page_subtitle}}
 					</div>
-					<div class="col-xs-4 text-xs-right">
+					<div class="col-xs-4 text-xs-right padding-right-30">
+						@if(!is_null($page_datas->datas['employee']['activation_link']) || $page_datas->datas['employee']['activation_link'] != '')
+							<a class="link-black" href="route('employee.destroy', ['org_id' => $page_datas->datas['id'], 'employee' => $page_datas->datas['employee']['id']])"><i class="ion-ios-paperplane-outline"></i></a>
+							&nbsp;&nbsp;
+						@endif
 						<a class="link-black" href="{{route('employee.edit', ['org_id' => $page_datas->datas['id'], 'employee' => $page_datas->datas['employee']['id']])}}">
 							<i class="ion-android-create"></i> 
 						</a>
