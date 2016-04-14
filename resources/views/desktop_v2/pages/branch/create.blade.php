@@ -30,7 +30,7 @@
 		{!! Form::open(['url' => route('branch.store', ['org_id' => $page_datas->datas['id']]), 'method' => 'POST']) !!}
 	@endif
 	<div class="col-md-9 margin-left-negative-10">
-		<div class="row background-shade-blue text-xs-right">
+		<div class="row background-shade-blue margin-left-negative-20 text-xs-right">
 			@include('desktop_v2.components.secondary_navbar', ['action_create_id' => $page_datas->datas['branch']['id'], 
 			'action_redirect_route' => route('branch.index', ['org_id' => $page_datas->datas['id']])
 			])

@@ -2101,9 +2101,7 @@ input[type="button"].btn-block {
   text-align: left;
   list-style: none;
   background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0.25rem; }
+  background-clip: padding-box; }
 
 .dropdown-divider {
   height: 1px;
@@ -7886,6 +7884,11 @@ button.button-white {
   left: 0px;
   z-index: 1020; }
 
+.create-menu {
+  top: 32px;
+  left: -15px;
+  box-shadow: 1px 1px 1px #888888, -2px 1px 1px #888888; }
+
 .font-size-10 {
   font-size: 10px; }
 
@@ -8119,6 +8122,9 @@ a.link-menu {
 
 .margin-bottom-5 {
   margin-bottom: 5px; }
+
+.margin-left-negative-20 {
+  margin-left: -20px; }
 
 .margin-left-negative-15 {
   margin-left: -15px; }

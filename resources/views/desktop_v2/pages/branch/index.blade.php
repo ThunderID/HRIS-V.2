@@ -25,7 +25,7 @@
 		</div>
 	</div>
 	<div class="col-md-9 margin-left-negative-10">
-		<div class="row background-shade-blue">
+		<div class="row background-shade-blue margin-left-negative-20">
 			@include('desktop_v2.components.secondary_navbar', ['action_create_button' => route('branch.create', ['org_id' => $page_datas->datas['id']])])
 		</div>
 		<div class="row background-gray-238">

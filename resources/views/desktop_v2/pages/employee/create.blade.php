@@ -40,7 +40,7 @@
 		{!! Form::open(['url' => route('employee.store', ['org_id' => $page_datas->datas['id']]), 'method' => 'POST']) !!}
 	@endif
 	<div class="col-md-9 margin-left-negative-10">
-		<div class="row background-shade-blue text-xs-right">
+		<div class="row background-shade-blue margin-left-negative-20 text-xs-right">
 			@include('desktop_v2.components.secondary_navbar', ['action_create_id' => $page_datas->datas['employee']['id'], 
 			'action_redirect_route' => route('employee.index', ['org_id' => $page_datas->datas['id']])
 			])

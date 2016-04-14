@@ -155,7 +155,7 @@ right connector from last child*/
 		</div>
 	</div>
 	<div class="col-md-9 margin-left-negative-10">
-		<div class="row background-shade-blue">
+		<div class="row background-shade-blue margin-left-negative-20">
 			@include('desktop_v2.components.secondary_navbar', ['action_create_button' => route('branch.create', ['org_id' => $page_datas->datas['id']]), 'action_edit_button' =>  route('branch.edit', ['org_id' => $page_datas->datas['id'], 'branch' => $page_datas->datas['branch']['id']]), 
 				'action_delete_id' 	=> $page_datas->datas['branch']['id'], 'action_delete_title' => 'Hapus Data Cabang '.$page_datas->datas['branch']['name'], 'action_delete_effect' => 'Menghapus cabang akan menghapus data struktur organisasi. Masukkan password Anda untuk melanjutkan ',
 				'action_delete_url' 	=> route('branch.destroy', ['org_id' => $page_datas->datas['id'], 'branch' => $page_datas->datas['branch']['id']])
