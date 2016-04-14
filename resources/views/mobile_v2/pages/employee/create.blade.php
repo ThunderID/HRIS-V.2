@@ -190,6 +190,7 @@
 		hris_modal_delete.init();
 		hris_select_chart.init([]);
 		hris_modal_work_update.init();
+		hris_auto_generate_nik.init();
 		hris_modal_relative_update.init();
 		hris_modal_document_update.init();
 

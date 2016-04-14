@@ -54,6 +54,7 @@
 			var end  		= $(e.relatedTarget).attr('data-end');
 			var reason  	= $(e.relatedTarget).attr('data-reason');
 			var action      = $(e.relatedTarget).attr('data-action');
+			var nikurl      = $(e.relatedTarget).attr('data-nikurl');
 
 			var preload_data_tag = [];
 
@@ -71,6 +72,7 @@
 			$('.modal_end').val(end);
 			$('.modal_reason').val(reason);
 			$('.modal_work_update').attr('action', action);
+			$('.modal_start').attr('data-nikurl', nikurl);
 			
 			if(chartid!='')
 			{
@@ -85,7 +87,6 @@
 				$(".select2-selection__rendered").text(chartname);
 				$(".select2-selection__rendered").attr("title",chartname);
 			}
-
 		}); 
 	}
 };

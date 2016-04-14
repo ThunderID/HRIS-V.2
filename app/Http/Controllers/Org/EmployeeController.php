@@ -120,6 +120,7 @@ class EmployeeController extends BaseController
 		
 		$this->page_datas->datas['id']				= $org_id;
 		$this->page_datas->datas['name']			= $organisation['data']['name'];
+		$this->page_datas->datas['code']			= $organisation['data']['code'];
 
 		//5. generate view
 		$this->page_attributes->breadcrumb          = array_merge(
@@ -214,6 +215,7 @@ class EmployeeController extends BaseController
 		$this->page_datas->datas['employee']		= $data['data'];
 		$this->page_datas->datas['id']				= $org_id;
 		$this->page_datas->datas['name']			= $organisation['data']['name'];
+		$this->page_datas->datas['code']			= $organisation['data']['code'];
 		$this->page_datas->cust_paging              = 0;
 		
 		//5. generate view
@@ -325,6 +327,7 @@ class EmployeeController extends BaseController
 		$this->page_datas->datas['employee']		= $data['data'];
 		$this->page_datas->datas['id']				= $org_id;
 		$this->page_datas->datas['name']			= $organisation['data']['name'];
+		$this->page_datas->datas['code']			= $organisation['data']['code'];
 
 		//5. generate view
 		$view_source                                = $this->view_source_root . '.create';
@@ -540,12 +543,21 @@ class EmployeeController extends BaseController
 	 * 2. validate
 	 * 3. returning data
 	 */
-	public function generateNIK($code = null, $id = null, $join_year = 00)
+	public function generateNIK($code = null, $id = null)
 	{
 		//1. get data
 		if(is_null($code))
 		{
 			App::abort(403, 'code Organisasi tidak ada');
+		}
+
+		if(Input::has('join_year'))
+		{
+			$join_year 		= \Carbon\Carbon::parse(Input::get('join_year'))->format('y');
+		}
+		else
+		{
+			$join_year 		= \Carbon\Carbon::now()->format('y');
 		}
 
 		$APIEmployee		= new APIEmployee;

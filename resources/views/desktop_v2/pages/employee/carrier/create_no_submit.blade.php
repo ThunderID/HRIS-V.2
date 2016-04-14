@@ -37,7 +37,7 @@
 	<div class="col-sm-6">
 		<fieldset class="form-group">
 			<label for="employeeworkstart">Tanggal Status Kerja Mulai</label>
-			<input name="works[0][start]" value="{{$page_datas->datas['employee']['newest_work_start']}}" class="form-control" id="employeeworkstart" placeholder="Masukkan tanggal mulai status kerja karyawan">
+			<input name="works[0][start]" value="{{$page_datas->datas['employee']['newest_work_start']}}" class="form-control" id="employeeworkstart" data-nikurl="{{route('ajax.employee.nik', ['code' => $page_datas->datas['code'], 'id' => 0] )}}" placeholder="Masukkan tanggal mulai status kerja karyawan">
 		</fieldset>
 	</div>
 	<div class="col-sm-6">

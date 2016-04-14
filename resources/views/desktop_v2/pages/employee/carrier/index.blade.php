@@ -8,6 +8,7 @@
 				data-personid="{{$page_datas->datas['employee']['id']}}"
 				data-chartid=""
 				data-chartname=""
+				data-nikurl="{{route('ajax.employee.nik', ['code' => $page_datas->datas['code'], 'id' => $page_datas->datas['employee']['id']] )}}"
 				data-nik=""
 				data-grade=""
 				data-status=""
@@ -28,20 +29,21 @@
 									{{$value['chart']['name']}} - {{$value['chart']['branch']['name']}}
 									&nbsp;&nbsp;
 									<a class="link-dark-blue" href="javascript:void(0);" data-backdrop="static" data-keyboard="false" data-toggle="modal" 
-											data-target="#work_update"
-											data-id="{{$value['id']}}"
-											data-title="Ubah Data Pekerjaan {{$page_datas->datas['employee']['name']}}"
-											data-personid="{{$value['person_id']}}"
-											data-chartid="{{$value['chart_id']}}"
-											data-chartname="{{$value['chart']['name']}} cabang {{$value['chart']['branch']['name']}}"
-											data-nik="{{$value['nik']}}"
-											data-grade="{{$value['grade']}}"
-											data-status="{{$value['status']}}"
-											data-start="{{$value['start']}}"
-											data-end="{{$value['end']}}"
-											data-reason="{{$value['reason_end_job']}}"
-											data-action="{{route('employee.work.store', ['org_id' => $page_datas->datas['id'], 'employee' => $page_datas->datas['employee']['id'], 'id' => $value['id']] )}}">
-											<i class="ion-android-create"></i> 
+										data-target="#work_update"
+										data-id="{{$value['id']}}"
+										data-title="Ubah Data Pekerjaan {{$page_datas->datas['employee']['name']}}"
+										data-nikurl="{{route('ajax.employee.nik', ['code' => $page_datas->datas['code'], 'id' => $page_datas->datas['employee']['id']] )}}"
+										data-personid="{{$value['person_id']}}"
+										data-chartid="{{$value['chart_id']}}"
+										data-chartname="{{$value['chart']['name']}} cabang {{$value['chart']['branch']['name']}}"
+										data-nik="{{$value['nik']}}"
+										data-grade="{{$value['grade']}}"
+										data-status="{{$value['status']}}"
+										data-start="{{$value['start']}}"
+										data-end="{{$value['end']}}"
+										data-reason="{{$value['reason_end_job']}}"
+										data-action="{{route('employee.work.store', ['org_id' => $page_datas->datas['id'], 'employee' => $page_datas->datas['employee']['id'], 'id' => $value['id']] )}}">
+										<i class="ion-android-create"></i> 
 									</a>
 									&nbsp;&nbsp;
 									<a class="link-dark-blue" href="javascript:void(0);" data-backdrop="static" data-keyboard="false" data-toggle="modal" 
