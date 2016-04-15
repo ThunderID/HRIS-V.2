@@ -37,10 +37,11 @@
 	<div class="col-md-9 margin-left-negative-10">
 		<div class="row background-shade-blue margin-left-negative-20">
 			@if(is_null($page_datas->datas['employee']['activation_link']) || $page_datas->datas['employee']['activation_link'] == '')
-				@include('desktop_v2.components.secondary_navbar', ['action_create_button' => route('employee.create', ['org_id' => $page_datas->datas['id']]), 'action_edit_button' =>  route('employee.edit', ['org_id' => $page_datas->datas['id'], 'employee' => $page_datas->datas['employee']['id']]), 
-					'action_delete_id' 	=> $page_datas->datas['employee']['id'], 'action_delete_title' => 'Hapus Data Karyawan '.$page_datas->datas['employee']['name'], 'action_delete_effect' => 'Menghapus karyawan akan menghapus pekerjaan, dokumen dan laporan karyawan. Masukkan password Anda untuk melanjutkan ',
+				@include('desktop_v2.components.secondary_navbar', [
+					'action_create_button'	=> route('employee.create', ['org_id' => $page_datas->datas['id']]), 'action_edit_button' =>  route('employee.edit', ['org_id' => $page_datas->datas['id'], 'employee' => $page_datas->datas['employee']['id']]), 
+					'action_delete_id' 		=> $page_datas->datas['employee']['id'], 'action_delete_title' => 'Hapus Data Karyawan '.$page_datas->datas['employee']['name'], 'action_delete_effect' => 'Menghapus karyawan akan menghapus pekerjaan, dokumen dan laporan karyawan. Masukkan password Anda untuk melanjutkan ',
 					'action_delete_url' 	=> route('employee.destroy', ['org_id' => $page_datas->datas['id'], 'employee' => $page_datas->datas['employee']['id']]), 
-					'special_case_import' => true
+					'special_case_import' 	=> true
 				])
 			@else
 				@include('desktop_v2.components.secondary_navbar', ['action_create_button' => route('employee.create', ['org_id' => $page_datas->datas['id']]), 'action_edit_button' =>  route('employee.edit', ['org_id' => $page_datas->datas['id'], 'employee' => $page_datas->datas['employee']['id']]), 
@@ -255,6 +256,14 @@
 		'modal_route'   => ''
 ])
 <!-- End of Modal Delete -->
+
+
+<!-- Modal upload -->
+@include('desktop_v2.components.modals.modal_employee_import', [
+		'modal_id'      => 'employee_upload', 
+		'modal_route'   => ''
+])
+<!-- End of Modal upload -->
 
 @stop
 
