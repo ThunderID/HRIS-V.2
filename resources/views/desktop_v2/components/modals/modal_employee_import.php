@@ -1,6 +1,6 @@
 <!-- Modal -->
-<div id="{{$modal_id}}" class="modal fade  padding-top-58" role="dialog">
-	<div class="modal-dialog">
+<div id="employee_upload_2" class="modal fade padding-top-58" role="dialog">
+	 <div class="modal-dialog">
 		<!-- Modal content-->
 		<div class="modal-content">
 			<div class="modal-header">
@@ -9,19 +9,32 @@
 			</div>
 			<div class="modal-body">
 				<!-- <p class="danger text-center">Error apa gitu</p> -->
+				<form action="{{$modal_route}}" method="POST" class="modal_employee_import"  enctype="multipart/form-data">
 
-					<div class="form-group">
-						<div class="font-14 modal_effect"></div>
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="font-size-14 padding-bottom-15 padding-top-15">
+								<strong>Import Document</strong>
+							</div>
+						</div>
 					</div>
-					 <div class="form-group">
-
+					<div class="row">
+						<div class="col-sm-12">
+							<fieldset class="form-group">
+								<input type="file" name="employee" class="form-control modal_relative_name" id="employeeimport">
+							</fieldset>
+						</div>
 					</div>
-					</br>
-					<div class="form-group text-xs-right">
-						<button type="button" class="button-gray" tabindex="2" data-dismiss="modal">Batal</button>
-						<button type="submit" class="button-red" tabindex="1">Hapus</button>
-					</div>    
-
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group text-xs-right">
+								<button type="button" class="button-gray" tabindex="2" data-dismiss="modal">Batal</button>
+								<button type="submit" class="button-blue" tabindex="1">Simpan</button>
+							</div>
+						</div>
+					</div>
+				
+				</form>
 			</div>
 		</div>
 	</div>

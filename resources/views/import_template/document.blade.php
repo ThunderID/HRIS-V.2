@@ -6,8 +6,8 @@
 			<thead>
 				<tr>
 					<th rowspan="3" class="text-center">No<br/>&nbsp;</th>
-					<th rowspan="2" colspan="{{count($data['profile'])}}" class="text-left">profil</th>
-					<th rowspan="2" colspan="{{count($data['work'])}}" class="text-center">penempatan</th>
+					<th colspan="{{count($data['profile'])}}" class="text-left">profil</th>
+					<th colspan="{{count($data['work'])}}" class="text-center">penempatan</th>
 					<?php 
 					$total_relatives = 0;
 					foreach ($data['relatives'] as $key => $value) 
@@ -26,9 +26,16 @@
 					<th colspan="{{$total_document}}" class="text-center">dokumen</th>
 				</tr>
 				<tr>
+					<th></th>
+					@foreach($data['profile'] as $key => $value)
+						<th rowspan="2" class="text-center">{{$value}}</th>
+					@endforeach
+					@foreach($data['work'] as $key => $value)
+						<th rowspan="2" class="text-center">{{$value}}</th>
+					@endforeach
 					@foreach($data['relatives'] as $key => $value)
 						@foreach($value as $key2 => $value2)
-							<th rowspan="2" class="text-center">{{$value2}} {{$key}}</th>
+							<th rowspan="2" class="text-center">{{$value2}}[{{$key+1}}]</th>
 						@endforeach
 					@endforeach
 					
@@ -37,19 +44,25 @@
 					@endforeach
 				</tr>
 				<tr>
+					<th></th>
 					@foreach($data['profile'] as $key => $value)
-						<th class="text-center">{{$value}}</th>
+						<th></th>
 					@endforeach
 					@foreach($data['work'] as $key => $value)
-						<th class="text-center">{{$value}}</th>
+						<th></th>
 					@endforeach
+					@foreach($data['relatives'] as $key => $value)
+						@foreach($value as $key2 => $value2)
+							<th></th>
+						@endforeach
+					@endforeach
+					
 					@foreach($data['document'] as $key => $value)
 						@foreach($value as $key2 => $value2)
 							<th class="text-center">{{$value2}}</th>
 						@endforeach
 					@endforeach
 				</tr>
-
 			</thead>
 		</table>
 	@endif

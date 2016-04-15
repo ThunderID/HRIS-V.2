@@ -257,10 +257,9 @@
 ])
 <!-- End of Modal Delete -->
 
-
 <!-- Modal upload -->
 @include('desktop_v2.components.modals.modal_employee_import', [
-		'modal_id'      => 'employee_upload', 
+		'modal_id'      => 'employee_upload_2', 
 		'modal_route'   => ''
 ])
 <!-- End of Modal upload -->
@@ -278,5 +277,6 @@
 		hris_auto_generate_nik.init();
 		hris_modal_relative_update.init();
 		hris_modal_document_update.init();
+		hris_modal_employee_upload.init();
 	</script>
 @stop

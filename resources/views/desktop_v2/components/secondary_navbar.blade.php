@@ -6,10 +6,13 @@
 				<div class="dropdown-menu background-white create-menu">
 					<a class="padding-top-15 link-blue font-14 dropdown-item" href="{{$action_create_button}}">Form Karyawan</a>
 					<a class="padding-top-15 link-blue font-14 dropdown-item" href="javascript:void(0);" data-backdrop="static" data-keyboard="false" data-toggle="modal" 
-						data-target="#employee_upload">				
-						Unggah Dokumen Karyawan
+						data-target="#employee_upload_2"
+						data-action="{{route('employee.import.post')}}"
+						data-title="Import Data Karyawan"
+						>
+						 Unggah Dokumen Karyawan
 					</a>
-					<a class="padding-top-15 padding-bottom-15 link-blue font-14 dropdown-item" href="#">Unduh Template Dokumen</a>
+					<a class="padding-top-15 padding-bottom-15 link-blue font-14 dropdown-item" href="{{route('employee.import.get')}}">Unduh Template Dokumen</a>
 				</div>
 			</span>
 		@else
@@ -27,13 +30,12 @@
 		&nbsp;
 		&nbsp;
 		<a class="link-blue font-14" href="javascript:void(0);" data-backdrop="static" data-keyboard="false" data-toggle="modal" 
-				data-target="#organisation_del"
-				data-id="{{$action_delete_id}}"
-				data-title="{{$action_delete_title}}"
-				data-effect="{{$action_delete_effect}}"
-				data-action="{{$action_delete_url}}">
-				<i class="ion-android-delete"></i> Hapus
-			</a>
+			data-target="#organisation_del"
+			data-id="{{$action_delete_id}}"
+			data-title="{{$action_delete_title}}"
+			data-effect="{{$action_delete_effect}}"
+			data-action="{{$action_delete_url}}">
+			<i class="ion-android-delete"></i> Hapus
 		</a>
 	@endif
 	@if(isset($action_resend_url))

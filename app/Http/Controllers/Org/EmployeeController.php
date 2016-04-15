@@ -729,7 +729,7 @@ class EmployeeController extends BaseController
 	public function postImport()
 	{
 		//1. get input
-		$input										= Input::getFile('employee');
+		$input										= Input::file('employee');
 
 		if(!Input::hasFile('employee'))
 		{
@@ -737,6 +737,8 @@ class EmployeeController extends BaseController
 		}
 		else
 		{
+				$input 			= Excel::load($input)->toArray();
+				dd($input);
 			//2. post data
 			$APIEmployee							= new APIEmployee;
 			$result									= $APIEmployee->postImportTemplate($input);
