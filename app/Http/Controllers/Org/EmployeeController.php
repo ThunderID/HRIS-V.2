@@ -9,6 +9,7 @@ use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Helper\SortList;
 use Input, Route;
 use Carbon\Carbon;
+use Excel;
 
 /**
  * { OrgController Class }
@@ -664,4 +665,92 @@ class EmployeeController extends BaseController
 
 		return $this->generateRedirectRoute('employee.show', ['org_id' => $org_id, 'id' => $id]); 
 	}
+
+	/**
+	 * { getImport }
+	 *
+	 * @param     
+	 *
+	 * @return
+	 * 1. response
+	 * 
+	 * steps
+	 * 1. get data
+	 * 2. return response
+	 */
+	public function getImport()
+	{
+		//2. post data
+		$APIEmployee							= new APIEmployee;
+		$result									= $APIEmployee->getImportTemplate();
+
+		//4. return response 
+		if($result['status'] != 'success')
+		{
+			$this->errors						= $result['message'];
+		}
+
+		$template 								= $result['data']['employee'];
+
+		Excel::create('Template Import Karyawan', function($excel) use ($template) 
+		{
+			// Set the title
+			$excel->setTitle('Template Import');
+			// Call them separately
+			$excel->setDescription('Template Import Karyawan');
+			$excel->sheet('Sheetname', function ($sheet) use ($template) 
+			{
+				$sheet->loadView('import_template.document')->with('data', $template);
+			});
+		})->export('xls');	
+
+		return $this->generateRedirectRoute('org.index');
+	}
+
+	/**
+	 * { postImport }
+	 *
+	 * @param     
+	 * 1. id
+	 * 2. org_id
+	 * 3. input name
+	 * 4. input address
+	 * 5. input email
+	 * 6. input phone
+	 *
+	 * @return
+	 * 1. response
+	 * 
+	 * steps
+	 * 1. get input
+	 * 2. post data
+	 * 3. return response
+	 */
+	public function postImport()
+	{
+		//1. get input
+		$input										= Input::getFile('employee');
+
+		if(!Input::hasFile('employee'))
+		{
+			$this->errors                           = 'TIdak ada data import';
+		}
+		else
+		{
+			//2. post data
+			$APIEmployee							= new APIEmployee;
+			$result									= $APIEmployee->postImportTemplate($input);
+
+			//4. return response 
+			if($result['status'] != 'success')
+			{
+				$this->errors						= $result['message'];
+			}
+		}
+
+		$this->page_attributes->msg					= "Data Karyawan Telah Ditambahkan";
+
+		return $this->generateRedirectRoute('org.index');
+	}
+
 }

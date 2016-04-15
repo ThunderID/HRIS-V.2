@@ -14,7 +14,10 @@ Route::group(['namespace' => 'Org\\'], function()
 	Route::delete('/org/{org_id?}/employee/{employee}/relation/{id}/delete',	['uses' => 'EmployeeRelationController@delete', 	'as' => 'employee.relation.destroy']);
 	Route::delete('/org/{org_id?}/employee/{employee}/document/{id}/delete',	['uses' => 'EmployeeDocumentController@delete', 	'as' => 'employee.document.destroy']);
 
-	Route::ANY('/org/{org_id?}/employee/{employee}/work/store',		['uses' => 'EmployeeWorkController@store', 		'as' => 'employee.work.store']);
-	Route::ANY('/org/{org_id?}/employee/{employee}/relation/store',	['uses' => 'EmployeeRelationController@store', 	'as' => 'employee.relation.store']);
-	Route::ANY('/org/{org_id?}/employee/{employee}/document/store',	['uses' => 'EmployeeDocumentController@store', 	'as' => 'employee.document.store']);
+	Route::any('/org/{org_id?}/employee/{employee}/work/store',		['uses' => 'EmployeeWorkController@store', 		'as' => 'employee.work.store']);
+	Route::any('/org/{org_id?}/employee/{employee}/relation/store',	['uses' => 'EmployeeRelationController@store', 	'as' => 'employee.relation.store']);
+	Route::any('/org/{org_id?}/employee/{employee}/document/store',	['uses' => 'EmployeeDocumentController@store', 	'as' => 'employee.document.store']);
+	
+	Route::get('/import/employee/',									['uses' => 'EmployeeController@getimport', 	'as' => 'employee.import.get']);
+	Route::post('/import/employee/',								['uses' => 'EmployeeController@postimport', 	'as' => 'employee.import.post']);
 });

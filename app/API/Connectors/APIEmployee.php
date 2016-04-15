@@ -197,4 +197,38 @@ class APIEmployee extends APIData
 
 		return $this->get();
 	}	
+
+	/**
+	 * { getImportTemplate }
+	 *
+	 * @param
+	 * 1. $code 		: org code    
+	 * 2. $name 		: employee full name    
+	 *
+	 * @return
+	 * 1. nik
+	 */
+	public function getImportTemplate()
+	{
+		$this->apiUrl 					= '/import/employee';
+
+		return $this->get();
+	}	
+
+	/**
+	 * { postImportTemplate }
+	 *
+	 * @param
+	 * 1. $data 		: input data     
+	 *
+	 * @return
+	 * 1. response
+	 */
+	public function postImportTemplate($data)
+	{
+		$this->apiUrl 					= '/import/employee';
+		$this->apiData 					= array_merge($this->apiData, ["employee" => $data]);
+
+		return $this->post();
+	}	
 }
