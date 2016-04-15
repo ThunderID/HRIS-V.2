@@ -49,6 +49,14 @@
 </div>
 
 <!-- End of Employee Index -->
+
+<!-- Modal upload -->
+@include('desktop_v2.components.modals.modal_employee_import', [
+		'modal_id'      => 'employee_upload_2', 
+		'modal_route'   => ''
+])
+<!-- End of Modal upload -->
+
 @stop
 
 @section('js')
@@ -56,5 +64,6 @@
 		hris_slimscroll.init();
 		hris_slimscroll_mini.init();
 		hris_filter.init();
+		hris_modal_employee_upload.init();
 	</script>
 @stop

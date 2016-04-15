@@ -737,11 +737,43 @@ class EmployeeController extends BaseController
 		}
 		else
 		{
-				$input 			= Excel::load($input)->toArray();
-				dd($input);
+			$input 									= Excel::load($input)->toArray();
+			$data 									= [];
+
+			foreach ($input as $key => $value) 
+			{
+				foreach ($value as $key2 => $value2) 
+				{
+					if (preg_match('/profile_/',$key2))
+					{
+						$data[$key]['profile'][str_replace('profile_', '', $key2)] 	= $value2;
+					}
+					elseif (preg_match('/work_/',$key2))
+					{
+						$data[$key]['work'][str_replace('work_', '', $key2)] 	= $value2;
+					}
+					elseif (preg_match('/relatives_/',$key2))
+					{
+						$real_data 	= str_replace('relatives_', '', $key2);
+						$index 		= explode('_content_', $real_data);
+						$title 		= str_replace($index[0].'_content_', '', $real_data);
+
+						$data[$key]['relatives'][$index[0]][$title] 	= $value2;
+					}
+					elseif (preg_match('/document_/',$key2))
+					{
+						$real_data 	= str_replace('document_', '', $key2);
+						$index 		= explode('_content_', $real_data);
+						$title 		= str_replace($index[0].'_content_', '', $real_data);
+
+						$data[$key]['document'][$index[0]][$title] 	= $value2;
+					}
+				}
+			}
+
 			//2. post data
 			$APIEmployee							= new APIEmployee;
-			$result									= $APIEmployee->postImportTemplate($input);
+			$result									= $APIEmployee->postImportTemplate($data);
 
 			//4. return response 
 			if($result['status'] != 'success')
