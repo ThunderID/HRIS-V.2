@@ -52,10 +52,9 @@
 
 <!-- Modal upload -->
 @include('desktop_v2.components.modals.modal_employee_import', [
-		'modal_id'      => 'employee_upload_2', 
+		'modal_emp_id'  => 'employee_upload', 
 		'modal_route'   => ''
 ])
-<!-- End of Modal upload -->
 
 @stop
 

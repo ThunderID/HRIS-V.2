@@ -304,7 +304,7 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 ; var hris_modal_employee_upload = {
 
 	init: function(){
-		$('#employee_upload_2').on('show.bs.modal', function (e) {
+		$('#employee_upload').on('show.bs.modal', function (e) {
 			var title   = $(e.relatedTarget).attr('data-title');
 			var action  = $(e.relatedTarget).attr('data-action');
 			

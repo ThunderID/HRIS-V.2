@@ -6,7 +6,7 @@
 				<div class="dropdown-menu background-white create-menu">
 					<a class="padding-top-15 link-blue font-14 dropdown-item" href="{{$action_create_button}}">Form Karyawan</a>
 					<a class="padding-top-15 link-blue font-14 dropdown-item" href="javascript:void(0);" data-backdrop="static" data-keyboard="false" data-toggle="modal" 
-						data-target="#employee_upload_2"
+						data-target="#employee_upload"
 						data-action="{{route('employee.import.post')}}"
 						data-title="Import Data Karyawan"
 						>

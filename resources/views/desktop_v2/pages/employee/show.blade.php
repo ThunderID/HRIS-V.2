@@ -45,10 +45,10 @@
 				])
 			@else
 				@include('desktop_v2.components.secondary_navbar', ['action_create_button' => route('employee.create', ['org_id' => $page_datas->datas['id']]), 'action_edit_button' =>  route('employee.edit', ['org_id' => $page_datas->datas['id'], 'employee' => $page_datas->datas['employee']['id']]), 
-					'action_delete_id' 	=> $page_datas->datas['employee']['id'], 'action_delete_title' => 'Hapus Data Karyawan '.$page_datas->datas['employee']['name'], 'action_delete_effect' => 'Menghapus karyawan akan menghapus pekerjaan, dokumen dan laporan karyawan. Masukkan password Anda untuk melanjutkan ',
+					'action_delete_id' 		=> $page_datas->datas['employee']['id'], 'action_delete_title' => 'Hapus Data Karyawan '.$page_datas->datas['employee']['name'], 'action_delete_effect' => 'Menghapus karyawan akan menghapus pekerjaan, dokumen dan laporan karyawan. Masukkan password Anda untuk melanjutkan ',
 					'action_delete_url' 	=> route('employee.destroy', ['org_id' => $page_datas->datas['id'], 'employee' => $page_datas->datas['employee']['id']]), 
 					'action_resend_url' 	=> route('employee.activation.mail', ['org_id' => $page_datas->datas['id'], 'id' => $page_datas->datas['employee']['id']]), 
-					'special_case_import' => true
+					'special_case_import' 	=> true
 				])
 			@endif
 		</div>
@@ -259,7 +259,7 @@
 
 <!-- Modal upload -->
 @include('desktop_v2.components.modals.modal_employee_import', [
-		'modal_id'      => 'employee_upload_2', 
+		'modal_emp_id'  => 'employee_upload', 
 		'modal_route'   => ''
 ])
 <!-- End of Modal upload -->
