@@ -20,34 +20,36 @@
 							@include('desktop_v2.components.alert_box')
 						</div>
 
-						<div class="col-xs-12 list padding-left-0">
-						@forelse($page_datas->datas['charts'] as $key => $dt)
-							<?php
-								function breakChilds($child)
-								{	
-									$width = 0;				
-									foreach ($child as $key => $value) 
+						<?php
+							function breakChilds($child)
+							{	
+								$width = 0;				
+								foreach ($child as $key => $value) 
+								{
+									$width = $width + 158;
+									echo("<li><div><i class='ion-ios-circle-outline font-size-18'></i>&nbsp;" . $value['name']);
+
+									if(count($value['childs']) != 0)
 									{
-										$width = $width + 158;
-										echo("<li><div><i class='ion-ios-circle-outline font-size-18'></i>&nbsp;" . $value['name']);
+										echo("<ul>");
+										$width = $width + breakChilds($value['childs']);
+										echo("</ul>");
 
-										if(count($value['childs']) != 0)
-										{
-											echo("<ul>");
-											$width = $width + breakChilds($value['childs']);
-											echo("</ul>");
-
-											$width = $width - 158;
-										}
-										else
-										{
-											echo("</div></li>");
-										}
+										$width = $width - 158;
 									}
-
-									return $width;
+									else
+									{
+										echo("</div></li>");
+									}
 								}
 
+								return $width;
+							}
+						?>
+
+						<div class="col-xs-12 list padding-left-0">
+						@forelse($page_datas->datas['charts'] as $key => $dt)
+							<?php						
 								echo("
 									<ul class='first'>
 										<li class='first'>

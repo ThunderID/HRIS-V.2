@@ -48,59 +48,65 @@
 				<div class="row text-xs-center">
 					<div class="col-sm-12 text-xs-left">
 						<p class="font-size-25">Struktur Organisasi Cabang {{$page_datas->datas['branch']['name']}}</p>
-						
+						<a class="link-dark-blue" href="javascript:void(0);" data-backdrop="static" data-keyboard="false" data-toggle="modal" 
+										data-target="#chart_edit">
+										Test
+									</a>
 						@include('desktop_v2.components.alert_box')
 					</div>
 				</div>
+				
+				<?php
+					function breakChilds($child)
+					{	
+						$width = 0;				
+						foreach ($child as $key => $value) 
+						{
+							$width = $width + 158;
+							echo("
+								<li>
+									<div style='padding=0px;'>
+										<p style='margin-bottom:5px!important;font-size:14px;'>" 
+											. $value['name'] . 
+										"</p>
+										<a href='#' style='width:100px!important;text-align:center;'>
+											Tambah
+										</a>
+										&nbsp;
+										<a href='#' style='width:100px!important;text-align:center;'>
+											Edit
+										</a>
+										&nbsp;
+										<a href='#' style='width:100px!important;text-align:center;'>
+											Hapus
+										</a>									
+									</div>
+								");
+
+							if(count($value['childs']) != 0)
+							{
+								echo("<ul>");
+								$width = $width + breakChilds($value['childs']);
+								echo("</ul>");
+
+								$width = $width - 158;
+							}
+							else
+							{
+								echo("</li>");
+							}
+						}
+
+						return $width;
+					}
+				?>
+
 				<div class="row text-xs-center">
 					<div class="col-md-12">
 						<div id="frame-scroller" style="border-bottom: black 0.2px solid; border-left: black 0.2px solid; overflow-x: auto; overflow-y: auto; margin-bottom: 10px; height: 400px; border-top: black 0.2px solid; border-right: black 0.2px solid" class="tree">
 							<div id="frame-chart">
 								@forelse($page_datas->datas['charts'] as $key => $dt)
 									<?php
-										function breakChilds($child)
-										{	
-											$width = 0;				
-											foreach ($child as $key => $value) 
-											{
-												$width = $width + 158;
-												echo("
-													<li>
-														<div style='padding=0px;'>
-															<p style='margin-bottom:5px!important;font-size:14px;'>" 
-																. $value['name'] . 
-															"</p>
-															<a href='#' style='width:100px!important;text-align:center;'>
-																Tambah
-															</a>
-															&nbsp;
-															<a href='#' style='width:100px!important;text-align:center;'>
-																Edit
-															</a>
-															&nbsp;
-															<a href='#' style='width:100px!important;text-align:center;'>
-																Hapus
-															</a>									
-														</div>
-													");
-
-												if(count($value['childs']) != 0)
-												{
-													echo("<ul>");
-													$width = $width + breakChilds($value['childs']);
-													echo("</ul>");
-
-													$width = $width - 158;
-												}
-												else
-												{
-													echo("</li>");
-												}
-											}
-
-											return $width;
-										}
-
 										echo("
 											<ul>
 												<li>
