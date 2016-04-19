@@ -3,7 +3,7 @@
 		<div class="background-white">
 			<div class="row padding-15">
 				<div class="col-xs-12">
-					<p class="font-size-25">
+					<p class="font-size-25 font-turquoise">
 						{{$card_content['name']}}
 					</p>
 					<div class="font-size-14">

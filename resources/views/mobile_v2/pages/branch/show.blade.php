@@ -16,7 +16,7 @@
 				<div class="background-white">
 					<div class="row padding-15">
 						<div class="col-xs-12">
-							<p class="font-size-18">Struktur Organisasi Cabang {{$page_datas->datas['branch']['name']}}</p>
+							<p class="font-size-18 font-turquoise">Struktur Organisasi Cabang {{$page_datas->datas['branch']['name']}}</p>
 							@include('desktop_v2.components.alert_box')
 						</div>
 
