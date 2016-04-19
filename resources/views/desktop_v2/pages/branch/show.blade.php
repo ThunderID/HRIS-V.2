@@ -129,7 +129,7 @@
 
 				<div class="row text-xs-center">
 					<div class="col-md-12">
-						<div id="frame-scroller" style="border-bottom: black 0.2px solid; border-left: black 0.2px solid; overflow-x: auto; overflow-y: auto; margin-bottom: 10px; height: 400px; border-top: black 0.2px solid; border-right: black 0.2px solid" class="tree">
+						<div id="frame-scroller" class="tree">
 							<div id="frame-chart">
 								<?php
 									$dt = $page_datas->datas['charts'];
