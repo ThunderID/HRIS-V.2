@@ -48,8 +48,8 @@
 						?>
 
 						<div class="col-xs-12 list padding-left-0">
-						@forelse($page_datas->datas['charts'] as $key => $dt)
-							<?php						
+							<?php	
+								$dt = $page_datas->datas['charts'];
 								echo("
 									<ul class='first'>
 										<li class='first'>
@@ -64,9 +64,6 @@
 								$width =  breakChilds($dt['childs']);
 								echo("</ul></li></ul>");
 							?>
-						@empty
-							<p class="background-white padding-15">Tidak ada data struktur organisasi</p>
-						@endforelse
 						</div>
 					</div>
 				</div>

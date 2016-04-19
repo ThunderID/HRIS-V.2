@@ -48,10 +48,6 @@
 				<div class="row text-xs-center">
 					<div class="col-sm-12 text-xs-left">
 						<p class="font-size-25">Struktur Organisasi Cabang {{$page_datas->datas['branch']['name']}}</p>
-						<a class="link-dark-blue" href="javascript:void(0);" data-backdrop="static" data-keyboard="false" data-toggle="modal" 
-										data-target="#chart_edit">
-										Test
-									</a>
 						@include('desktop_v2.components.alert_box')
 					</div>
 				</div>
@@ -62,22 +58,52 @@
 						$width = 0;				
 						foreach ($child as $key => $value) 
 						{
-							$width = $width + 158;
+							$width 				= $width + 158;
 							echo("
 								<li>
 									<div style='padding=0px;'>
 										<p style='margin-bottom:5px!important;font-size:14px;'>" 
 											. $value['name'] . 
 										"</p>
-										<a href='#' style='width:100px!important;text-align:center;'>
+										<a class='link-dark-blue' href='javascript:void(0);' data-backdrop='static' 
+											data-keyboard	='false' 
+											data-toggle		='modal' 
+											data-target		='#chart_edit'
+											data-id 		= '". $key ."'
+											data-title		= 'Tambah Chart'
+											data-parent 	= '". $value['name'] ."'
+											data-parentid	= '". $key ."'
+											data-name		= ''
+											data-department = '". $value['department'] ."'
+											data-action		= '". route('chart.update', ['org_id' => $value['org_id'], 'branch_id' => $value['branch_id'], 'id' => 0]) . "'
+										>									
 											Tambah
 										</a>
 										&nbsp;
-										<a href='#' style='width:100px!important;text-align:center;'>
+										<a class='link-dark-blue' href='javascript:void(0);' data-backdrop='static' 
+											data-keyboard	='false' 
+											data-toggle		='modal' 
+											data-target		='#chart_edit'
+											data-id 		= '". $key ."'
+											data-title		= 'Edit " . $value['name'] . "'
+											data-parent 	= '". $value['parent'] ."'
+											data-parentid	= '". $value['id_parent'] ."'
+											data-name		= '". $value['name'] . "'
+											data-department = '". $value['department'] ."'
+											data-action		= '". route('chart.update', ['org_id' => $value['org_id'], 'branch_id' => $value['branch_id'], 'id' => $key]) . "'
+										>
 											Edit
 										</a>
 										&nbsp;
-										<a href='#' style='width:100px!important;text-align:center;'>
+										<a class='link-dark-blue' href='javascript:void(0);' data-backdrop='static' 
+											data-keyboard	='false' 
+											data-toggle		='modal' 
+											data-target		='#organisation_del'
+											data-id 		= '". $key ."'
+											data-title		= 'Hapus " . $value['name'] . "'
+											data-effect		= 'Masukkan password untuk menghapus data!'
+											data-action		= '". route('chart.destroy', ['org_id' => $value['org_id'], 'branch_id' => $value['branch_id'], 'id' => $key]) . "'
+										>										
 											Hapus
 										</a>									
 									</div>
@@ -105,35 +131,35 @@
 					<div class="col-md-12">
 						<div id="frame-scroller" style="border-bottom: black 0.2px solid; border-left: black 0.2px solid; overflow-x: auto; overflow-y: auto; margin-bottom: 10px; height: 400px; border-top: black 0.2px solid; border-right: black 0.2px solid" class="tree">
 							<div id="frame-chart">
-								@forelse($page_datas->datas['charts'] as $key => $dt)
-									<?php
-										echo("
+								<?php
+									$dt = $page_datas->datas['charts'];
+									echo("
+										<ul>
+											<li>
+												<div style='padding=0px;'>
+													<p style='margin-bottom:5px!important;font-size:14px;'>" 
+														. $dt['name'] . 
+													"</p>
+													<a class='link-dark-blue' href='javascript:void(0);' data-backdrop='static' 
+														data-keyboard	='false' 
+														data-toggle		='modal' 
+														data-target		='#chart_edit'
+														data-id 		= '0'
+														data-title		= 'Tambah Chart'
+														data-parent 	= ''
+														data-parentid	= '0'
+														data-name		= ''
+														data-department = ''
+														data-action		= '". route('chart.update', ['org_id' => $dt['org_id'], 'branch_id' => $dt['branch_id'], 'id' => 0]) . "'
+													>														
+														Tambah
+													</a>
+												</div>
 											<ul>
-												<li>
-													<div style='padding=0px;'>
-														<p style='margin-bottom:5px!important;font-size:14px;'>" 
-															. $dt['name'] . 
-														"</p>
-														<a href='#' style='width:100px!important;text-align:center;'>
-															Tambah
-														</a>
-														&nbsp;
-														<a href='#' style='width:100px!important;text-align:center;'>
-															Edit
-														</a>
-														&nbsp;
-														<a href='#' style='width:100px!important;text-align:center;'>
-															Hapus
-														</a>									
-													</div>
-												<ul>
-											");
-										$width =  breakChilds($dt['childs']);
-										echo("</ul></li></ul>");
-									?>
-								@empty
-									<p class="background-white padding-15">Tidak ada data struktur organisasi</p>
-								@endforelse
+										");
+									$width =  breakChilds($dt['childs']);
+									echo("</ul></li></ul>");
+								?>
 							</div>
 						</div>
 					</div>

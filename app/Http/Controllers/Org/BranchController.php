@@ -178,7 +178,11 @@ class BranchController extends BaseController
 					$chartData[$dt['id']]					= 	[
 																	'name'			=> $dt['name'],
 																	'id_parent'		=> $dt['chart_id'],
-																	'childs'		=> []
+																	'department'	=> $dt['department'],
+																	'parent'		=> "Cabang " . $data['data']['name'],
+																	'childs'		=> [],
+																	'branch_id'		=> $id,
+																	'org_id'		=> $org_id,
 																];
 				}
 				else
@@ -194,13 +198,27 @@ class BranchController extends BaseController
 					$current[$dt['id']]						= 	[
 																	'name'			=> $dt['name'],
 																	'id_parent'		=> $dt['chart_id'],
-																	'childs'		=> []
+																	'department'	=> $dt['department'],
+																	'parent'		=> $dt['chart']['name'],
+																	'childs'		=> [],
+																	'branch_id'		=> $id,
+																	'org_id'		=> $org_id,
 																];
 				}
 			}
 		}
 
-		$this->page_datas->datas['charts']			= $chartData;
+		$this->page_datas->datas['charts']			= 	[
+															'name'			=> "Cabang " . $data['data']['name'],
+															'id_parent'		=> 0,
+															'department'	=> '',
+															'parent'		=> null,
+															'childs'		=> $chartData,
+															'branch_id'		=> $id,
+															'org_id'		=> $org_id,
+														];
+
+		// dd($this->page_datas->datas['charts']	);
 		$this->page_datas->datas['branches']		= $branches['data']['data'];
 		$this->page_datas->datas['branch']			= $data['data'];
 		$this->page_datas->datas['id']				= $org_id;

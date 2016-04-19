@@ -8,7 +8,7 @@
 				<div class="font-18 modal_title text-uppercase"></div>
 			</div>
 			<div class="modal-body">
-				<!-- <p class="danger text-center">Error apa gitu</p> -->
+				<p id="data-effect"></p>
 				{!! Form::open(['url' => $modal_route,'method' => 'DELETE', 'class' => 'modal1']) !!}
 					{!! Form::input('hidden', 'id', NULL,  
 							['class' => 'mod_id']
