@@ -270,8 +270,7 @@
 @section('js')
 	<script type="text/javascript">
 		hris_slimscroll.init();
-		hris_slimscroll_mini.init();
-		hris_slimscroll_tab.init();
+		hris_slimscroll.resize();
 		hris_filter.init();
 		hris_modal_delete.init();
 		hris_modal_work_update.init();

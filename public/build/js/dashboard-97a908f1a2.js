@@ -321,6 +321,14 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 		doc_height = doc_height - 135;
 	    $(".slim-scroll-canvas").height(doc_height);
 	},
+
+	resize  : function () {
+		$( window ).resize(function() {
+			doc_height = $(window).height();
+			doc_height = doc_height - 135;
+		    $(".slim-scroll-canvas").height(doc_height);
+		});
+	},	
 };
 			
 ; var hris_filter = {
@@ -582,6 +590,15 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 		});
 	}
 };
+; var hris_tree = {
+	
+	init  : function (_width) {
+	    $("#frame-chart").width(_width);
+
+		var f_width = $("#frame-scroller").width();
+		$("#frame-scroller").scrollLeft((_width/2)-(f_width/2));
+	},
+};		
 /*!
  * Bootstrap v4.0.0-alpha.2 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.

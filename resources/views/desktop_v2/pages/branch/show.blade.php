@@ -189,21 +189,9 @@
 
 @section('js')
 	<script type="text/javascript">
-		function setChartWidth(new_width) {
-		    $("#frame-chart").width(new_width);
-		}
-
-		function centerViewPort(_width) {
-			var f_width = $("#frame-scroller").width();
-			$("#frame-scroller").scrollLeft((_width/2)-(f_width/2));
-		}
-
-		$( document ).ready(function() {
-		    setChartWidth({{$width}});
-		    centerViewPort({{$width}});
-		});
-	
+		hris_tree.init({{$width}}); 
 		hris_slimscroll.init(); 
+		hris_slimscroll.resize();
 		hris_modal_delete.init();
 		hris_modal_chart_edit.init();
 	</script>

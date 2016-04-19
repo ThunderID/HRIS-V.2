@@ -61,7 +61,7 @@
 @section('js')
 	<script type="text/javascript">
 		hris_slimscroll.init();
-		hris_slimscroll_mini.init();
+		hris_slimscroll.resize();
 		hris_filter.init();
 		hris_modal_employee_upload.init();
 	</script>

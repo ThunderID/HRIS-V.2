@@ -42,5 +42,6 @@
 @section('js')
 	<script type="text/javascript">
 		hris_slimscroll.init();
+		hris_slimscroll.resize();
 	</script>
 @stop
