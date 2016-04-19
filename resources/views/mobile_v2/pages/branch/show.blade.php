@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Branch Index -->
-<div class="row padding-15">
+<div class="row padding-0">
 	<div class="col-xs-12">
 		<div class="row">
 			<div class="col-xs-12 text-xs-left">
