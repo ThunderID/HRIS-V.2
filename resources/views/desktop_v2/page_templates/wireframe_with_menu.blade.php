@@ -37,7 +37,6 @@
 		</div>
 
 		<script type="text/javascript" src="{{ elixir('js/dashboard.js') }}"></script>
-		{!! Html::script('/assets/js/slimscroll/jquery.slimscroll.min.js') !!}
 		
 		@include('plugins.select2')
 
