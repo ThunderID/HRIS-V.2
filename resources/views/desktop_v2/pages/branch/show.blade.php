@@ -6,9 +6,9 @@
 <div class="row">
 	<div class="col-md-3">
 		@include('desktop_v2.components.grand_search_box', ['search_name' => 'q', 'search_placeholder' => 'Cari Cabang', 'background_search_box' => 'background-light-blue', 'font_search_box' => 'font-dark-blue'])
-		<div class="background-white slim-scroll">
+		<div class="background-white slim-scroll-canvas">
 			<!-- Content -->
-			<div class="row">
+			<div class="row slim-scroll">
 				@forelse($page_datas->datas['branches'] as $key => $dt)
 
 				<div class="col-sm-12">
@@ -41,7 +41,7 @@
 				'action_delete_url' 	=> route('branch.destroy', ['org_id' => $page_datas->datas['id'], 'branch' => $page_datas->datas['branch']['id']])
 			])
 		</div>
-		<div class="row background-white">
+		<div class="row background-white slim-scroll-canvas">
 			<div class="col-md-12 text-xs-left slim-scroll">
 				@include('desktop_v2.components.single_card', ['card_content' => $page_datas->datas['branch']])
 
@@ -202,9 +202,8 @@
 		    setChartWidth({{$width}});
 		    centerViewPort({{$width}});
 		});
-
-
-		// hris_slimscroll.init(); 
+	
+		hris_slimscroll.init(); 
 		hris_modal_delete.init();
 		hris_modal_chart_edit.init();
 	</script>

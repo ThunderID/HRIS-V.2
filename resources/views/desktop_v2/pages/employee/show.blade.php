@@ -6,9 +6,9 @@
 <div class="row">
 	<div class="col-md-3">
 		@include('desktop_v2.components.grand_search_box', ['search_name' => 'q', 'search_placeholder' => 'Cari Karyawan', 'background_search_box' => 'background-light-blue', 'font_search_box' => 'font-dark-blue'])
-		<div class="background-white slim-scroll">
+		<div class="background-white slim-scroll-canvas">
 			<!-- Content -->
-			<div class="row">
+			<div class="row slim-scroll">
 				<div class="col-sm-12">
 					<div class="row margin-right-0">
 						<div class="col-sm-6">
@@ -53,8 +53,9 @@
 			@endif
 		</div>
 		<div class="row background-gray-238">
-			<div class="col-sm-4 text-xs-left background-white padding-right-0">
-				<div class="slim-scroll">
+			<div class="col-sm-4 text-xs-left background-white padding-right-0 slim-scroll-canvas">
+				<!-- Content -->
+				<div class="row slim-scroll">
 					<div class="row padding-left-15 padding-top-15 font-black">
 						<div class="col-sm-12">
 							<img src="{{$page_datas->datas['employee']['avatar']}}" class="img-circle max-width-third">

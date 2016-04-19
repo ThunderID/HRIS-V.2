@@ -21,7 +21,7 @@
 
 		@yield('css')
 	</head>
-	<body class="background-gray-238 font-black">
+	<body class="background-gray-238 font-black fixed-worksppace">
 		@include('desktop_v2.components.navbar_with_menu')
 
 		<section class="padding-top-85">
