@@ -6,22 +6,32 @@
 <div class="row">
 	<div class="col-md-3">
 		@include('desktop_v2.components.grand_search_box', ['search_name' => 'q', 'search_placeholder' => 'Cari Cabang', 'background_search_box' => 'background-light-blue', 'font_search_box' => 'font-dark-blue'])
-		<div class="background-white slim-scroll-canvas">
-			<!-- Content -->
-			<div class="row slim-scroll">
-				@forelse($page_datas->datas['branches'] as $key => $dt)
+		<div class="background-white">
 
-				<div class="col-sm-12">
-					@include('desktop_v2.components.card_plain', ['card_content' => $dt])
-				</div>
+			<div class="workspace mCustomScrollbar light _mCS_2 mCS-autoHide workspace-desktop" data-mcs-theme="minimal-dark" style="overflow: visible;">
+				<div class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0">
+					<div class="mCSB_container" style="position: relative; left: 0px;" dir="ltr">
 				
-				@empty
-					<div class="col-md-12 col-sm-12">
-						<p class="background-white padding-15">Tidak ada data cabang</p>
-					</div>
-				@endforelse
-			</div>
-			<!-- End of Content -->			
+						<!-- Content -->
+						<div class="row slim-scroll">
+							@forelse($page_datas->datas['branches'] as $key => $dt)
+
+							<div class="col-sm-12">
+								@include('desktop_v2.components.card_plain', ['card_content' => $dt])
+							</div>
+							
+							@empty
+								<div class="col-md-12 col-sm-12">
+									<p class="background-white padding-15">Tidak ada data cabang</p>
+								</div>
+							@endforelse
+						</div>
+						<!-- End of Content -->		
+
+					</div>		
+				</div>		
+			</div>		
+		
 		</div>
 	</div>
 	<div class="col-md-9 margin-left-negative-10">
@@ -41,7 +51,7 @@
 
 @section('js')
 	<script type="text/javascript">
-		hris_slimscroll.init();
-		hris_slimscroll.resize();
+		hris_set_workspace.desktopInit();
+		hris_set_workspace.desktopResize();
 	</script>
 @stop

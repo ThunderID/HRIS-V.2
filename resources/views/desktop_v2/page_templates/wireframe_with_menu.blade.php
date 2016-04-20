@@ -39,6 +39,7 @@
 		<script type="text/javascript" src="{{ elixir('js/dashboard.js') }}"></script>
 		
 		@include('plugins.select2')
+		@include('plugins.custom-scroller')
 
 		<script type="text/javascript">
 			hris_menu.init();
