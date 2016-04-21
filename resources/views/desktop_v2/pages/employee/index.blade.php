@@ -21,7 +21,7 @@
 				</div>
 			</div>
 
-			<div class="workspace mCustomScrollbar light _mCS_2 mCS-autoHide workspace-side-desktop" data-mcs-theme="minimal-dark" style="overflow: visible;">
+			<div class="workspace mCustomScrollbar light _mCS_2 mCS-autoHide workspace-desktop" data-mcs-theme="minimal-dark" style="overflow: visible;">
 				<div class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0">
 					<div class="mCSB_container" style="position: relative; left: 0px;" dir="ltr">
 				

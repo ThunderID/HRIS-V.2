@@ -6,8 +6,8 @@
 <div class="row">
 	<div class="col-md-3">
 		@include('desktop_v2.components.grand_search_box', ['search_name' => 'q', 'search_placeholder' => 'Cari Karyawan', 'background_search_box' => 'background-light-blue', 'font_search_box' => 'font-dark-blue'])
-		<div class="background-white slim-scroll">
-			<!-- Content -->
+		<div class="background-white" id="left-anchor">
+
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="row margin-right-0">
@@ -19,19 +19,33 @@
 						</div>
 					</div>
 				</div>
-				@forelse($page_datas->datas['employees'] as $key => $dt)
-
-				<div class="col-sm-12">
-					@include('desktop_v2.components.card_plain_employee', ['card_content' => $dt])
-				</div>
-				
-				@empty
-					<div class="col-md-12 col-sm-12">
-						<p class="background-white padding-15">Tidak ada data karyawan</p>
-					</div>
-				@endforelse
 			</div>
-			<!-- End of Content -->			
+
+			<div class="workspace mCustomScrollbar light _mCS_2 mCS-autoHide workspace-desktop" data-mcs-theme="minimal-dark" style="overflow: visible;">
+				<div class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0">
+					<div class="mCSB_container" style="position: relative; left: 0px;" dir="ltr">
+				
+						<!-- Content -->
+						<div class="row slim-scroll">
+
+							@forelse($page_datas->datas['employees'] as $key => $dt)
+
+							<div class="col-sm-12">
+								@include('desktop_v2.components.card_plain_employee', ['card_content' => $dt])
+							</div>
+							
+							@empty
+								<div class="col-md-12 col-sm-12">
+									<p class="background-white padding-15">Tidak ada data karyawan</p>
+								</div>
+							@endforelse
+						</div>
+						<!-- End of Content -->	
+
+					</div>		
+				</div>
+			</div>		
+
 		</div>
 	</div>
 	@if($page_datas->datas['employee']['id']!='')
@@ -174,9 +188,13 @@
 
 @section('js')
 	<script type="text/javascript">
-		hris_slimscroll.init();
-		hris_slimscroll_mini.init();
+		hris_set_workspace.desktopInit();
+		hris_set_workspace.miniDesktopInit();
+		hris_set_workspace.sideDesktopInit();
+
 		hris_filter.init();
+		hris_filter.setPosition();
+
 		hris_select_chart.init([]);
 		hris_auto_generate_username.init();
 		hris_modal_work_update.init();
