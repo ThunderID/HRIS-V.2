@@ -28,7 +28,23 @@
 						<!-- Content -->
 						<div class="row slim-scroll">
 
+							<?php 
+							// dd($page_datas->datas);
+							?>
+
 							@forelse($page_datas->datas['employees'] as $key => $dt)
+
+							<?php 
+
+							if($dt['id']==$page_datas->datas['employee']['id'])
+							{
+								$is_selected = true;
+							}
+							else
+							{
+								$is_selected = false;
+							}
+							?>
 
 							<div class="col-sm-12">
 								@include('desktop_v2.components.card_plain_employee', ['card_content' => $dt])
