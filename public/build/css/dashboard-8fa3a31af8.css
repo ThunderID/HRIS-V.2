@@ -8488,4 +8488,13 @@ a.link-menu {
 .list li:last-child::before {
   height: 30px; }
 
+.modal-filter {
+  position: absolute;
+  display: none;
+  left: 302px;
+  top: 140px; }
+
+.modal-filter-fixed-height {
+  height: 230px; }
+
 /*# sourceMappingURL=dashboard.css.map */
