@@ -3,10 +3,16 @@
 	init  : function () {
 		$('.link-filter-menu').click(function(){
 			$('.filter-menu-employee').css('display', 'block');
+			$('.tabfilter').first().click();
 		});
 		$('.link-filter-menu-close').click(function(){
 			$('.filter-menu-employee').css('display', 'none');
 		});
+		$('.tabfilter').click(function() {
+			sender = $(this).attr('href');
+			$(sender + ' ul a').first().removeClass( "active" );
+			$(sender + ' ul a').first().click();
+		});		
 	},
 
 	setPosition  : function () {

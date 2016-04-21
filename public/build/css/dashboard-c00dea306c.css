@@ -8325,6 +8325,14 @@ a.link-menu {
 .fixed-worksppace {
   overflow: hidden; }
 
+.filter-list ul a.active li {
+  background-color: #3F67AE !important;
+  color: white; }
+
+.filter-list ul a.active:hover li {
+  background-color: #F7F7F7 !important;
+  color: white; }
+
 .tree {
   order-bottom: black 0.2px solid;
   border-left: black 0.2px solid;

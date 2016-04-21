@@ -12,10 +12,10 @@
 		<li class="dropdown-item padding-top-10">
 			<div class="row padding-bottom-10">
 				<div class="col-sm-3 padding-0">
-					<div class="slim-scroll-mini">
+					<div class="slim-scroll-mini filter-list">
 						<ul class="nav nav-tabs padding-right-5">
-							<a data-toggle="tab" class="link-black" href="#filter"><li class="active padding-top-15 link-square-gray">Filter</li></a>
-							<a data-toggle="tab" class="link-black" href="#sort"><li class="padding-top-15 link-square-gray">Urutkan</li></a>
+							<a data-toggle="tab" class="link-black tabfilter" href="#filter"><li class="padding-top-15 link-square-gray">Filter</li></a>
+							<a data-toggle="tab" class="link-black tabfilter" href="#sort"><li class="padding-top-15 link-square-gray">Urutkan</li></a>
 						</ul>
 					</div>
 				</div>
@@ -26,9 +26,9 @@
 							<div class="mCSB_container" style="position: relative; left: 0px;" dir="ltr">
 
 								<div class="tab-content white-space-normal">
-									<div id="filter" class="tab-pane fade in active">
+									<div id="filter" class="tab-pane fade in filter-list">
 										<ul class="nav nav-tabs padding-right-5 padding-left-5">
-											<a data-toggle="tab" class="link-black" href="#branch"><li class="active padding-top-15 link-square-gray">Cabang</li></a>
+											<a data-toggle="tab" class="link-black" href="#branch"><li class="padding-top-15 link-square-gray">Cabang</li></a>
 											<a data-toggle="tab" class="link-black" href="#dept"><li class="padding-top-15 link-square-gray">Department</li></a>
 											<a data-toggle="tab" class="link-black" href="#chart"><li class="padding-top-15 link-square-gray">Jabatan</li></a>
 											<a data-toggle="tab" class="link-black" href="#grade"><li class="padding-top-15 link-square-gray">Kelas Jabatan</li></a>
@@ -38,9 +38,9 @@
 											<a data-toggle="tab" class="link-black" href="#end"><li class="padding-top-15 link-square-gray">Berhenti Bekerja</li></a>
 										</ul>
 									</div>
-									<div id="sort" class="tab-pane fade">
-										<ul class="nav nav-tabs padding-right-5">
-											<a data-toggle="tab" class="link-black" href="#sortname"><li class="active padding-top-15 link-square-gray">Nama</li></a>
+									<div id="sort" class="tab-pane fade filter-list">
+										<ul class="nav nav-tabs padding-right-5 padding-left-5">
+											<a data-toggle="tab" class="link-black" href="#sortname"><li class="padding-top-15 link-square-gray">Nama</li></a>
 											<a data-toggle="tab" class="link-black" href="#sortstart"><li class="padding-top-15 link-square-gray">Mulai Bekerja</li></a>
 											<a data-toggle="tab" class="link-black" href="#sortend"><li class="padding-top-15 link-square-gray">Akhir Status/Berhenti</li></a>
 										</ul>
@@ -59,7 +59,7 @@
 							<div class="mCSB_container" style="position: relative; left: 0px;" dir="ltr">					
 
 								<div class="tab-content white-space-normal">
-									<div id="branch" class="tab-pane fade">
+									<div id="branch" class="tab-pane fade in active">
 										<ul class="padding-left-5" style="list-style: outside none none;">
 											@forelse($page_datas->datas['branches'] as $key => $value)
 												<a class="link-black" href="{{route('employee.index', array_merge(Input::all(), ['org_id' => $page_datas->datas['id'], 'branchname' => $value['name']]))}}"><li class="padding-top-15 link-square-gray">{{$value['name']}}</li></a>

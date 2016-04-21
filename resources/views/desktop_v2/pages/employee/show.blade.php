@@ -4,9 +4,9 @@
 
 <!-- Employee Index -->
 <div class="row">
-	<div class="col-md-3">
+	<div class="col-md-3 background-white">
 		@include('desktop_v2.components.grand_search_box', ['search_name' => 'q', 'search_placeholder' => 'Cari Karyawan', 'background_search_box' => 'background-light-blue', 'font_search_box' => 'font-dark-blue'])
-		<div class="background-white" id="left-anchor">
+		<div id="left-anchor">
 
 			<div class="row">
 				<div class="col-sm-12">
@@ -27,10 +27,6 @@
 				
 						<!-- Content -->
 						<div class="row slim-scroll">
-
-							<?php 
-							// dd($page_datas->datas);
-							?>
 
 							@forelse($page_datas->datas['employees'] as $key => $dt)
 
