@@ -317,12 +317,12 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 ; var hris_set_workspace= {
 	
 	desktopInit  : function () {
-		doc_height = $(window).height();
-		doc_height = doc_height - 135;
-	    $(".workspace-desktop").height(doc_height);
-	},
+		$( document ).ready(function() {
+			doc_height = $(window).height();
+			doc_height = doc_height - 135;
+		    $(".workspace-desktop").height(doc_height);
+		});
 
-	desktopResize  : function () {
 		$( window ).resize(function() {
 			doc_height = $(window).height();
 			doc_height = doc_height - 135;
@@ -331,18 +331,19 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 	},	
 
 	miniDesktopInit  : function () {
-		doc_height = $(window).height();
-		doc_height = doc_height - 187;
-	    $(".workspace-mini-desktop").height(doc_height);
-	},
+		$( document ).ready(function() {
+			doc_height = $(window).height();
+			doc_height = doc_height - 187;
+		    $(".workspace-mini-desktop").height(doc_height);
+		});
 
-	miniDesktopResize  : function () {
 		$( window ).resize(function() {
 			doc_height = $(window).height();
 			doc_height = doc_height - 187;
 		    $(".workspace-mini-desktop").height(doc_height);
 		});
-	},		
+	},
+		
 };
 			
 ; var hris_filter = {
@@ -355,6 +356,20 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 			$('.filter-menu-employee').css('display', 'none');
 		});
 	},
+
+	setPosition  : function () {
+		$( document ).ready(function() {
+			left_anchor = $('#left-anchor').outerWidth() + 5;
+			top_anchor = 138;
+			$('.modal-filter').css({top: top_anchor, left: left_anchor, position:'absolute'});
+		});
+
+		$( window ).resize(function() {
+			left_anchor = $('#left-anchor').outerWidth() + 5;
+			top_anchor = 138;
+			$('.modal-filter').css({top: top_anchor, left: left_anchor, position:'absolute'});
+		});
+	},	
 };
 
 ; var hris_modal_filter_employee = {

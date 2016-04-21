@@ -14,7 +14,7 @@
 				
 						<!-- Content -->
 						<div class="row slim-scroll">
-							<div class="col-sm-12">
+							<div id="left-anchor" class="col-sm-12">
 								<div class="row margin-right-0">
 									<div class="col-sm-6">
 										<p class="font-size-18 margin-bottom-0 padding-15">Karyawan</p>
@@ -304,11 +304,10 @@
 @section('js')
 	<script type="text/javascript">
 		hris_set_workspace.desktopInit();
-		hris_set_workspace.desktopResize();
 		hris_set_workspace.miniDesktopInit();
-		hris_set_workspace.miniDesktopResize();
 
 		hris_filter.init();
+		hris_filter.setPosition();
 		hris_modal_delete.init();
 		hris_modal_work_update.init();
 		hris_auto_generate_nik.init();

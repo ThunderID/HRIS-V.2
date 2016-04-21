@@ -8490,9 +8490,7 @@ a.link-menu {
 
 .modal-filter {
   position: absolute;
-  display: none;
-  left: 302px;
-  top: 140px; }
+  display: none; }
 
 .modal-filter-fixed-height {
   height: 230px; }

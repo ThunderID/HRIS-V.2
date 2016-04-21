@@ -215,7 +215,6 @@
 	<script type="text/javascript">
 		hris_tree.init({{$width}}); 
 		hris_set_workspace.desktopInit();
-		hris_set_workspace.desktopResize();
 		hris_modal_delete.init();
 		hris_modal_chart_edit.init();
 	</script>

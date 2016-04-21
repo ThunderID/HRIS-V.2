@@ -52,6 +52,5 @@
 @section('js')
 	<script type="text/javascript">
 		hris_set_workspace.desktopInit();
-		hris_set_workspace.desktopResize();
 	</script>
 @stop
