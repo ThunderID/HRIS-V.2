@@ -343,6 +343,20 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 		    $(".workspace-mini-desktop").height(doc_height);
 		});
 	},
+
+	sideDesktopInit  : function () {
+		$( document ).ready(function() {
+			doc_height = $(window).height();
+			doc_height = doc_height - 192;
+
+		});
+
+		$( window ).resize(function() {
+			doc_height = $(window).height();
+			doc_height = doc_height - 192;
+		    $(".workspace-side-desktop").height(doc_height);
+		});
+	},	
 		
 };
 			

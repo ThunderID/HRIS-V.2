@@ -15,11 +15,11 @@
 <div class="row">
 	<div class="col-sm-12 padding-15 {{isset($is_selected) && $is_selected ? 'link-square-blue' : $bg }}">
 		<a class="link-transparent" href="{{route('employee.show', ['org_id' => $card_content['organisation_id'], 'id' => $card_content['id']])}}">
-			<div class="font-size-18 padding-left-15">
+			<div class="font-size-18 padding-left-5">
 				{{$card_content['name']}}
 				{!!$icon!!}
 			</div>
-			<div class="font-size-14 padding-left-30">
+			<div class="font-size-14 padding-left-15">
 				<div>Jabatan : {{(isset($card_content['newest_position']) ? $card_content['newest_position'] : '-')}}</div>
 				<div>NIK : {{(isset($card_content['newest_nik']) ? $card_content['newest_nik'] : '-')}}</div>
 				<div>Email : {{(isset($card_content['email']) ? $card_content['email'] : '-')}}</div>
