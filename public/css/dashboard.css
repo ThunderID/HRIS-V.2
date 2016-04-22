@@ -8316,11 +8316,8 @@ a.link-menu {
   padding: 35px; }
 
 .slim-scroll {
-  height: 100%;
-  overflow: scroll;
-  overflow-x: hidden !important;
-  margin-right: 0px;
-  margin-left: 0px; }
+  padding-right: 15px;
+  padding-left: 15px; }
 
 .fixed-worksppace {
   overflow: hidden; }
