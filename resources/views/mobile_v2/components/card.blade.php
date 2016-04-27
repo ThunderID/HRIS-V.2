@@ -25,7 +25,6 @@
 						data-effect="Menghapus perusahaan akan menghapus data kebijakan, cabang, struktur organisasi dan menghentikan tagihan plan. Masukkan password Anda untuk melanjutkan "
 						data-action="{{ route('org.destroy', $card_content['id']) }}">
 						<i class="ion-android-delete"></i> Hapus
-					</a>
 				</a>
 			</div>
 		</div>
