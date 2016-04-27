@@ -32,7 +32,7 @@
 		$( document ).ready(function() {
 			doc_height = $(window).height();
 			doc_height = doc_height - 192;
-
+		    $(".workspace-side-desktop").height(doc_height);
 		});
 
 		$( window ).resize(function() {
