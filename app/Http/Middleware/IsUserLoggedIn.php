@@ -35,11 +35,11 @@ class IsUserLoggedIn
      */
     public function handle($request, Closure $next)
     {
-        if (Session::has('whoami.id'))
+        if (Session::has('whoami'))
         {
             return $next($request);
         }
 
-        return view('sign.in');
+        return view('pages.auth.login');
     }
 }

@@ -10,16 +10,16 @@ Fixed Navigation
 						HRIS
 					</a>
 					<!-- main nav -->
-					<a href="#" class="dropdown-toggle link-white font-size-16 padding-top-5 padding-right-15" style="float:right;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HRD&nbsp;&nbsp;&nbsp;<i class="ion-android-contact"></i></a>
+					<a href="#" class="dropdown-toggle link-white font-size-16 padding-top-5 padding-right-15" style="float:right;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Session::get('whoami')['name']}}&nbsp;<i class="ion-android-contact"></i></a>
 					<ul class="dropdown-menu private-menu" style="float:right;position:relative;">
 						<li class="dropdown-item height-100">
 							<div class="row">
 								<div class="col-sm-5 padding-10">
-									<img src="http://cdncms.fonts.net/images/1fbc3283deeda23a/Letterhart.gif" class="img-circle dimension-max-width">
+									<img src="{{Session::get('whoami')['avatar']}}" class="img-circle dimension-max-width">
 								</div>
 								<div class="col-sm-7 padding-10">
-									<h5 class="margin-bottom-0">HRD</h5>
-									<label>Head of Corporate</label>
+									<h5 class="margin-bottom-0">{{Session::get('whoami')['name']}}</h5>
+									<label>{{Session::get('whoami')['email']}}</label>
 									<br/>
 									<a class="button border-blue background-dark-blue padding-5 link-white">
 										Akun Saya
@@ -30,7 +30,7 @@ Fixed Navigation
 						<li class="dropdown-item background-gray-238 height-43">
 							<div class="row">
 								<div class="col-sm-12 padding-right-15 padding-top-8 text-xs-right">
-									<a class="button padding-5 link-black border-gray-225 pull-right font-size-12">
+									<a class="button padding-5 link-black border-gray-225 pull-right font-size-12" href="{{route('auth.logout.get')}}">
 										Sign Out
 									</a>
 								</div>

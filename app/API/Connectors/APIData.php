@@ -2,7 +2,7 @@
 namespace App\API\connectors;
 
 use App\API\API;
-use Exception, Session, Redirect;
+use Exception, Session, Redirect, Route;
 
 /**
  * { APIData }
@@ -26,12 +26,12 @@ abstract class APIData
 	{
 		$this->api 					= new API;
 
-		$this->apiData 				= ['access_token' => Session::get('APIToken')];
-		
-		// if(is_null(Session::get('APIToken')))
-		// {
-		// 	Redirect::route('auth.login')->send();
-		// }
+		$this->apiData 				= ['access_token' => Session::get('access_token')];
+
+		if(is_null(Session::get('access_token')) && Route::currentroutename()!='auth.login.post')
+		{
+			Redirect::route('auth.login.get')->send();
+		}
 	}
 
 	/**
