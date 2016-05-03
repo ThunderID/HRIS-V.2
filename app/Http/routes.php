@@ -5,7 +5,7 @@ Route::group(['middleware' => ['web']], function ()
 	// Routes Auth
 	include('routes_auth.php');
 
-	Route::group(['middleware' => ['logged', 'inspect.token']], function () 
+	Route::group(['middleware' => ['logged', 'inspect.token', 'expire.token']], function () 
 	{
 		// Routes General
 		include('routes_general.php');

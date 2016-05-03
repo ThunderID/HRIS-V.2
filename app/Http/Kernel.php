@@ -51,5 +51,6 @@ class Kernel extends HttpKernel
         'logged' => \App\Http\Middleware\IsUserLoggedIn::class,
         'password.needed' => \App\Http\Middleware\PasswordNeeded::class,
         'inspect.token' => \App\Http\Middleware\AutoGenerateToken::class,
+        'expire.token' => \App\Http\Middleware\ExpireToken::class,
     ];
 }
