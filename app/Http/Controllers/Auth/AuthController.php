@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers\Auth;
 
-use App\API\Connectors\APIAuth;
+use APIAuth;
 
 use App\Http\Controllers\BaseController;
 use Input, Route, Session;

@@ -1,7 +1,7 @@
 <?php 
 namespace App\API\Connectors;
 
-use Exception, Session;
+use Exception, Session, APIData;
 
 /**
  * { APIChart }

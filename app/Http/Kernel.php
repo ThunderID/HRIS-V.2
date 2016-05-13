@@ -50,7 +50,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'logged' => \App\Http\Middleware\IsUserLoggedIn::class,
         'password.needed' => \App\Http\Middleware\PasswordNeeded::class,
-        'inspect.token' => \App\Http\Middleware\AutoGenerateToken::class,
-        'expire.token' => \App\Http\Middleware\ExpireToken::class,
+        'expire.token' => \ThunderID\APIHelper\Middleware\ExpireTokenMiddleware::class,
     ];
 }
