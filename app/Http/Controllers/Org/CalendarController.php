@@ -135,7 +135,7 @@ class CalendarController extends BaseController
 		}
 		if(is_null($id))
 		{
-			App::abort(403, 'Id Karyawan tidak ada');
+			App::abort(403, 'Id calendar tidak ada');
 		}        
 
 		//2. get data
@@ -145,23 +145,8 @@ class CalendarController extends BaseController
 		$APICalendar								= new APICalendar;
 		$data                                       = $APICalendar->getShow($org_id, $id);  
 
-		$employees									= $APICalendar->getIndex($org_id, [
+		$calendars									= $APICalendar->getIndex($org_id, [
 														]);
-
-		$APIBranch									= new APIBranch;
-		$APIChart									= new APIChart;
-
-		$branches									= $APIBranch->getIndex($org_id, [
-														]);
-		$positions									= $APIChart->getPositions($org_id, [
-														]);
-		$departments								= $APIChart->getDepartments($org_id, [
-														]);
-		$maritalstatuses							= $APICalendar->getMaritalStatuses($org_id, [
-														]);
-		$grades										= $APICalendar->getGrades($org_id, [
-														]);
-
 
 		//3. set page attributes
 		$this->page_attributes->page_title			= $data['data']['name'];     
@@ -170,19 +155,14 @@ class CalendarController extends BaseController
 															$this->page_attributes->breadcrumb,
 															[
 																$organisation['data']['name'] => route('org.show', ['id' => $org_id]),
-																'Karyawan' => route('employee.index', ['org_id' => $org_id]),
-																$data['data']['name'] => route(Route::CurrentRouteName(), ['org_id' => $org_id, 'id' => $id]),
+																'Jadwal Kerja' => route('calendar.index', ['org_id' => $org_id]),
+																'Kalender '.$data['data']['name'] => route(Route::CurrentRouteName(), ['org_id' => $org_id, 'id' => $id]),
 															]
 														);
 
 		//4. set page datas
-		$this->page_datas->datas['branches']		= $branches['data']['data'];
-		$this->page_datas->datas['positions']		= $positions['data'];
-		$this->page_datas->datas['departments']		= $departments['data'];
-		$this->page_datas->datas['maritalstatuses']	= $maritalstatuses['data'];
-		$this->page_datas->datas['grades']			= $grades['data'];
-		$this->page_datas->datas['employees']		= $employees['data']['data'];
-		$this->page_datas->datas['employee']		= $data['data'];
+		$this->page_datas->datas['calendars']		= $calendars['data']['data'];
+		$this->page_datas->datas['calendar']		= $data['data'];
 		$this->page_datas->datas['id']				= $org_id;
 		$this->page_datas->datas['name']			= $organisation['data']['name'];
 		$this->page_datas->datas['code']			= $organisation['data']['code'];
