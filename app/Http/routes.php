@@ -15,6 +15,8 @@ Route::group(['middleware' => ['web']], function ()
 
 		// Routes Employee
 		include('routes_employee.php');
-		
+
+		// Routes Calendar
+		include('routes_calendar.php');
 	});
 });

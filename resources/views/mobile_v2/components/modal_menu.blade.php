@@ -55,4 +55,15 @@
 			</div>
 		</a>
 	</div>
+
+	<div class="col-xs-6 text-xs-center">
+		<a href="{{route('calendar.index', ['org_id' => $page_datas->datas['id']])}}" class="link-menu">
+			<div class="card padding-top-30">
+				<img class="card-img-top" src="{{url('/assets/img/menu/planner-96.png')}}" alt="Card image cap" style="vertical-align:center;">
+				<div class="card-block">
+					<p class="card-text">Jadwal Kerja</p>
+				</div>
+			</div>
+		</a>
+	</div>
 </div>
